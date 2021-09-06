@@ -1,0 +1,73 @@
+/* @font-face {
+    font-family: 'Silka';
+    src: url('../assets/fonts/Silka-Light.otf') format('opentype');
+    font-style: normal;
+    font-display: swap;
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Silka';
+    src: url('../assets/fonts/Silka-SemiBold.otf') format('opentype');
+    font-style: normal;
+    font-display: swap;
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Silka';
+    src: url('../assets/fonts/Silka-Bold.otf') format('opentype');
+    font-style: normal;
+    font-display: swap;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Silka';
+    src: url('../assets/fonts/Silka-Black.otf') format('opentype');
+    font-style: normal;
+    font-display: swap;
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: 'Silka';
+    src: url('../assets/fonts/Silka-Regular.otf') format('opentype');
+    font-style: normal;
+    font-display: swap;
+    font-weight: 500;
+}
+
+$f-main: 'Silka', sans-serif; */
+
+/* @font-face {
+  font-family: "Volte";
+  src: url("/fonts/Indian_Type_Foundry_Volte_Bold.otf");
+  font-style: normal;
+  font-weight: 700;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Volte";
+  src: url("/fonts/Indian_Type_Foundry_Volte_Semibold.otf");
+  font-style: normal;
+  font-weight: 600;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Volte";
+  src: url("/fonts/Indian_Type_Foundry_Volte_Medium.otf");
+  font-style: normal;
+  font-weight: 500;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Volte";
+  src: url("/fonts/Indian_Type_Foundry_Volte.otf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+} */
