@@ -14,10 +14,11 @@ html,
 body {
 	margin: 0;
 	padding: 0;
-	/* font-size: 16px; */
-	/* font-family: 'Rajdhani', sans-serif; */
+	font-size: 16px;
+	font-family: 'Rajdhani', sans-serif !important;
     height: 100%;
     width: 100%;
+	min-height: 100%;
 }
 
 #root{

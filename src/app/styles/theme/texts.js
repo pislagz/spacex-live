@@ -1,5 +1,5 @@
 export const fontSizes = {
-  xs: "0.75rem",
+  xs: "0.6rem",
   sm: "0.875rem",
   md: "1rem",
   lg: "1.125rem",
@@ -12,12 +12,14 @@ export const fontSizes = {
   "7xl": "4.5rem",
   "8xl": "6rem",
   "9xl": "8rem",
+  navigation: "1.15rem",
+  button: "1rem",
 };
 
 export const fonts = {
-  body: "system-ui, sans-serif",
-  heading: "Georgia, serif",
-  mono: "Menlo, monospace",
+  body: "Rajdhani, sans-serif",
+  heading: "Rajdhani, sans-serif",
+  button: "Montserrat, sans-serif",
 };
 
 export const fontWeights = {
@@ -50,25 +52,19 @@ export const lineHeights = {
   10: "2.5rem",
 };
 
-const textStyles = {
-  h1: {
-    // you can also use responsive styles
-    fontSize: ["48px", "72px"],
-    fontWeight: "bold",
-    lineHeight: "110%",
-    letterSpacing: "-2%",
-  },
-  h2: {
-    fontSize: ["36px", "48px"],
-    fontWeight: "semibold",
-    lineHeight: "110%",
-    letterSpacing: "-1%",
-  },
+export const letterSpacings = {
+  tighter: "-0.05em",
+  tight: "-0.025em",
+  normal: "0",
+  wide: "0.025em",
+  wider: "0.05em",
+  widest: "0.1em",
+  button: "2px",
 };
 
 export const texts = {
   fontSizes,
   fonts,
   lineHeights,
-  textStyles,
+  letterSpacings,
 };
