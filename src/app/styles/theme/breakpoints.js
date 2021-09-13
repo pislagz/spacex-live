@@ -1,11 +1,3 @@
-export const breakpointSizes = {
-  sm: "30em",
-  md: "48em",
-  lg: "62em",
-  xl: "80em",
-  "2xl": "96em",
-};
-
 export const breakpoints = ["30em", "48em", "62em", "80em", "96em"];
 
 breakpoints.sm = breakpoints[0];

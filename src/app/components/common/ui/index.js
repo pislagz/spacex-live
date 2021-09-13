@@ -10,6 +10,7 @@ import {
   shadow,
   flexbox,
   background,
+  flex,
 } from "styled-system";
 import styled from "styled-components";
 // import { motion } from "framer-motion";
@@ -43,6 +44,7 @@ export const Flex = styled("div").attrs({ display: "flex" })(
 );
 
 export const Text = styled(Box)``;
+
 export const Image = styled(Box).attrs({ as: "img" })``;
 
 export const Wrapper = ({ children, ...props }) => {
@@ -62,8 +64,7 @@ export const Container = ({ children, ...props }) => {
       m="0 auto"
       p={{ _: "1rem 0" }}
       maxWidth={"max-content-width"}
-      {...props}
-    >
+      {...props}>
       {children}
     </Flex>
   );
