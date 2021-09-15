@@ -18,19 +18,12 @@ export const Hamburger = styled.button`
   padding: 1rem;
 `;
 
-export const Wrapper = styled(Flex)`
-  display: flex;
+export const Wrapper = styled(Flex).attrs({ as: "header" })`
   justify-content: space-between;
   align-items: center;
   padding: 2rem;
   padding-bottom: 3rem;
   padding-right: 1rem;
-  background: rgb(0, 0, 0);
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.8) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
 `;
 
 export const Img = styled(Image)``;

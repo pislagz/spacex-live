@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
-* {
+*, ::before, ::after {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -15,7 +15,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font-size: 16px;
-	font-family: 'Rajdhani', sans-serif !important;
+	font-family: 'HelveticaNeue', sans-serif !important;
     height: 100%;
     width: 100%;
 	min-height: 100%;

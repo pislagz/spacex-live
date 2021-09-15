@@ -1,33 +1,31 @@
-// import { Box, Image, Flex } from "./";
-import { Flex } from "./";
 import styled from "styled-components";
-import { gradients } from "app/styles/theme/colors";
-import { fonts } from "app/styles/theme/texts";
+import { Flex } from "./";
 import { motion } from "framer-motion";
-import { letterSpacings } from "../../../styles/theme/texts";
-import { shadows } from "app/styles/theme/shadows";
 
 const StyledButton = styled(Flex)`
+  //reset
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: ${fonts.button};
-  background: ${gradients.primary};
   border: none;
   cursor: pointer;
-  letter-spacing: ${letterSpacings.button};
-  box-shadow: ${shadows.button};
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  font-size: 1rem;
+  line-height: 1;
+  background: transparent;
+  -webkit-appearance: none;
 `;
 
 StyledButton.defaultProps = {
-  boxShadow: "button",
   letterSpacings: "sm",
 };
 
 export const Button = ({ children, ...props }) => {
   return (
     <StyledButton
-      p={{ _: "0.5rem 2rem" }}
+      p="1rem"
       whileHover={{
         scale: 1.05,
         transition: {
@@ -38,8 +36,8 @@ export const Button = ({ children, ...props }) => {
       as={motion.button}
       borderRadius="full"
       height="40px"
-      color={"white"}
-      {...props}>
+      {...props}
+    >
       {children}
     </StyledButton>
   );

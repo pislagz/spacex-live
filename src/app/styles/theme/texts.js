@@ -2,22 +2,22 @@ export const fontSizes = {
   xs: "0.85rem",
   sm: "1rem",
   md: "1.1rem",
-  lg: "1.2rem",
+  lg: "1.4rem",
   xl: "1.6rem",
 };
 
 // fontSize={{_: "xs", sm: "sm", md: "md" }}
 
 export const fonts = {
-  body: "Rajdhani, sans-serif",
-  heading: "Rajdhani, sans-serif",
-  button: "Montserrat, sans-serif",
+  body: "HelveticaNeue, sans-serif",
+  heading: "HelveticaNeue, sans-serif",
+  button: "HelveticaNeue, sans-serif",
 };
 
 export const fontWeights = {
-  normal: 500,
-  medium: 600,
-  bold: 700,
+  light: 100,
+  normal: 200,
+  bold: 300,
 };
 
 export const lineHeights = {
