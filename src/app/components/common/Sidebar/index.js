@@ -6,20 +6,22 @@ import { ROUTES } from "app/constants/routes";
 import { BrowserRouter as Router } from "react-router-dom";
 import { useWindowSize } from "app/hooks/useWindowSize";
 import { getSanitizedBreakpoint } from "app/styles/theme/breakpoints";
+import { space } from "app/styles/theme/sizings";
 
-export const Sidebar = () => {
+export const Sidebar = ({ isMobileMenuVisible, setMobileMenuVisibility }) => {
   const size = useWindowSize();
 
   return (
     <Wrapper
-      p={{ _: "4rem 1rem 0 2rem" }}
-      minWidth={{ _: "14rem" }}
-      maxWidth={{ lg: "17rem" }}
+      p={{ _: space.sidebar.paddings }}
+      minWidth={{ _: space.sidebar.normal }}
+      maxWidth={{ lg: space.sidebar.big }}
+      mr={isMobileMenuVisible ? { _: "0" } : { _: `-${space.sidebar.normal}` }}
       right={{ _: "0", lg: "unset" }}
       left={{ _: "unset", lg: "0" }}
     >
       {size.width >= getSanitizedBreakpoint("lg") ? null : (
-        <CloseWrapper>
+        <CloseWrapper onClick={() => setMobileMenuVisibility(false)}>
           <Close />
         </CloseWrapper>
       )}
@@ -38,3 +40,7 @@ export const Sidebar = () => {
     </Wrapper>
   );
 };
+
+// export const handleMenuClick = () => {
+//   setMenuVisibility(!isMenuVisible);
+// };

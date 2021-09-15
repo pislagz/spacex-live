@@ -18,6 +18,8 @@ export const CloseWrapper = styled(Button)`
   top: 1rem;
   left: 1rem;
   padding: 1rem;
+  min-width: 33px;
+  min-height: 21px;
 `;
 
 export const List = styled(Box).attrs({ as: "ul" })`
@@ -28,7 +30,7 @@ export const List = styled(Box).attrs({ as: "ul" })`
 `;
 
 export const ListElement = styled.li`
-  margin-bottom: 1rem;
+  padding: 0.5rem 0;
 `;
 
 export const NavLink = styled(Link)`
