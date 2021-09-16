@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { Flex, Image } from "app/components/common/ui";
+import { Button } from "app/components/common/ui/Button";
 
-export const Hamburger = styled.button`
+export const Hamburger = styled(Button)`
   //reset
   display: flex;
   border: none;
