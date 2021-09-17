@@ -5,8 +5,9 @@ import styled from "styled-components";
 import { zIndicies } from "app/styles/theme/zIndicies";
 import { Link } from "react-router-dom";
 import { colors } from "app/styles/theme/colors";
+import { mediaQuery } from "app/styles/theme/breakpoints";
 
-export const Wrapper = styled(Box).attrs({ as: "div" })`
+export const Wrapper = styled(Box)`
   z-index: ${zIndicies.sidebar};
   height: 100%;
   background: #fff;
@@ -42,4 +43,15 @@ export const NavLink = styled(Link)`
   &:hover {
     font-weight: ${fontWeights.normal};
   }
+`;
+
+export const Overlay = styled(Box)`
+  position: fixed;
+  z-index: ${zIndicies.sidebarOvelay};
+  background: rgba(0, 0, 0, 0.75);
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  content: "";
 `;

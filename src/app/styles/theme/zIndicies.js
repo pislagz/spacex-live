@@ -1,3 +1,4 @@
 export const zIndicies = {
-  sidebar: 1,
+  sidebar: 3,
+  sidebarOvelay: 2,
 };

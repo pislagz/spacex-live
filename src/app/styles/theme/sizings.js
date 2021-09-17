@@ -2,11 +2,6 @@ export const space = {
   sm: "1rem",
   md: "2rem",
   lg: "3rem",
-  sidebar: {
-    normal: "14rem",
-    big: "17rem",
-    paddings: "4rem 1rem 0 2rem",
-  },
 };
 
 export const sizes = {

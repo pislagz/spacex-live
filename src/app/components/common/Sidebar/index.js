@@ -1,50 +1,75 @@
 import React from "react";
-import { Wrapper, List, ListElement, NavLink, CloseWrapper } from "./styled";
+import {
+  Wrapper,
+  List,
+  ListElement,
+  NavLink,
+  CloseWrapper,
+  Overlay,
+} from "./styled";
 import { Logo } from "assets/Logo";
 import { Close } from "assets/Close";
 import { ROUTES } from "app/constants/routes";
-import { BrowserRouter as Router } from "react-router-dom";
 import { useWindowSize } from "app/hooks/useWindowSize";
 import { getSanitizedBreakpoint } from "app/styles/theme/breakpoints";
-import { space } from "app/styles/theme/sizings";
+import { AnimatePresence, motion } from "framer-motion";
 
-export const Sidebar = ({ isMobileMenuVisible, setMobileMenuVisibility }) => {
+const animations = {
+  overlay: {
+    transition: { duration: 0.5, ease: "easeOut" },
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
+  },
+  sidebar: {
+    transition: { duration: 0.5, ease: "easeOut" },
+    initial: { x: "100%" },
+    animate: { x: 0 },
+    exit: { x: "100%" },
+  },
+};
+
+export const Sidebar = ({
+  isMobileMenuVisible,
+  setMobileMenuVisibility,
+  isVisible,
+}) => {
   const size = useWindowSize();
 
   return (
-    <Wrapper
-      p={{ _: space.sidebar.paddings }}
-      minWidth={{ _: space.sidebar.normal }}
-      maxWidth={{ lg: space.sidebar.big }}
-      mr={
-        isMobileMenuVisible || size.width >= getSanitizedBreakpoint("lg")
-          ? { _: "0" }
-          : { _: `-${space.sidebar.normal}` }
-      }
-      right={{ _: "0", lg: "unset" }}
-      left={{ _: "unset", lg: "0" }}
-    >
-      {size.width >= getSanitizedBreakpoint("lg") ? null : (
-        <CloseWrapper onClick={() => setMobileMenuVisibility(false)}>
-          <Close />
-        </CloseWrapper>
+    <AnimatePresence>
+      {isVisible && (
+        <>
+          {size.width < getSanitizedBreakpoint("lg") && (
+            <Overlay as={motion.div} {...animations.overlay} />
+          )}
+          <Wrapper
+            as={size.width > getSanitizedBreakpoint("lg") ? "div" : motion.div}
+            {...animations.sidebar}
+            p={{ _: "4rem 1rem 0 2rem" }}
+            minWidth={{ _: "14rem" }}
+            maxWidth={{ lg: "17rem" }}
+            right={{ _: "0", lg: "unset" }}
+            left={{ _: "unset", lg: "0" }}>
+            {size.width >= getSanitizedBreakpoint("lg") ? null : (
+              <CloseWrapper onClick={() => setMobileMenuVisibility(false)}>
+                <Close />
+              </CloseWrapper>
+            )}
+            <Logo fill={"black"} />
+
+            <nav>
+              <List fontSize="lg">
+                {ROUTES.map((route) => (
+                  <ListElement key={route.name}>
+                    <NavLink to={`${route.route}`}>{route.name}</NavLink>
+                  </ListElement>
+                ))}
+              </List>
+            </nav>
+          </Wrapper>
+        </>
       )}
-      <Logo fill={"black"} />
-      <Router>
-        <nav>
-          <List fontSize="lg">
-            {ROUTES.map((route) => (
-              <ListElement key={route.name}>
-                <NavLink to={`/${route.route}`}>{route.name}</NavLink>
-              </ListElement>
-            ))}
-          </List>
-        </nav>
-      </Router>
-    </Wrapper>
+    </AnimatePresence>
   );
 };
-
-// export const handleMenuClick = () => {
-//   setMenuVisibility(!isMenuVisible);
-// };

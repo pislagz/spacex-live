@@ -7,6 +7,10 @@ import { useState } from "react";
 import { useWindowSize } from "app/hooks/useWindowSize";
 import { getSanitizedBreakpoint } from "app/styles/theme/breakpoints";
 import { InnerBackground, OuterBackground, Gradient } from "./styled";
+import { Route, Router, Switch } from "react-router";
+import { ROUTES } from "app/constants/routes";
+import { Dashboard } from "app/views/Dashboard";
+import { Starlink } from "app/views/Starlink";
 
 export const Root = () => {
   const [isMobileMenuVisible, setMobileMenuVisibility] = useState(false);
@@ -19,16 +23,26 @@ export const Root = () => {
       <OuterBackground>
         <InnerBackground>
           {/* ↓↓↓ Accesibility optimization, unmounting the sidebar when it's not in sight ↓↓↓*/}
-          {(size.width > largeWidth || isMobileMenuVisible) && (
-            <Sidebar
-              isMobileMenuVisible={isMobileMenuVisible}
-              setMobileMenuVisibility={setMobileMenuVisibility}
-            />
-          )}
+          <Sidebar
+            isVisible={size.width > largeWidth || isMobileMenuVisible}
+            isMobileMenuVisible={isMobileMenuVisible}
+            setMobileMenuVisibility={setMobileMenuVisibility}
+          />
           <Gradient>
             {size.width >= largeWidth ? null : (
               <Header setMobileMenuVisibility={setMobileMenuVisibility} />
             )}
+            <Switch>
+              {ROUTES.map(({ name, route, component: View }) => {
+                return (
+                  <Route
+                    exact
+                    path={route}
+                    render={(props) => <View {...props} />}
+                  />
+                );
+              })}
+            </Switch>
           </Gradient>
         </InnerBackground>
       </OuterBackground>
