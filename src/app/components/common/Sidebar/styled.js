@@ -10,7 +10,7 @@ export const Wrapper = styled(Box).attrs({ as: "div" })`
   z-index: ${zIndicies.sidebar};
   height: 100%;
   background: #fff;
-  position: fixed;
+  position: absolute;
   right: 0;
 `;
 

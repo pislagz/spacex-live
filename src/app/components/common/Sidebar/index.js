@@ -16,7 +16,11 @@ export const Sidebar = ({ isMobileMenuVisible, setMobileMenuVisibility }) => {
       p={{ _: space.sidebar.paddings }}
       minWidth={{ _: space.sidebar.normal }}
       maxWidth={{ lg: space.sidebar.big }}
-      mr={isMobileMenuVisible ? { _: "0" } : { _: `-${space.sidebar.normal}` }}
+      mr={
+        isMobileMenuVisible || size.width >= getSanitizedBreakpoint("lg")
+          ? { _: "0" }
+          : { _: `-${space.sidebar.normal}` }
+      }
       right={{ _: "0", lg: "unset" }}
       left={{ _: "unset", lg: "0" }}
     >
