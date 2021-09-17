@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import { Flex, Box } from "app/components/common/ui";
 import { mediaQuery } from "app/styles/theme/breakpoints";
-import { zIndicies } from "app/styles/theme/zIndicies";
 
 export const OuterBackground = styled(Flex)`
   width: 100%;
   height: 100%;
   background: #efefef;
-  z-index: ${zIndicies.background};
+  justify-content: center;
+  align-items: center;
 `;
 
 export const InnerBackground = styled(Box)`
@@ -19,7 +19,6 @@ export const InnerBackground = styled(Box)`
     max-height: 90vh;
     width: 1920px;
     position: relative;
-    margin: 3rem auto;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 5px 5px 50px rgba(0, 0, 0, 0.1);
