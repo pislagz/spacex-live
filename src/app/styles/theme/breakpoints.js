@@ -24,3 +24,4 @@ export const mediaQuery = {
 };
 
 export const getSanitizedBreakpoint = (size) => +breakpoints[size].slice(0, -2);
+export const largeWidth = getSanitizedBreakpoint("lg");

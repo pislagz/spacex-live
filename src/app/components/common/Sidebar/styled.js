@@ -5,7 +5,6 @@ import styled from "styled-components";
 import { zIndicies } from "app/styles/theme/zIndicies";
 import { Link } from "react-router-dom";
 import { colors } from "app/styles/theme/colors";
-import { mediaQuery } from "app/styles/theme/breakpoints";
 
 export const Wrapper = styled(Box)`
   z-index: ${zIndicies.sidebar};
@@ -55,3 +54,18 @@ export const Overlay = styled(Box)`
   bottom: 0;
   content: "";
 `;
+
+export const animations = {
+  overlay: {
+    transition: { duration: 0.5, ease: "easeOut" },
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
+  },
+  sidebar: {
+    transition: { duration: 0.5, ease: "easeOut" },
+    initial: { x: "100%" },
+    animate: { x: 0 },
+    exit: { x: "100%" },
+  },
+};

@@ -6,35 +6,22 @@ import {
   NavLink,
   CloseWrapper,
   Overlay,
+  animations,
 } from "./styled";
+import {
+  getSanitizedBreakpoint,
+  largeWidth,
+} from "app/styles/theme/breakpoints";
 import { Logo } from "assets/Logo";
 import { Close } from "assets/Close";
 import { ROUTES } from "app/constants/routes";
 import { useWindowSize } from "app/hooks/useWindowSize";
-import { getSanitizedBreakpoint } from "app/styles/theme/breakpoints";
 import { AnimatePresence, motion } from "framer-motion";
 
-const animations = {
-  overlay: {
-    transition: { duration: 0.5, ease: "easeOut" },
-    initial: { opacity: 0 },
-    animate: { opacity: 1 },
-    exit: { opacity: 0 },
-  },
-  sidebar: {
-    transition: { duration: 0.5, ease: "easeOut" },
-    initial: { x: "100%" },
-    animate: { x: 0 },
-    exit: { x: "100%" },
-  },
-};
-
-export const Sidebar = ({
-  isMobileMenuVisible,
-  setMobileMenuVisibility,
-  isVisible,
-}) => {
+export const Sidebar = ({ isMobileMenuVisible, setMobileMenuVisibility }) => {
   const size = useWindowSize();
+  const isWideScreen = size.width > largeWidth;
+  const isVisible = isWideScreen || isMobileMenuVisible;
 
   return (
     <AnimatePresence>
@@ -50,7 +37,8 @@ export const Sidebar = ({
             minWidth={{ _: "14rem" }}
             maxWidth={{ lg: "17rem" }}
             right={{ _: "0", lg: "unset" }}
-            left={{ _: "unset", lg: "0" }}>
+            left={{ _: "unset", lg: "0" }}
+          >
             {size.width >= getSanitizedBreakpoint("lg") ? null : (
               <CloseWrapper onClick={() => setMobileMenuVisibility(false)}>
                 <Close />
