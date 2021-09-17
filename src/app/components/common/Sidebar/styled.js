@@ -4,6 +4,7 @@ import { fontWeights } from "app/styles/theme/texts";
 import styled from "styled-components";
 import { zIndicies } from "app/styles/theme/zIndicies";
 import { Link } from "react-router-dom";
+import { colors } from "app/styles/theme/colors";
 
 export const Wrapper = styled(Box).attrs({ as: "div" })`
   z-index: ${zIndicies.sidebar};
@@ -36,7 +37,7 @@ export const ListElement = styled.li`
 export const NavLink = styled(Link)`
   text-decoration: none;
   font-weight: ${fontWeights.light};
-  color: #000;
+  color: ${colors.black.medium};
 
   &:hover {
     font-weight: ${fontWeights.normal};

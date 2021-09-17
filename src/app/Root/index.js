@@ -7,7 +7,6 @@ import { ThemeProvider } from "styled-components";
 import { useState } from "react";
 import { useWindowSize } from "app/hooks/useWindowSize";
 import { getSanitizedBreakpoint } from "app/styles/theme/breakpoints";
-import { motion } from "framer-motion";
 
 export const Root = () => {
   const [isMobileMenuVisible, setMobileMenuVisibility] = useState(false);
