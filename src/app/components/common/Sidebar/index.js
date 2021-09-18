@@ -5,6 +5,7 @@ import {
   ListElement,
   NavLink,
   CloseWrapper,
+  CloseButton,
   Overlay,
   animations,
 } from "./styled";
@@ -13,7 +14,7 @@ import {
   largeWidth,
 } from "app/styles/theme/breakpoints";
 import { Logo } from "assets/Logo";
-import { Close } from "assets/Close";
+import { Close as CloseIcon } from "assets/Close";
 import { ROUTES } from "app/constants/routes";
 import { useWindowSize } from "app/hooks/useWindowSize";
 import { AnimatePresence, motion } from "framer-motion";
@@ -40,8 +41,10 @@ export const Sidebar = ({ isMobileMenuVisible, setMobileMenuVisibility }) => {
             left={{ _: "unset", lg: "0" }}
           >
             {size.width >= getSanitizedBreakpoint("lg") ? null : (
-              <CloseWrapper onClick={() => setMobileMenuVisibility(false)}>
-                <Close />
+              <CloseWrapper>
+                <CloseButton onClick={() => setMobileMenuVisibility(false)}>
+                  <CloseIcon />
+                </CloseButton>
               </CloseWrapper>
             )}
             <Logo fill={"black"} />
@@ -50,7 +53,12 @@ export const Sidebar = ({ isMobileMenuVisible, setMobileMenuVisibility }) => {
               <List fontSize="lg">
                 {ROUTES.map((route) => (
                   <ListElement key={route.name}>
-                    <NavLink to={`${route.route}`}>{route.name}</NavLink>
+                    <NavLink
+                      to={`${route.route}`}
+                      onClick={() => setMobileMenuVisibility(false)}
+                    >
+                      {route.name}
+                    </NavLink>
                   </ListElement>
                 ))}
               </List>

@@ -1,7 +1,7 @@
 import React from "react";
 
 export const Close = () => (
-  <svg x="0px" y="0px" width="20px" height="20px" viewBox="0 0 357 357">
+  <svg x="0px" y="0px" width="25px" height="25px" viewBox="0 0 357 357">
     <g>
       <g id="close">
         <polygon
