@@ -20,7 +20,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 export const Sidebar = ({ isMobileMenuVisible, setMobileMenuVisibility }) => {
   const size = useWindowSize();
-  const isWideScreen = size.width > largeWidth;
+  const isWideScreen = size.width >= largeWidth;
   const isVisible = isWideScreen || isMobileMenuVisible;
 
   return (
@@ -31,7 +31,7 @@ export const Sidebar = ({ isMobileMenuVisible, setMobileMenuVisibility }) => {
             <Overlay as={motion.div} {...animations.overlay} />
           )}
           <Wrapper
-            as={size.width > getSanitizedBreakpoint("lg") ? "div" : motion.div}
+            as={size.width >= getSanitizedBreakpoint("lg") ? "div" : motion.div}
             {...animations.sidebar}
             p={{ _: "4rem 1rem 0 2rem" }}
             minWidth={{ _: "14rem" }}
