@@ -9,9 +9,9 @@ export const Header = ({ setMobileMenuVisibility }) => {
   const size = useWindowSize();
 
   return size.width >= largeWidth ? null : (
-    <Wrapper onClick={() => setMobileMenuVisibility(true)}>
+    <Wrapper>
       <Logo fill={"white"} width={"201"} height={"50"} />
-      <Hamburger>
+      <Hamburger onClick={() => setMobileMenuVisibility(true)}>
         <HamburgerIcon />
       </Hamburger>
     </Wrapper>
