@@ -21,6 +21,7 @@ export const mediaQuery = {
   xl: `@media screen and (min-width: ${breakpoints.xl})`,
   "2xl": `@media screen and (min-width: ${breakpoints["2xl"]})`,
   max: `@media screen and (min-width: ${breakpoints.max})`,
+  custom: (pixels) => `@media screen and (min-width: ${pixels}px)`,
 };
 
 export const getSanitizedBreakpoint = (size) => +breakpoints[size].slice(0, -2);

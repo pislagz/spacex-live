@@ -29,7 +29,11 @@ export const Sidebar = ({ isMobileMenuVisible, setMobileMenuVisibility }) => {
       {isVisible && (
         <>
           {size.width < getSanitizedBreakpoint("lg") && (
-            <Overlay as={motion.div} {...animations.overlay} />
+            <Overlay
+              as={motion.div}
+              onClick={() => setMobileMenuVisibility(false)}
+              {...animations.overlay}
+            />
           )}
           <Wrapper
             as={size.width >= getSanitizedBreakpoint("lg") ? "div" : motion.div}
