@@ -10,7 +10,7 @@ import { mediaQuery } from "app/styles/theme/breakpoints";
 export const Wrapper = styled(Box)`
   z-index: ${zIndicies.sidebar};
   height: 100%;
-  background: #fff;
+  background: ${colors.white};
   position: fixed;
   right: 0;
 
@@ -61,7 +61,7 @@ export const NavLink = styled(Link)`
 
 export const Overlay = styled(Box)`
   position: fixed;
-  z-index: ${zIndicies.sidebarOvelay};
+  z-index: ${zIndicies.sidebarOverlay};
   background: rgba(0, 0, 0, 0.75);
   left: 0;
   top: 0;

@@ -30,7 +30,7 @@ export const InnerBackground = styled(Box)`
   } ;
 `;
 
-export const Gradient = styled(Box).attrs({ as: "main" })`
+export const Gradient = styled(Box)`
   width: 100%;
   height: 100%;
   position: absolute;

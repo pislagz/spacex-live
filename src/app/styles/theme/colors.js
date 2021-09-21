@@ -6,7 +6,10 @@ export const colors = {
   gray: {
     light: "#ededed",
     medium: "#dedede",
+    mediumDark: "#84858A",
+    dark: "#333333",
   },
+  white: "#fff",
 };
 
 export const gradients = {};

@@ -40,7 +40,7 @@ export const Sidebar = ({ isMobileMenuVisible, setMobileMenuVisibility }) => {
             {...animations.sidebar}
             p={{ _: "4rem 1rem 0 2rem" }}
             minWidth={{ _: "14rem" }}
-            maxWidth={{ lg: "17rem" }}
+            maxWidth={{ lg: "bigSidebar" }}
             right={{ _: "0", lg: "unset" }}
             left={{ _: "unset", lg: "0" }}
           >
