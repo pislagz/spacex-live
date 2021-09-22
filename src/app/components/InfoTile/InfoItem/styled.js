@@ -20,9 +20,9 @@ export const Title = styled(Box).attrs({ as: "h4" })`
 export const Info = styled(Box).attrs({ as: "p" })`
   margin: 0;
   padding: 0;
-  font-size: ${fontSizes.xs};
+  font-size: ${fontSizes.sm};
 
   ${mediaQuery.md} {
-    font-size: ${fontSizes.sm};
+    font-size: ${fontSizes.md};
   }
 `;

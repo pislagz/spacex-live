@@ -19,12 +19,22 @@ export const Hamburger = styled(Button)`
   padding: 1rem;
 `;
 
-export const Wrapper = styled(Flex).attrs({ as: "header" })`
+const Sidebar = styled(Flex).attrs({ as: "header" })`
   justify-content: space-between;
   align-items: center;
-  padding: 2rem;
-  padding-bottom: 3rem;
-  padding-right: 1rem;
+  width: 100%;
+  /* position: fixed; */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
 `;
+
+export const Wrapper = ({ children }) => (
+  <Flex width="100%" alignItems="center">
+    <Sidebar p="2rem 1rem 3rem 2rem">{children}</Sidebar>
+  </Flex>
+);
 
 export const Img = styled(Image)``;

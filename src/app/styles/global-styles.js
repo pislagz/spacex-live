@@ -18,12 +18,14 @@ body {
 	font-family: 'HelveticaNeue', sans-serif !important;
     height: 100%;
     width: 100%;
-	min-height: 100%;
 	overflow-x: hidden;
+	overscroll-behavior-y: none;
 }
 
+
 #root{
-	height: 100%;
+	//set to 100vh to prevent background bounce on mobile toolbars collapse
+	height: 100vh;
 	width: 100%;
 }
 

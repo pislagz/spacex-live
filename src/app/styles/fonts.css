@@ -13,6 +13,7 @@
   font-style: normal;
   font-display: swap;
   font-weight: 200;
+  font-display: block; /* Fix flickering */
 }
 
 @font-face {
@@ -21,4 +22,5 @@
   font-style: normal;
   font-display: swap;
   font-weight: 300;
+  font-display: block; /* Fix flickering */
 }

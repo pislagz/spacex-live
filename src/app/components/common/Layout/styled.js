@@ -5,6 +5,7 @@ import {
   getSanitizedBreakpoint,
 } from "app/styles/theme/breakpoints";
 import { zIndicies } from "app/styles/theme/zIndicies";
+import { space } from "app/styles/theme/sizings";
 
 export const OuterWrapper = styled(Flex)`
   width: 100%;
@@ -20,10 +21,10 @@ const Inner = styled(Box)`
   width: 100%;
   height: 100%;
 
-  &:before {
+  &:after {
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     left: 0;
     right: 0;
     top: 0;
@@ -36,6 +37,10 @@ const Inner = styled(Box)`
       rgba(0, 0, 0, 0.8) 0%,
       rgba(0, 0, 0, 0) 100%
     );
+
+    ${mediaQuery.lg} {
+      position: absolute;
+    }
   }
 
   //adding 110 pixels to make the app feel more reasonable on full hd screens
@@ -55,12 +60,13 @@ const Picture = styled(Image)`
 `;
 
 export const InnerWrapper = ({ children }) => (
-  <Inner>
+  <Inner position={{ lg: "relative" }}>
     <Picture
+      //height set to 100vh to avoid bouncing on mobile toolbars collapse
+      height="100vh"
       alt=""
-      width="100%"
-      height="100%"
       position={{ _: "fixed", lg: "absolute" }}
+      left={{ lg: space.bigSidebar }}
       zIndex={zIndicies.photoBackground}
       src={
         "https://assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvYXNzZXRzL2Y0Njk2ZTVhLTVmMzItNGNmNi05NmQyLTQ4ZTQwMzE0NDVkZjc1YWRmYmJlMDQwZjU4MWU0OV80ODQ4ODk5NTg0N19jY2M3MGYyNjA4X28uanBnIl0sWyJwIiwiY29udmVydCIsIiJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA4MSAtYXV0by1vcmllbnQiXSxbInAiLCJ0aHVtYiIsIjEyODB4PiJdXQ/48488995847_ccc70f2608_o.jpg"
