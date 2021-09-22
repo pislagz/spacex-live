@@ -1,41 +1,30 @@
 import { Flex } from "app/components/common/ui";
 import { InfoItem } from "app/components/InfoTile/InfoItem";
 import React from "react";
-import { Wrapper, MainTitle } from "./styled";
+import { Wrapper, MainTitle, LeftCol, RightCol } from "./styled";
 
 export const InfoTile = ({ i }) => (
-  <Wrapper
-    width={{ _: "90%", md: "45%" }}
-    p={{ _: "sm", lg: "md" }}
-    margin={{ _: "1rem 0", md: "1rem" }}
-  >
-    <Flex width={"100%"} flexDirection="column">
-      <MainTitle fontSize={{ _: "sm", lg: "lg" }}>
+  //Main wrapper
+  <Wrapper m={{ _: "0.5rem", md: "1rem" }} p={{ _: "1.5rem", md: "2rem" }}>
+    <Flex flexDirection="column">
+      <MainTitle fontSize={{ _: "md", lg: "lg" }}>
         Upcoming launch {i}
       </MainTitle>
       <Flex mt="1rem" width={"100%"} flexDirection="row">
-        <Flex
-          width={"50%"}
-          flexDirection="column"
-          justifyContent="space-between"
-        >
-          <InfoItem label="mission name" info="Inspiration4" />
-          <InfoItem label="flight number" info="123" />
+        <LeftCol>
+          <InfoItem label="mission&nbsp;name" info="Inspiration4" />
+          <InfoItem label="flight&nbsp;number" info="123" />
           <InfoItem label="time" info="12 June 2021" />
           <InfoItem label="links" info={"W Y R"} />
           <InfoItem label="more" info="more" />
-        </Flex>
-        <Flex
-          width={"50%"}
-          flexDirection="column"
-          justifyContent="space-between"
-        >
+        </LeftCol>
+        <RightCol>
           <InfoItem
-            label="mission patch"
+            label="mission&nbsp;patch"
             patch="https://i.imgur.com/J1uM5nz.png"
           />
           <InfoItem label="crew" info="👤👤👤👤" />
-        </Flex>
+        </RightCol>
       </Flex>
     </Flex>
   </Wrapper>

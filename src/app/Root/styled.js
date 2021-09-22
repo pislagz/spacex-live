@@ -16,12 +16,12 @@ export const OuterBackground = styled(Flex)`
 export const InnerBackground = styled(Box)`
   width: 100%;
   height: 100%;
-  background-image: url("https://camo.githubusercontent.com/2a2dfb8b139de852f33a0a268fad5a1bf5ed32b459f3193fe296a26eb9a54e4d/68747470733a2f2f6c6976652e737461746963666c69636b722e636f6d2f36353533352f34393138353134393132325f333766356335326534335f6b2e6a7067");
+  background-image: url("https://assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvYXNzZXRzL2Y0Njk2ZTVhLTVmMzItNGNmNi05NmQyLTQ4ZTQwMzE0NDVkZjc1YWRmYmJlMDQwZjU4MWU0OV80ODQ4ODk5NTg0N19jY2M3MGYyNjA4X28uanBnIl0sWyJwIiwiY29udmVydCIsIiJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA4MSAtYXV0by1vcmllbnQiXSxbInAiLCJ0aHVtYiIsIjEyODB4PiJdXQ/48488995847_ccc70f2608_o.jpg");
   background-size: cover;
 
   //adding 110 pixels to make the app feel more reasonable on full hd screens
   ${mediaQuery.custom(getSanitizedBreakpoint("max") + 110)} {
-    max-height: 90vh;
+    max-height: 1204px;
     width: 1920px;
     position: relative;
     border-radius: 10px;

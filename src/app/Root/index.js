@@ -9,6 +9,7 @@ import { Route, Switch } from "react-router";
 import { ROUTES } from "app/constants/routes";
 import { Content } from "app/components/common/Content";
 import { InfoTile } from "app/components/InfoTile";
+import { Flex } from "app/components/common/ui";
 
 export const Root = () => {
   const [isMobileMenuVisible, setMobileMenuVisibility] = useState(false);
@@ -25,10 +26,15 @@ export const Root = () => {
           <Gradient>
             <Header setMobileMenuVisibility={setMobileMenuVisibility} />
             <Content>
-              <InfoTile i="1" />
-              <InfoTile i="2" />
-              <InfoTile i="3" />
-              <InfoTile i="4" />
+              <Flex alignItems="center" flexDirection="column">
+                <InfoTile i="1" />
+                <InfoTile i="2" />
+              </Flex>
+              <Flex alignItems="center" flexDirection="column">
+                <InfoTile i="3" />
+                <InfoTile i="4" />
+              </Flex>
+
               <Switch>
                 {ROUTES.map(({ name, route, component: View }) => {
                   return (

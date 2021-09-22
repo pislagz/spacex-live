@@ -1,15 +1,17 @@
 import styled from "styled-components";
 import { Flex, Box } from "app/components/common/ui";
 import { colors } from "app/styles/theme/colors";
-import { fontSizes } from "app/styles/theme/texts";
+import { zIndicies } from "app/styles/theme/zIndicies";
+import { mediaQuery } from "app/styles/theme/breakpoints";
 
 export const Wrapper = styled(Flex).attrs({ as: "article" })`
   color: ${colors.white};
   border-radius: 15px;
   background: rgba(0, 0, 0, 0.5);
   position: relative;
-  z-index: 0;
+  z-index: ${zIndicies.content};
 
+  //blur mask
   &:before {
     border-radius: 15px;
     content: "";
@@ -19,12 +21,38 @@ export const Wrapper = styled(Flex).attrs({ as: "article" })`
     right: 0;
     bottom: 0;
     backdrop-filter: blur(10px);
-    z-index: -1;
+    z-index: ${zIndicies.infoTileBlur};
   }
 `;
 
 export const MainTitle = styled(Box).attrs({ as: "h3" })`
   margin: 0;
   padding: 0;
-  font-size: ${fontSizes.lg};
+`;
+
+export const LeftCol = styled(Flex).attrs({
+  width: "50%",
+  flexDirection: "column",
+  justifyContent: "space-between",
+})`
+  margin-right: 1rem;
+  ${mediaQuery.custom("340")} {
+    margin-right: 10vw;
+  }
+  ${mediaQuery.xl} {
+    margin-right: 4.5rem;
+  }
+`;
+export const RightCol = styled(Flex).attrs({
+  width: "50%",
+  flexDirection: "column",
+  justifyContent: "space-between",
+})`
+  margin-right: 0.5rem;
+  ${mediaQuery.custom("340")} {
+    margin-right: 6vw;
+  }
+  ${mediaQuery.xl} {
+    margin-right: 3rem;
+  }
 `;

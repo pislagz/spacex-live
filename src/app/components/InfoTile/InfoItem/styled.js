@@ -7,10 +7,10 @@ import { mediaQuery } from "app/styles/theme/breakpoints";
 export const Title = styled(Box).attrs({ as: "h4" })`
   margin: 0;
   padding: 0;
+  text-transform: uppercase;
   color: ${colors.gray.mediumDark};
   font-weight: ${fontWeights.normal};
-  text-transform: uppercase;
-  font-size: ${fontSizes.xxs};
+  font-size: ${fontSizes.xs};
 
   ${mediaQuery.md} {
     font-size: ${fontSizes.xs};

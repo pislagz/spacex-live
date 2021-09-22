@@ -4,7 +4,7 @@ import { Title, Info } from "./styled";
 import { colors } from "app/styles/theme/colors";
 
 export const InfoItem = (props) => (
-  <Box {...props}>
+  <Box m="5px 0" {...props}>
     <Title>{props.label}</Title>
     <Info>{props.info}</Info>
     {props.patch && (
