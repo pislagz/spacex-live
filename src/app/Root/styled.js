@@ -21,7 +21,8 @@ export const InnerBackground = styled(Box)`
 
   //adding 110 pixels to make the app feel more reasonable on full hd screens
   ${mediaQuery.custom(getSanitizedBreakpoint("max") + 110)} {
-    max-height: 1204px;
+    height: 1204px;
+    max-height: 90vh;
     width: 1920px;
     position: relative;
     border-radius: 10px;
