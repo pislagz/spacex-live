@@ -14,7 +14,7 @@ export const Wrapper = styled(Box)`
   position: fixed;
   right: 0;
 
-  ${mediaQuery.lg} {
+  ${mediaQuery.max} {
     position: absolute;
   }
 `;

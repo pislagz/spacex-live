@@ -38,7 +38,7 @@ const Inner = styled(Box)`
       rgba(0, 0, 0, 0) 100%
     );
 
-    ${mediaQuery.lg} {
+    ${mediaQuery.max} {
       position: absolute;
     }
   }
@@ -65,7 +65,7 @@ export const InnerWrapper = ({ children }) => (
       //height set to 100vh to avoid bouncing on mobile toolbars collapse
       height="100vh"
       alt=""
-      position={{ _: "fixed", lg: "absolute" }}
+      position={{ _: "fixed", max: "absolute" }}
       width={{ sm: "100%" }}
       left={{ lg: space.bigSidebar }}
       zIndex={zIndicies.photoBackground}
