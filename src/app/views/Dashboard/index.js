@@ -1,12 +1,16 @@
 import React, { useEffect } from "react";
 import { Flex } from "app/components/common/ui";
 import { InfoTile } from "app/components/InfoTile";
-import { dashboard } from "app/api/dashboard";
+import { api } from "app/api/launch";
 
 export const Dashboard = () => {
+  const fetchAllData = async () => {
+    await api.getPreviousLaunch().then((res) => console.log(res.data.docs[0]));
+    await api.getNextLaunch().then((res) => console.log(res.data.docs[0]));
+  };
+
   useEffect(() => {
-    dashboard.getUpcomingOrPreviousLaunch("upcoming");
-    dashboard.getUpcomingOrPreviousLaunch("previous");
+    fetchAllData();
   }, []);
 
   return (
