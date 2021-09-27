@@ -5,7 +5,7 @@ import {
   getSanitizedBreakpoint,
 } from "app/styles/theme/breakpoints";
 import { zIndicies } from "app/styles/theme/zIndicies";
-import { space } from "app/styles/theme/sizings";
+import { sizings, space } from "app/styles/theme/sizings";
 
 export const OuterWrapper = styled(Flex)`
   width: 100%;
@@ -49,7 +49,7 @@ const Inner = styled(Box)`
     max-height: 90vh;
     width: 1920px;
     position: relative;
-    border-radius: 10px;
+    border-radius: ${sizings.radii.md};
     overflow: hidden;
     box-shadow: 5px 5px 50px rgba(0, 0, 0, 0.1);
   } ;

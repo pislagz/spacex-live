@@ -3,17 +3,18 @@ import { Flex, Box } from "app/components/common/ui";
 import { colors } from "app/styles/theme/colors";
 import { zIndicies } from "app/styles/theme/zIndicies";
 import { mediaQuery } from "app/styles/theme/breakpoints";
+import { sizings } from "app/styles/theme/sizings";
 
 export const Wrapper = styled(Flex).attrs({ as: "article" })`
   color: ${colors.white};
-  border-radius: 15px;
+  border-radius: ${sizings.radii.lg};
   background: rgba(0, 0, 0, 0.5);
   position: relative;
   z-index: ${zIndicies.content};
 
   //blur mask
   &:before {
-    border-radius: 15px;
+    border-radius: ${sizings.radii.lg};
     content: "";
     position: absolute;
     top: 0;

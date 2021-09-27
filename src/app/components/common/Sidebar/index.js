@@ -14,7 +14,7 @@ import {
   largeWidth,
 } from "app/styles/theme/breakpoints";
 import { Logo } from "assets/Logo";
-import { Close as CloseIcon } from "assets/Close";
+import { CloseIcon } from "assets/icons/CloseIcon";
 import { ROUTES } from "app/constants/routes";
 import { useWindowSize } from "app/hooks/useWindowSize";
 import { AnimatePresence, motion } from "framer-motion";

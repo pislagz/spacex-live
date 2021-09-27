@@ -4,6 +4,7 @@ import {
   mediaQuery,
   getSanitizedBreakpoint,
 } from "app/styles/theme/breakpoints";
+import { sizings } from "app/styles/theme/sizings";
 
 export const OuterBackground = styled(Flex)`
   width: 100%;
@@ -25,7 +26,7 @@ export const InnerBackground = styled(Box)`
     max-height: 90vh;
     width: 1920px;
     position: relative;
-    border-radius: 10px;
+    border-radius: ${sizings.radii.md};
     overflow: hidden;
     box-shadow: 5px 5px 50px rgba(0, 0, 0, 0.1);
   } ;

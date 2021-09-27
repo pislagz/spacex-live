@@ -14,8 +14,9 @@ export const sizes = {
 
 export const radii = {
   none: "0",
-  1: "5px",
-  2: "10px",
+  sm: "5px",
+  md: "10px",
+  lg: "15px",
   full: "9999px",
 };
 

@@ -6,6 +6,7 @@ import { zIndicies } from "app/styles/theme/zIndicies";
 import { Link } from "react-router-dom";
 import { colors } from "app/styles/theme/colors";
 import { mediaQuery } from "app/styles/theme/breakpoints";
+import { sizings } from "app/styles/theme/sizings";
 
 export const Wrapper = styled(Box)`
   z-index: ${zIndicies.sidebar};
@@ -40,15 +41,15 @@ export const List = styled(Box).attrs({ as: "ul" })`
 
 export const ListElement = styled.li`
   padding: 0.5rem 0;
-  margin-left: -0.5rem;
+  margin-left: -1rem;
 `;
 
 export const NavLink = styled(Link)`
   text-decoration: none;
   font-weight: ${fontWeights.light};
   color: ${colors.black.medium};
-  padding: 0 0.5rem;
-  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  border-radius: ${sizings.radii.sm};
 
   &:hover {
     background: ${colors.gray.light};
