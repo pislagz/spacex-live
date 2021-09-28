@@ -8,7 +8,7 @@ export const InfoItem = (props) => (
   <Box m="5px 0" {...props}>
     <Title>{props.label}</Title>
     <Info>{props.info}</Info>
-    {props.patch && (
+    {props.patchUrl && (
       <Flex
         justifyContent="center"
         alignItems="center"
@@ -23,7 +23,7 @@ export const InfoItem = (props) => (
           maxWidth="80%"
           maxHeight={{ _: "110px", lg: "160px" }}
           margin="0"
-          src={props.patch}
+          src={props.patchUrl}
           alt="Mission patch"
         />
       </Flex>
