@@ -1,14 +1,34 @@
 import React from "react";
 import { Flex, Box, Image } from "app/components/common/ui";
-import { Title, Info } from "./styled";
+import { Title, Info, IconLink } from "./styled";
 import { colors } from "app/styles/theme/colors";
 import { sizings } from "app/styles/theme/sizings";
+import { Falcon9 } from "assets/Falcon9";
+import { FalconHeavy } from "assets/FalconHeavy";
 
-export const InfoItem = (props) => (
+export const InfoItem = ({ altPatch, patchUrl, links, info, label }, props) => (
   <Box m="5px 0" {...props}>
-    <Title>{props.label}</Title>
-    <Info>{props.info}</Info>
-    {props.patchUrl && (
+    <Title>{label}</Title>
+    {info && <Info>{info}</Info>}
+
+    {label === "links" && (
+      <Flex
+        as="ul"
+        listStyle="none"
+        m="0"
+        p="0"
+        minHeight="20px"
+        alignItems="center"
+      >
+        {links?.wikipedia && (
+          <IconLink site="wikipedia" link={links?.wikipedia} />
+        )}
+        {links?.youtube && <IconLink site="youtube" link={links?.youtube} />}
+        {links?.reddit && <IconLink site="reddit" link={links?.reddit} />}
+      </Flex>
+    )}
+
+    {(patchUrl || altPatch) && (
       <Flex
         justifyContent="center"
         alignItems="center"
@@ -19,13 +39,20 @@ export const InfoItem = (props) => (
         mt="5px"
         mb="10px"
       >
-        <Image
-          maxWidth="80%"
-          maxHeight={{ _: "110px", lg: "160px" }}
-          margin="0"
-          src={props.patchUrl}
-          alt="Mission patch"
-        />
+        {patchUrl && (
+          <Image
+            maxWidth="80%"
+            maxHeight={{ _: "110px", lg: "160px" }}
+            margin="0"
+            src={patchUrl}
+            alt="Mission patch"
+          />
+        )}
+        {!patchUrl && altPatch === "Falcon 9" ? (
+          <Falcon9 />
+        ) : !patchUrl && altPatch === "Falcon Heavy" ? (
+          <FalconHeavy />
+        ) : null}
       </Flex>
     )}
   </Box>

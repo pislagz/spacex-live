@@ -6,7 +6,7 @@ export const getLaunchOptions = ({ isUpcoming, sortDir }) => {
     options: {
       limit: 1,
       sort: {
-        flight_number: sortDir,
+        date_utc: sortDir,
       },
       select: {
         name: 1,
@@ -70,6 +70,10 @@ export const getLaunchOptions = ({ isUpcoming, sortDir }) => {
             {
               path: "core",
             },
+            {
+              path: "landpad",
+              select: { name: 1, full_name: 1, type: 1, id: 1 },
+            },
           ],
         },
       ],
@@ -132,6 +136,10 @@ export const getLaunchByNumber = (flightNo) => ({
         populate: [
           {
             path: "core",
+          },
+          {
+            path: "landpad",
+            select: { name: 1, full_name: 1, type: 1, id: 1 },
           },
         ],
       },

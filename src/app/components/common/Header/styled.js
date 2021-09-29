@@ -19,7 +19,7 @@ export const Hamburger = styled(Button)`
   padding: 1rem;
 `;
 
-const Sidebar = styled(Flex).attrs({ as: "header" })`
+const Inner = styled(Flex).attrs({ as: "header" })`
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -33,7 +33,7 @@ const Sidebar = styled(Flex).attrs({ as: "header" })`
 
 export const Wrapper = ({ children }) => (
   <Flex width="100%" alignItems="center">
-    <Sidebar p="2rem 1rem 3rem 2rem">{children}</Sidebar>
+    <Inner p="2rem 1rem 3rem 2rem">{children}</Inner>
   </Flex>
 );
 
