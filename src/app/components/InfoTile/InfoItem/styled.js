@@ -41,6 +41,7 @@ export const IconLink = ({ site, link }) => (
   >
     <Flex
       as={link ? "a" : "div"}
+      p="3px"
       href={link}
       target="_blank"
       justifyContent="center"

@@ -5,11 +5,27 @@ import { colors } from "app/styles/theme/colors";
 import { sizings } from "app/styles/theme/sizings";
 import { Falcon9 } from "assets/icons/falcons/Falcon9";
 import { FalconHeavy } from "assets/icons/falcons/FalconHeavy";
+import { fontWeights } from "app/styles/theme/texts";
+import { fontSizes } from "app/styles/theme/texts";
 
-export const InfoItem = ({ altPatch, patchUrl, links, info, label }, props) => (
+export const InfoItem = (
+  { altPatch, patchUrl, links, info, label, details },
+  props
+) => (
   <Box m="5px 0" {...props}>
     <Title>{label}</Title>
     {info && <Info>{info}</Info>}
+    {details && (
+      <Box
+        m="0"
+        as="p"
+        fontSize={fontSizes.xs}
+        fontWeight={fontWeights.light}
+        width="100%"
+      >
+        {details}
+      </Box>
+    )}
 
     {label === "links" && (
       <Flex
@@ -32,7 +48,8 @@ export const InfoItem = ({ altPatch, patchUrl, links, info, label }, props) => (
         alignItems="center"
         background={colors.gray.dark}
         borderRadius={sizings.radii.md}
-        maxWidth={{ _: "110px", lg: "140px" }}
+        width="100px"
+        height="100px"
         p="10px"
         mt="5px"
         mb="10px"

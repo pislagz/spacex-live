@@ -18,11 +18,15 @@ export const InfoTile = ({
   details,
 }) => {
   return (
-    <Wrapper m={{ _: "0.5rem", md: "1rem" }} p={{ _: "1.5rem", md: "2rem" }}>
-      <Flex flexDirection="column">
+    <Wrapper
+      m={{ _: "0.5rem", md: "1rem" }}
+      p={{ _: "1.5rem", md: "2rem" }}
+      width={{ _: "300px", sm: "352px" }}
+    >
+      <Flex flexDirection="column" width="100%">
         <MainTitle fontSize={{ _: "md", lg: "lg" }}>{title}</MainTitle>
         <Flex mt="1rem" width={"100%"} flexDirection="row">
-          <Col>
+          <Col mr="2rem">
             <InfoItem label="mission&nbsp;name" info={missionName} />
             <InfoItem label="rocket" info={rocket?.name} />
             <InfoItem label="flight&nbsp;number" info={flightNo} />
