@@ -3,9 +3,9 @@ import { Box, Flex } from "app/components/common/ui";
 import { colors } from "app/styles/theme/colors";
 import { fontSizes, fontWeights } from "app/styles/theme/texts";
 import { mediaQuery } from "app/styles/theme/breakpoints";
-import { RedditIcon } from "assets/icons/RedditIcon";
-import { WikipediaIcon } from "assets/icons/WikipediaIcon";
-import { YoutubeIcon } from "assets/icons/YoutubeIcon";
+import { RedditIcon } from "assets/icons/media/RedditIcon";
+import { WikipediaIcon } from "assets/icons/media/WikipediaIcon";
+import { YoutubeIcon } from "assets/icons/media/YoutubeIcon";
 
 export const Title = styled(Box).attrs({ as: "h4" })`
   margin: 0;
@@ -40,15 +40,18 @@ export const IconLink = ({ site, link }) => (
     alignItems="center"
   >
     <Flex
-      as="a"
+      as={link ? "a" : "div"}
       href={link}
       target="_blank"
       justifyContent="center"
       alignItems="center"
+      style={{ cursor: link ? "pointer" : "not-allowed" }}
     >
-      {site === "reddit" && <RedditIcon />}
-      {site === "wikipedia" && <WikipediaIcon />}
-      {site === "youtube" && <YoutubeIcon />}
+      {site === "reddit" && <RedditIcon fill={link ? "#fff" : "#4a4a4a"} />}
+      {site === "wikipedia" && (
+        <WikipediaIcon fill={link ? "#fff" : "#4a4a4a"} />
+      )}
+      {site === "youtube" && <YoutubeIcon fill={link ? "#fff" : "#4a4a4a"} />}
     </Flex>
   </Flex>
 );

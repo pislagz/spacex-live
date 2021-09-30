@@ -1,7 +1,7 @@
 import React from "react";
 import { Hamburger, Wrapper } from "./styled";
-import { HamburgerIcon } from "assets/icons/HamburgerIcon";
-import { Logo } from "assets/Logo";
+import { HamburgerIcon } from "assets/icons/functional/HamburgerIcon";
+import { Logo } from "assets/icons/logo/Logo";
 import { useWindowSize } from "app/hooks/useWindowSize";
 import { largeWidth } from "app/styles/theme/breakpoints";
 

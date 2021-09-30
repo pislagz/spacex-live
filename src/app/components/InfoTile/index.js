@@ -2,7 +2,8 @@ import { Flex } from "app/components/common/ui";
 import { InfoItem } from "app/components/InfoTile/InfoItem";
 import { More } from "app/components/InfoTile/More";
 import React from "react";
-import { Wrapper, MainTitle, LeftCol, RightCol } from "./styled";
+import { Wrapper, MainTitle, Col } from "./styled";
+import { Human } from "assets/icons/buttons/Human";
 
 export const InfoTile = ({
   title,
@@ -21,25 +22,22 @@ export const InfoTile = ({
       <Flex flexDirection="column">
         <MainTitle fontSize={{ _: "md", lg: "lg" }}>{title}</MainTitle>
         <Flex mt="1rem" width={"100%"} flexDirection="row">
-          <LeftCol>
+          <Col>
             <InfoItem label="mission&nbsp;name" info={missionName} />
             <InfoItem label="rocket" info={rocket?.name} />
             <InfoItem label="flight&nbsp;number" info={flightNo} />
             <InfoItem label="time" info={String(dateUTC).slice(0, 10)} />
-            {(links?.reddit?.campaign ||
-              links?.wikipedia ||
-              links?.webcast) && (
-              <InfoItem
-                label="links"
-                links={{
-                  wikipedia: links?.wikipedia,
-                  youtube: links?.webcast,
-                  reddit: links?.reddit?.campaign,
-                }}
-              />
-            )}
-          </LeftCol>
-          <RightCol>
+
+            <InfoItem
+              label="links"
+              links={{
+                wikipedia: links?.wikipedia,
+                youtube: links?.webcast,
+                reddit: links?.reddit?.campaign,
+              }}
+            />
+          </Col>
+          <Col>
             <InfoItem
               label={links?.patch?.small ? "mission patch" : "rocket logo"}
               patchUrl={links?.patch?.small}
@@ -50,7 +48,7 @@ export const InfoTile = ({
               <InfoItem
                 label="crew"
                 info={crew?.map((person) => (
-                  <React.Fragment key={person.crew.name}>👤</React.Fragment>
+                  <Human key={person.crew.name} />
                 ))}
               />
             ) : null}
@@ -60,7 +58,7 @@ export const InfoTile = ({
                 <InfoItem label="launchpad" info={launchpad?.name} />
               </>
             ) : null}
-          </RightCol>
+          </Col>
         </Flex>
         <More details={details} />
       </Flex>

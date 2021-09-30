@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { Flex, Box } from "app/components/common/ui";
 import { colors } from "app/styles/theme/colors";
 import { zIndicies } from "app/styles/theme/zIndicies";
-import { mediaQuery } from "app/styles/theme/breakpoints";
 import { sizings } from "app/styles/theme/sizings";
 
 export const Wrapper = styled(Flex).attrs({ as: "article" })`
@@ -31,29 +30,8 @@ export const MainTitle = styled(Box).attrs({ as: "h3" })`
   padding: 0;
 `;
 
-export const LeftCol = styled(Flex).attrs({
+export const Col = styled(Flex).attrs({
   width: "50%",
   flexDirection: "column",
   justifyContent: "space-between",
-})`
-  margin-right: 1rem;
-  ${mediaQuery.custom("340")} {
-    margin-right: 10vw;
-  }
-  ${mediaQuery.xl} {
-    margin-right: 4.5rem;
-  }
-`;
-export const RightCol = styled(Flex).attrs({
-  width: "50%",
-  flexDirection: "column",
-  justifyContent: "space-between",
-})`
-  margin-right: 0.5rem;
-  ${mediaQuery.custom("340")} {
-    margin-right: 6vw;
-  }
-  ${mediaQuery.xl} {
-    margin-right: 3rem;
-  }
-`;
+})``;

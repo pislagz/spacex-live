@@ -3,8 +3,8 @@ import { Flex, Box, Image } from "app/components/common/ui";
 import { Title, Info, IconLink } from "./styled";
 import { colors } from "app/styles/theme/colors";
 import { sizings } from "app/styles/theme/sizings";
-import { Falcon9 } from "assets/Falcon9";
-import { FalconHeavy } from "assets/FalconHeavy";
+import { Falcon9 } from "assets/icons/falcons/Falcon9";
+import { FalconHeavy } from "assets/icons/falcons/FalconHeavy";
 
 export const InfoItem = ({ altPatch, patchUrl, links, info, label }, props) => (
   <Box m="5px 0" {...props}>
@@ -20,11 +20,9 @@ export const InfoItem = ({ altPatch, patchUrl, links, info, label }, props) => (
         minHeight="20px"
         alignItems="center"
       >
-        {links?.wikipedia && (
-          <IconLink site="wikipedia" link={links?.wikipedia} />
-        )}
-        {links?.youtube && <IconLink site="youtube" link={links?.youtube} />}
-        {links?.reddit && <IconLink site="reddit" link={links?.reddit} />}
+        <IconLink site="wikipedia" link={links?.wikipedia} />
+        <IconLink site="youtube" link={links?.youtube} />
+        <IconLink site="reddit" link={links?.reddit} />
       </Flex>
     )}
 

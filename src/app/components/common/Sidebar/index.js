@@ -13,8 +13,8 @@ import {
   getSanitizedBreakpoint,
   largeWidth,
 } from "app/styles/theme/breakpoints";
-import { Logo } from "assets/Logo";
-import { CloseIcon } from "assets/icons/CloseIcon";
+import { Logo } from "assets/icons/logo/Logo";
+import { CloseIcon } from "assets/icons/functional/CloseIcon";
 import { ROUTES } from "app/constants/routes";
 import { useWindowSize } from "app/hooks/useWindowSize";
 import { AnimatePresence, motion } from "framer-motion";
