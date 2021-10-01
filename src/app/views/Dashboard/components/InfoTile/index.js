@@ -22,17 +22,16 @@ export const InfoTile = ({
     <Wrapper
       m={{ _: "0.5rem", md: "1rem" }}
       p={{ _: "1.5rem", md: "2rem" }}
-      width={{ _: "300px", sm: "352px" }}
-    >
+      width={{ _: "300px", sm: "352px" }}>
       <Flex flexDirection="column" width="100%">
         <MainTitle fontSize={{ _: "md", lg: "lg" }}>{title}</MainTitle>
         {type === "launch" && (
           <>
             <Flex mt="1rem" width={"100%"} flexDirection="row">
               <Col mr="2rem">
-                <InfoItem label="mission&nbsp;name" info={missionName} />
+                <InfoItem label="mission name" info={missionName} />
                 <InfoItem label="rocket" info={rocket?.name} />
-                <InfoItem label="flight&nbsp;number" info={flightNo} />
+                <InfoItem label="flight number" info={flightNo} />
                 <InfoItem label="time" info={String(dateUTC).slice(0, 10)} />
                 <InfoItem
                   label="links"

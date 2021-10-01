@@ -42,4 +42,5 @@ export const texts = {
   fonts,
   lineHeights,
   letterSpacings,
+  fontWeights,
 };

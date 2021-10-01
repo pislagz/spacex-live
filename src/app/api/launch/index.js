@@ -2,29 +2,35 @@ import axios from "axios";
 import { SPACEX_API } from "app/api/source";
 import {
   getLaunchOptions,
-  getLaunchByNumber,
+  getLaunchByFlightNumberOptions,
 } from "app/api/launch/launchOptions";
 
 const getNextLaunch = async () =>
-  await axios.post(
-    SPACEX_API + "/v5/launches/query",
-    getLaunchOptions({ isUpcoming: true, sortDir: "asc" })
-  );
+  (
+    await axios.post(
+      SPACEX_API + "/v5/launches/query",
+      getLaunchOptions({ isUpcoming: true, sortDir: "asc" })
+    )
+  ).data.docs?.[0];
 
-const getPreviousLaunch = async () =>
-  await axios.post(
-    SPACEX_API + "/v5/launches/query",
-    getLaunchOptions({ isUpcoming: false, sortDir: "desc" })
-  );
+const getPrevLaunch = async () =>
+  (
+    await axios.post(
+      SPACEX_API + "/v5/launches/query",
+      getLaunchOptions({ isUpcoming: false, sortDir: "desc" })
+    )
+  ).data.docs?.[0];
 
-const getLaunchByFlightNumber = async (flightNo) =>
-  await axios.post(
-    SPACEX_API + "/v5/launches/query/",
-    getLaunchByNumber(flightNo)
-  );
+const getLaunchByFlightNumber = async (flightNumber) =>
+  (
+    await axios.post(
+      SPACEX_API + "/v5/launches/query/",
+      getLaunchByFlightNumberOptions(flightNumber)
+    )
+  ).data.docs?.[0];
 
 export const api = {
-  getPreviousLaunch,
+  getPrevLaunch,
   getNextLaunch,
   getLaunchByFlightNumber,
 };

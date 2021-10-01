@@ -7,22 +7,23 @@ export const Dashboard = () => {
   const [nextLaunch, setNextLaunch] = useState({});
   const [prevLaunch, setPrevLaunch] = useState({});
   // const [customLaunch, setCustomLaunch] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
+  const [dataState, setDataState] = useState("idle");
 
   const fetchAllData = useCallback(async () => {
+    setDataState("pending");
+
     try {
-      const [r1, r2 /*, r3*/] = await Promise.all([
+      const [nextLaunchResponse, prevLaunchResponse] = await Promise.all([
         api.getNextLaunch(),
-        api.getPreviousLaunch(),
+        api.getPrevLaunch(),
         api.getLaunchByFlightNumber(137),
       ]);
-      console.log(r1.data.docs[0]);
-      console.log(r2.data.docs[0]);
-      // console.log(r3.data.docs[0]);
-      setNextLaunch(r1.data.docs[0]);
-      setPrevLaunch(r2.data.docs[0]);
-      // setCustomLaunch(r3.data.docs[0]);
-      setIsLoading(false);
+      console.log({ prevLaunchResponse, nextLaunchResponse });
+
+      setNextLaunch(nextLaunchResponse);
+      setPrevLaunch(prevLaunchResponse);
+
+      setDataState("fullfilled");
     } catch (err) {
       console.log(err);
     }
@@ -34,7 +35,7 @@ export const Dashboard = () => {
 
   return (
     <>
-      {!isLoading && (
+      {dataState === "fullfilled" && (
         <>
           <Flex alignItems="center" flexDirection="column">
             {/* <InfoTile title="Custom launch" {...customLaunch} /> */}

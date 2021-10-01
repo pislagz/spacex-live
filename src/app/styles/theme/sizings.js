@@ -1,6 +1,8 @@
 const bigSidebar = "17rem";
 
 export const space = {
+  xxs: "5px",
+  xs: "10px",
   sm: "1rem",
   md: "2rem",
   lg: "3rem",

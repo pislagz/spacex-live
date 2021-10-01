@@ -81,9 +81,9 @@ export const getLaunchOptions = ({ isUpcoming, sortDir }) => {
   };
 };
 
-export const getLaunchByNumber = (flightNo) => ({
+export const getLaunchByFlightNumberOptions = (flightNumber) => ({
   query: {
-    flight_number: flightNo,
+    flight_number: flightNumber,
   },
   options: {
     limit: 1,

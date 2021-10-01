@@ -5,13 +5,13 @@ import { Logo } from "assets/icons/logo/Logo";
 import { useWindowSize } from "app/hooks/useWindowSize";
 import { largeWidth } from "app/styles/theme/breakpoints";
 
-export const Header = ({ setMobileMenuVisibility }) => {
+export const Header = ({ setIsMobileMenuVisible }) => {
   const size = useWindowSize();
 
   return size.width >= largeWidth ? null : (
     <Wrapper>
       <Logo fill={"white"} width={"201"} height={"50"} />
-      <Hamburger onClick={() => setMobileMenuVisibility(true)}>
+      <Hamburger onClick={() => setIsMobileMenuVisible(true)}>
         <HamburgerIcon />
       </Hamburger>
     </Wrapper>

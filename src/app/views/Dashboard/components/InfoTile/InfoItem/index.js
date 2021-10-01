@@ -2,8 +2,6 @@ import React from "react";
 import { Flex, Box, Image } from "app/components/common/ui";
 import { Info, IconLink } from "./styled";
 import { Label } from "app/components/common/Label";
-import { colors } from "app/styles/theme/colors";
-import { sizings } from "app/styles/theme/sizings";
 import { Falcon9 } from "assets/icons/falcons/Falcon9";
 import { FalconHeavy } from "assets/icons/falcons/FalconHeavy";
 import { fontWeights } from "app/styles/theme/texts";
@@ -22,8 +20,7 @@ export const InfoItem = (
         as="p"
         fontSize={fontSizes.xs}
         fontWeight={fontWeights.light}
-        width="100%"
-      >
+        width="100%">
         {details}
       </Box>
     )}
@@ -35,8 +32,7 @@ export const InfoItem = (
         m="0"
         p="0"
         minHeight="20px"
-        alignItems="center"
-      >
+        alignItems="center">
         <IconLink site="wikipedia" link={links?.wikipedia} />
         <IconLink site="youtube" link={links?.youtube} />
         <IconLink site="reddit" link={links?.reddit} />
@@ -47,14 +43,13 @@ export const InfoItem = (
       <Flex
         justifyContent="center"
         alignItems="center"
-        background={colors.gray.dark}
-        borderRadius={sizings.radii.md}
+        bg="gray.dark"
+        borderRadius="md"
         width="100px"
         height="100px"
-        p="10px"
-        mt="5px"
-        mb="10px"
-      >
+        p="xs"
+        mt="xxs"
+        mb="xs">
         {patchUrl && (
           <Image
             maxWidth="80%"

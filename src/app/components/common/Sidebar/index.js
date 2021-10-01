@@ -19,7 +19,7 @@ import { ROUTES } from "app/constants/routes";
 import { useWindowSize } from "app/hooks/useWindowSize";
 import { AnimatePresence, motion } from "framer-motion";
 
-export const Sidebar = ({ isMobileMenuVisible, setMobileMenuVisibility }) => {
+export const Sidebar = ({ isMobileMenuVisible, setIsMobileMenuVisible }) => {
   const size = useWindowSize();
   const isWideScreen = size.width >= largeWidth;
   const isVisible = isWideScreen || isMobileMenuVisible;
@@ -31,7 +31,7 @@ export const Sidebar = ({ isMobileMenuVisible, setMobileMenuVisibility }) => {
           {size.width < getSanitizedBreakpoint("lg") && (
             <Overlay
               as={motion.div}
-              onClick={() => setMobileMenuVisibility(false)}
+              onClick={() => setIsMobileMenuVisible(false)}
               {...animations.overlay}
             />
           )}
@@ -42,11 +42,10 @@ export const Sidebar = ({ isMobileMenuVisible, setMobileMenuVisibility }) => {
             minWidth={{ _: "14rem" }}
             maxWidth={{ lg: "bigSidebar" }}
             right={{ _: "0", lg: "unset" }}
-            left={{ _: "unset", lg: "0" }}
-          >
+            left={{ _: "unset", lg: "0" }}>
             {size.width >= getSanitizedBreakpoint("lg") ? null : (
               <CloseWrapper>
-                <CloseButton onClick={() => setMobileMenuVisibility(false)}>
+                <CloseButton onClick={() => setIsMobileMenuVisible(false)}>
                   <CloseIcon />
                 </CloseButton>
               </CloseWrapper>
@@ -59,8 +58,7 @@ export const Sidebar = ({ isMobileMenuVisible, setMobileMenuVisibility }) => {
                   <ListElement key={route.name}>
                     <NavLink
                       to={`${route.route}`}
-                      onClick={() => setMobileMenuVisibility(false)}
-                    >
+                      onClick={() => setIsMobileMenuVisible(false)}>
                       {route.name}
                     </NavLink>
                   </ListElement>

@@ -10,7 +10,7 @@ import { ROUTES } from "app/constants/routes";
 import { Content } from "app/components/common/Content";
 
 export const Root = () => {
-  const [isMobileMenuVisible, setMobileMenuVisibility] = useState(false);
+  const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(false);
 
   return (
     <ThemeProvider theme={theme}>
@@ -18,9 +18,9 @@ export const Root = () => {
       <Layout>
         <Sidebar
           isMobileMenuVisible={isMobileMenuVisible}
-          setMobileMenuVisibility={setMobileMenuVisibility}
+          setIsMobileMenuVisible={setIsMobileMenuVisible}
         />
-        <Header setMobileMenuVisibility={setMobileMenuVisibility} />
+        <Header setIsMobileMenuVisible={setIsMobileMenuVisible} />
         <Content>
           <Switch>
             {ROUTES.map(({ name, route, component: View }) => {
