@@ -1,6 +1,7 @@
 import React from "react";
 import { Flex, Box, Image } from "app/components/common/ui";
-import { Title, Info, IconLink } from "./styled";
+import { Info, IconLink } from "./styled";
+import { Label } from "app/components/common/Label";
 import { colors } from "app/styles/theme/colors";
 import { sizings } from "app/styles/theme/sizings";
 import { Falcon9 } from "assets/icons/falcons/Falcon9";
@@ -13,7 +14,7 @@ export const InfoItem = (
   props
 ) => (
   <Box m="5px 0" {...props}>
-    <Title>{label}</Title>
+    <Label>{label}</Label>
     {info && <Info>{info}</Info>}
     {details && (
       <Box

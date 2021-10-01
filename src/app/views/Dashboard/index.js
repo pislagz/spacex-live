@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { Flex } from "app/components/common/ui";
-import { InfoTile } from "app/components/InfoTile";
+import { InfoTile } from "app/views/Dashboard/components/InfoTile";
 import { api } from "app/api/launch";
 
 export const Dashboard = () => {
@@ -38,11 +38,11 @@ export const Dashboard = () => {
         <>
           <Flex alignItems="center" flexDirection="column">
             {/* <InfoTile title="Custom launch" {...customLaunch} /> */}
-            <InfoTile title="Upcoming launch" {...nextLaunch} />
-            <InfoTile title="Previous launch" {...prevLaunch} />
+            <InfoTile type="launch" title="Upcoming launch" {...nextLaunch} />
+            <InfoTile type="launch" title="Previous launch" {...prevLaunch} />
           </Flex>
           <Flex alignItems="center" flexDirection="column">
-            <InfoTile title="Space stations" />
+            <InfoTile title="Launch facilities" />
             <InfoTile title="Starlink" />
           </Flex>
         </>

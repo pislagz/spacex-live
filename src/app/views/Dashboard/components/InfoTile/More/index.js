@@ -1,8 +1,7 @@
 import React from "react";
 import { Box } from "app/components/common/ui";
-import { InfoItem } from "app/components/InfoTile/InfoItem";
-import { useState } from "react";
-import { IconButton } from "app/components/InfoTile/More/IconButton";
+import { InfoItem } from "../InfoItem";
+import { IconButton } from "../More/IconButton";
 import { Rocket } from "assets/icons/buttons/Rocket";
 import { Landpad } from "assets/icons/buttons/Landpad";
 import { Launchpad } from "assets/icons/buttons/Launchpad";
@@ -11,16 +10,10 @@ import { Payload } from "assets/icons/buttons/Payload";
 import { Customers } from "assets/icons/buttons/Customers";
 
 export const More = ({ details }) => {
-  const [isMore, setIsMore] = useState("true");
-
   return (
     <Box as="details">
-      <Box
-        as="summary"
-        style={{ cursor: "pointer" }}
-        onClick={() => setIsMore(!isMore)}
-      >
-        {isMore ? "more" : "less"}
+      <Box as="summary" style={{ cursor: "pointer" }}>
+        more
       </Box>
       <InfoItem
         label="details"
@@ -41,24 +34,12 @@ export const More = ({ details }) => {
           justifyContent: "space-around",
         }}
       >
-        <li>
-          <IconButton icon={<Rocket />} label={"rocket"} />
-        </li>
-        <li>
-          <IconButton icon={<Landpad />} label={"landpad"} />
-        </li>
-        <li>
-          <IconButton icon={<Launchpad />} label={"launchpad"} />
-        </li>
-        <li>
-          <IconButton icon={<Crew />} label={"crew"} />
-        </li>
-        <li>
-          <IconButton icon={<Payload />} label={"payload"} />
-        </li>
-        <li>
-          <IconButton icon={<Customers />} label={"customers"} />
-        </li>
+        <IconButton icon={<Rocket />} label={"rocket"} />
+        <IconButton icon={<Payload />} label={"payload"} />
+        <IconButton icon={<Crew />} label={"crew"} />
+        <IconButton icon={<Customers />} label={"customers"} />
+        <IconButton icon={<Launchpad />} label={"launchpad"} />
+        <IconButton icon={<Landpad />} label={"landpad"} />
       </ul>
     </Box>
   );

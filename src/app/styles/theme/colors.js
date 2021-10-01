@@ -10,6 +10,7 @@ export const colors = {
     dark: "#333333",
   },
   white: "#fff",
+  transparentWhite: "rgba(255,255,255,0.5)",
 };
 
 export const gradients = {};
