@@ -1,5 +1,5 @@
-import { Flex } from "app/components/common/ui";
 import React from "react";
+import { Flex } from "app/components/common/ui";
 import { Wrapper, Title } from "./styled";
 
 export const Tile = ({ children, title }) => (

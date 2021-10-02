@@ -6,6 +6,12 @@ import { RedditIcon } from "assets/icons/media/RedditIcon";
 import { WikipediaIcon } from "assets/icons/media/WikipediaIcon";
 import { YoutubeIcon } from "assets/icons/media/YoutubeIcon";
 
+export const Wrapper = styled(Flex)``;
+Wrapper.defaultProps = {
+  flexDirection: "column",
+  margin: "5px 0",
+};
+
 export const Info = styled(Box).attrs({ as: "p" })`
   margin: 0;
   padding: 0;

@@ -3,10 +3,12 @@ import { Flex } from "app/components/common/ui";
 import { LaunchTile } from "./components/LaunchTile";
 import { api } from "app/api";
 import { COORDINATES } from "app/constants/coordinates";
+import { FacilitiesTile } from "app/views/Dashboard/components/FacilitiesTile";
 
 export const Dashboard = () => {
   const [nextLaunch, setNextLaunch] = useState({});
   const [prevLaunch, setPrevLaunch] = useState({});
+  const [weather, setWeather] = useState({});
   const [dataState, setDataState] = useState("idle");
 
   const fetchAllData = useCallback(async () => {
@@ -31,6 +33,11 @@ export const Dashboard = () => {
 
       setNextLaunch(nextLaunchResponse);
       setPrevLaunch(prevLaunchResponse);
+      setWeather({
+        canaveral: canaveralResponse,
+        starbase: starbaseResponse.config,
+        vandenberg: vanderbergResponse,
+      });
 
       setDataState("fullfilled");
     } catch (err) {
@@ -51,8 +58,8 @@ export const Dashboard = () => {
             <LaunchTile launch="prev" {...prevLaunch} />
           </Flex>
           <Flex alignItems="center" flexDirection="column">
-            <LaunchTile title="Launch facilities" />
-            <LaunchTile title="Starlink" />
+            <FacilitiesTile title="Launch facilities" data={weather} />
+            <FacilitiesTile title="Starlink" />
           </Flex>
         </>
       )}

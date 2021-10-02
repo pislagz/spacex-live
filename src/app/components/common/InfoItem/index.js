@@ -1,26 +1,27 @@
 import React from "react";
 import { Flex, Box, Image } from "app/components/common/ui";
-import { Info, IconLink } from "./styled";
+import { Info, IconLink, Wrapper } from "./styled";
 import { Label } from "app/components/common/Label";
 import { Falcon9 } from "assets/icons/falcons/Falcon9";
 import { FalconHeavy } from "assets/icons/falcons/FalconHeavy";
-import { fontWeights } from "app/styles/theme/texts";
-import { fontSizes } from "app/styles/theme/texts";
 
-export const InfoItem = (
-  { altPatch, patchUrl, links, info, label, details },
-  props
-) => (
-  <Box m="5px 0" {...props}>
-    <Label>{label}</Label>
+//noUpper prop ensures the label isn't text-transformed with uppercase
+
+export const InfoItem = ({
+  altPatch,
+  patchUrl,
+  links,
+  info,
+  label,
+  details,
+  noUpper,
+  ...props
+}) => (
+  <Wrapper {...props}>
+    <Label noUpper={noUpper}>{label}</Label>
     {info && <Info>{info}</Info>}
     {details && (
-      <Box
-        m="0"
-        as="p"
-        fontSize={fontSizes.xs}
-        fontWeight={fontWeights.light}
-        width="100%">
+      <Box m="0" as="p" fontSize={"xs"} fontWeight={"light"}>
         {details}
       </Box>
     )}
@@ -32,7 +33,8 @@ export const InfoItem = (
         m="0"
         p="0"
         minHeight="20px"
-        alignItems="center">
+        alignItems="center"
+      >
         <IconLink site="wikipedia" link={links?.wikipedia} />
         <IconLink site="youtube" link={links?.youtube} />
         <IconLink site="reddit" link={links?.reddit} />
@@ -49,7 +51,8 @@ export const InfoItem = (
         height="100px"
         p="xs"
         mt="xxs"
-        mb="xs">
+        mb="xs"
+      >
         {patchUrl && (
           <Image
             maxWidth="80%"
@@ -66,5 +69,5 @@ export const InfoItem = (
         ) : null}
       </Flex>
     )}
-  </Box>
+  </Wrapper>
 );
