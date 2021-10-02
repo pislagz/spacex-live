@@ -29,7 +29,7 @@ const getLaunchByFlightNumber = async (flightNumber) =>
     )
   ).data.docs?.[0];
 
-export const api = {
+export const launch = {
   getPrevLaunch,
   getNextLaunch,
   getLaunchByFlightNumber,

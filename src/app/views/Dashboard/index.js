@@ -1,24 +1,33 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { Flex } from "app/components/common/ui";
 import { LaunchTile } from "./components/LaunchTile";
-import { api } from "app/api/launch";
+import { api } from "app/api";
+import { COORDINATES } from "app/constants/coordinates";
 
 export const Dashboard = () => {
   const [nextLaunch, setNextLaunch] = useState({});
   const [prevLaunch, setPrevLaunch] = useState({});
-  // const [customLaunch, setCustomLaunch] = useState({});
   const [dataState, setDataState] = useState("idle");
 
   const fetchAllData = useCallback(async () => {
     setDataState("pending");
 
     try {
-      const [nextLaunchResponse, prevLaunchResponse] = await Promise.all([
-        api.getNextLaunch(),
-        api.getPrevLaunch(),
-        api.getLaunchByFlightNumber(137),
+      const [
+        nextLaunchResponse,
+        prevLaunchResponse,
+        canaveralResponse,
+        starbaseResponse,
+        vanderbergResponse,
+      ] = await Promise.all([
+        api.launch.getNextLaunch(),
+        api.launch.getPrevLaunch(),
+        api.weather.getWeatherData(COORDINATES.CANAVERAL),
+        api.weather.getWeatherData(COORDINATES.STARBASE),
+        api.weather.getWeatherData(COORDINATES.VANDENBERG),
       ]);
       console.log({ prevLaunchResponse, nextLaunchResponse });
+      console.log({ canaveralResponse, starbaseResponse, vanderbergResponse });
 
       setNextLaunch(nextLaunchResponse);
       setPrevLaunch(prevLaunchResponse);
@@ -38,7 +47,6 @@ export const Dashboard = () => {
       {dataState === "fullfilled" && (
         <>
           <Flex alignItems="center" flexDirection="column">
-            {/* <InfoTile title="Custom launch" {...customLaunch} /> */}
             <LaunchTile launch="next" {...nextLaunch} />
             <LaunchTile launch="prev" {...prevLaunch} />
           </Flex>

@@ -1,5 +1,8 @@
-import { starlink } from "./starlink";
+// import { starlink } from "./starlink";
+import { launch } from "app/api/launch";
+import { weather } from "app/api/weather";
 
 export const api = {
-  starlink,
+  launch,
+  weather,
 };
