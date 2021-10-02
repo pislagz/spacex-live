@@ -1,8 +1,14 @@
 import styled from "styled-components";
 import { Flex, Box } from "app/components/common/ui";
-import { colors } from "app/styles/theme/colors";
 import { zIndicies } from "app/styles/theme/zIndicies";
+import { colors } from "app/styles/theme/colors";
 import { sizings } from "app/styles/theme/sizings";
+
+export const Title = styled(Box).attrs({ as: "h3" })``;
+Title.defaultProps = {
+  m: "0",
+  p: "0",
+};
 
 export const Wrapper = styled(Flex).attrs({ as: "article" })`
   color: ${colors.white};
@@ -24,14 +30,3 @@ export const Wrapper = styled(Flex).attrs({ as: "article" })`
     z-index: ${zIndicies.infoTileBlur};
   }
 `;
-
-export const MainTitle = styled(Box).attrs({ as: "h3" })`
-  margin: 0;
-  padding: 0;
-`;
-
-export const Col = styled(Flex).attrs({
-  width: "50%",
-  flexDirection: "column",
-  justifyContent: "space-between",
-})``;

@@ -38,16 +38,15 @@ const Inner = styled(Box)`
       rgba(0, 0, 0, 0) 100%
     );
 
-    ${mediaQuery.max} {
+    ${mediaQuery.xl} {
       position: absolute;
     }
   }
 
-  //adding 110 pixels to make the app feel more reasonable on full hd screens
-  ${mediaQuery.custom(getSanitizedBreakpoint("max") + 110)} {
-    height: 1204px;
+  ${mediaQuery.custom(getSanitizedBreakpoint("xl"))} {
+    height: 900px;
     max-height: 90vh;
-    width: 1920px;
+    width: 1280px;
     position: relative;
     border-radius: ${sizings.radii.md};
     overflow: hidden;
@@ -65,7 +64,7 @@ export const InnerWrapper = ({ children }) => (
       //height set to 100vh to avoid bouncing on mobile toolbars collapse
       height="100vh"
       alt=""
-      position={{ _: "fixed", max: "absolute" }}
+      position={{ _: "fixed", xl: "absolute" }}
       width={{ sm: "100%" }}
       left={{ lg: space.bigSidebar }}
       zIndex={zIndicies.photoBackground}

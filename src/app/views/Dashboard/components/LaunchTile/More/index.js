@@ -1,7 +1,7 @@
 import React from "react";
 import { Box } from "app/components/common/ui";
-import { InfoItem } from "../InfoItem";
-import { IconButton } from "../More/IconButton";
+import { InfoItem } from "app/components/common/InfoItem";
+import { IconButton } from "app/components/common/IconButton";
 import { Rocket } from "assets/icons/buttons/Rocket";
 import { Landpad } from "assets/icons/buttons/Landpad";
 import { Launchpad } from "assets/icons/buttons/Launchpad";
