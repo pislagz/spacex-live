@@ -27,6 +27,6 @@ export const Content = ({ children }) => (
     pl={{ _: "0", lg: "bigSidebar" }}
     justifyContent="center"
   >
-    <Main style={{ overflowY: "scroll" }}>{children}</Main>
+    <Main style={{ overflowY: "auto" }}>{children}</Main>
   </Flex>
 );

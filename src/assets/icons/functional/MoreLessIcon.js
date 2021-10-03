@@ -3,6 +3,8 @@ import React from "react";
 export const MoreLessIcon = () => (
   <svg
     version="1.1"
+    width="18px"
+    height="18px"
     id="Layer_1"
     xmlns="http://www.w3.org/2000/svg"
     x="0px"

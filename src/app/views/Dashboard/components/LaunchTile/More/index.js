@@ -31,7 +31,6 @@ export const More = ({ details }) => {
           padding: "0",
           display: "flex",
           flexWrap: "wrap",
-          justifyContent: "space-around",
         }}
       >
         <IconButton icon={<Rocket />} label={"rocket"} />

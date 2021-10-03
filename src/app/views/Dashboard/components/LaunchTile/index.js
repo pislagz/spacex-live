@@ -4,7 +4,15 @@ import { Tile } from "app/components/common/Tile";
 import { Col } from "./styled";
 import { InfoItem } from "app/components/common/InfoItem";
 import { Human } from "assets/icons/buttons/Human";
-import { More } from "./More";
+import { Dropdown } from "app/views/Dashboard/components/common/Dropdown";
+import { IconButton } from "app/components/common/IconButton";
+import { Payload } from "assets/icons/buttons/Payload";
+import { Crew } from "assets/icons/buttons/Crew";
+import { Customers } from "assets/icons/buttons/Customers";
+import { Launchpad } from "assets/icons/buttons/Launchpad";
+import { Landpad } from "assets/icons/buttons/Landpad";
+import { Rocket } from "assets/icons/buttons/Rocket";
+import { motion } from "framer-motion";
 
 export const LaunchTile = ({
   launch,
@@ -19,6 +27,8 @@ export const LaunchTile = ({
   details,
 }) => (
   <Tile
+    as={motion.div}
+    layout
     title={
       launch === "next"
         ? "Upcoming launch"
@@ -61,6 +71,32 @@ export const LaunchTile = ({
         {!crew?.length && <InfoItem label="launchpad" info={launchpad?.name} />}
       </Col>
     </Flex>
-    <More details={details} />
+    <Dropdown string="more" layout>
+      <InfoItem
+        label="details"
+        fontSize="10px"
+        details={
+          details
+            ? details
+            : "No descriptive details have been provided for this mission."
+        }
+      />
+      <ul
+        style={{
+          listStyle: "none",
+          margin: "0",
+          padding: "0",
+          display: "flex",
+          flexWrap: "wrap",
+        }}
+      >
+        <IconButton icon={<Rocket />} label={"rocket"} />
+        <IconButton icon={<Payload />} label={"payload"} />
+        <IconButton icon={<Crew />} label={"crew"} />
+        <IconButton icon={<Customers />} label={"customers"} />
+        <IconButton icon={<Launchpad />} label={"launchpad"} />
+        <IconButton icon={<Landpad />} label={"landpad"} />
+      </ul>
+    </Dropdown>
   </Tile>
 );

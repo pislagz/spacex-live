@@ -4,7 +4,7 @@ import { colors } from "app/styles/theme/colors";
 import { Label } from "app/components/common/Label";
 
 export const IconButton = ({ icon, label }) => (
-  <Flex as="li" flexDirection="column" alignItems="center" m="5px">
+  <Flex as="li" flexDirection="column" alignItems="center" m="5px" width="91px">
     <Flex
       as="button"
       border="none"
@@ -17,6 +17,8 @@ export const IconButton = ({ icon, label }) => (
     >
       {icon}
     </Flex>
-    <Label fontSize={{ _: "xxs", sm: "xs" }}>{label}</Label>
+    <Label mt="5px" fontSize={{ _: "xxs" }}>
+      {label}
+    </Label>
   </Flex>
 );
