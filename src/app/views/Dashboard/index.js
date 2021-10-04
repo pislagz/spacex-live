@@ -51,7 +51,7 @@ export const Dashboard = () => {
   }, [fetchAllData]);
 
   return (
-    <motion.div layout>
+    <>
       {dataState === "fullfilled" && (
         <>
           <Flex
@@ -69,6 +69,6 @@ export const Dashboard = () => {
           </Flex>
         </>
       )}
-    </motion.div>
+    </>
   );
 };

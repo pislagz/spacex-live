@@ -4,11 +4,13 @@ import { Flex } from "app/components/common/ui";
 import { mediaQuery } from "app/styles/theme/breakpoints";
 import { AnimateSharedLayout, motion } from "framer-motion";
 
-const Main = styled(Flex).attrs({ as: "main" })`
+const Main = styled(motion.div).attrs({ as: "main" })`
+  display: flex;
   width: 100%;
   padding-top: 0;
   flex-wrap: wrap;
   flex-direction: column;
+  overflow-y: auto;
 
   ${mediaQuery.md} {
     justify-content: center;
@@ -28,10 +30,8 @@ export const Content = ({ children }) => (
     pl={{ _: "0", lg: "bigSidebar" }}
     justifyContent="center"
   >
-    <motion.div layout>
-      <AnimateSharedLayout>
-        <Main style={{ overflowY: "auto" }}>{children}</Main>
-      </AnimateSharedLayout>
-    </motion.div>
+    <AnimateSharedLayout>
+      <Main>{children}</Main>
+    </AnimateSharedLayout>
   </Flex>
 );
