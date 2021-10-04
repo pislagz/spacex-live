@@ -2,18 +2,17 @@ import React, { useState } from "react";
 import { MoreLessIcon } from "assets/icons/functional/MoreLessIcon";
 import { Wrapper, Content, Text, Activator, IconWrapper } from "./styled";
 import { AnimatePresence, motion } from "framer-motion";
-import { Box } from "app/components/common/ui";
 
 export const Dropdown = ({ children }) => {
   const [isCollapsed, setIsCollapsed] = useState(true);
 
   return (
     <Wrapper>
-      <Box as={motion.div} layout>
+      <motion.div layout>
         <AnimatePresence>
-          {!isCollapsed && <Content as={motion.div}>{children}</Content>}
+          {!isCollapsed && <Content>{children}</Content>}
         </AnimatePresence>
-      </Box>
+      </motion.div>
       <Activator onClick={() => setIsCollapsed(!isCollapsed)}>
         <IconWrapper isDown={isCollapsed}>
           <MoreLessIcon />

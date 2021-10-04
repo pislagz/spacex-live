@@ -4,7 +4,7 @@ import { LaunchTile } from "./components/LaunchTile";
 import { api } from "app/api";
 import { COORDINATES } from "app/constants/coordinates";
 import { FacilitiesTile } from "app/views/Dashboard/components/FacilitiesTile";
-import { AnimateSharedLayout } from "framer-motion";
+import { motion } from "framer-motion";
 
 export const Dashboard = () => {
   const [nextLaunch, setNextLaunch] = useState({});
@@ -51,14 +51,17 @@ export const Dashboard = () => {
   }, [fetchAllData]);
 
   return (
-    <>
+    <motion.div layout>
       {dataState === "fullfilled" && (
         <>
-          <Flex alignItems="center" flexDirection="column">
-            <AnimateSharedLayout>
-              <LaunchTile launch="next" {...nextLaunch} />
-              <LaunchTile launch="prev" {...prevLaunch} />
-            </AnimateSharedLayout>
+          <Flex
+            as={motion.div}
+            layout
+            alignItems="center"
+            flexDirection="column"
+          >
+            <LaunchTile launch="next" {...nextLaunch} />
+            <LaunchTile launch="prev" {...prevLaunch} />
           </Flex>
           <Flex alignItems="center" flexDirection="column">
             <FacilitiesTile title="Launch facilities" data={weather} />
@@ -66,6 +69,6 @@ export const Dashboard = () => {
           </Flex>
         </>
       )}
-    </>
+    </motion.div>
   );
 };

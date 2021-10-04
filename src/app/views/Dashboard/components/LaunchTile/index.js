@@ -71,7 +71,7 @@ export const LaunchTile = ({
         {!crew?.length && <InfoItem label="launchpad" info={launchpad?.name} />}
       </Col>
     </Flex>
-    <Dropdown string="more" layout>
+    <Dropdown string="more">
       <InfoItem
         label="details"
         fontSize="10px"

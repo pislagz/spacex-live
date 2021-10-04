@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Flex } from "app/components/common/ui";
 import { mediaQuery } from "app/styles/theme/breakpoints";
+import { AnimateSharedLayout, motion } from "framer-motion";
 
 const Main = styled(Flex).attrs({ as: "main" })`
   width: 100%;
@@ -27,6 +28,10 @@ export const Content = ({ children }) => (
     pl={{ _: "0", lg: "bigSidebar" }}
     justifyContent="center"
   >
-    <Main style={{ overflowY: "auto" }}>{children}</Main>
+    <motion.div layout>
+      <AnimateSharedLayout>
+        <Main style={{ overflowY: "auto" }}>{children}</Main>
+      </AnimateSharedLayout>
+    </motion.div>
   </Flex>
 );
