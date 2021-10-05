@@ -42,7 +42,8 @@ export const Sidebar = ({ isMobileMenuVisible, setIsMobileMenuVisible }) => {
             minWidth={{ _: "14rem" }}
             maxWidth={{ lg: "bigSidebar" }}
             right={{ _: "0", lg: "unset" }}
-            left={{ _: "unset", lg: "0" }}>
+            left={{ _: "unset", lg: "0" }}
+          >
             {size.width >= getSanitizedBreakpoint("lg") ? null : (
               <CloseWrapper>
                 <CloseButton onClick={() => setIsMobileMenuVisible(false)}>
@@ -58,7 +59,8 @@ export const Sidebar = ({ isMobileMenuVisible, setIsMobileMenuVisible }) => {
                   <ListElement key={route.name}>
                     <NavLink
                       to={`${route.route}`}
-                      onClick={() => setIsMobileMenuVisible(false)}>
+                      onClick={() => setIsMobileMenuVisible(false)}
+                    >
                       {route.name}
                     </NavLink>
                   </ListElement>

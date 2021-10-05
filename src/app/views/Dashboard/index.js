@@ -4,7 +4,6 @@ import { LaunchTile } from "./components/LaunchTile";
 import { api } from "app/api";
 import { COORDINATES } from "app/constants/coordinates";
 import { FacilitiesTile } from "app/views/Dashboard/components/FacilitiesTile";
-import { motion } from "framer-motion";
 
 export const Dashboard = () => {
   const [nextLaunch, setNextLaunch] = useState({});
@@ -54,12 +53,7 @@ export const Dashboard = () => {
     <>
       {dataState === "fullfilled" && (
         <>
-          <Flex
-            as={motion.div}
-            layout
-            alignItems="center"
-            flexDirection="column"
-          >
+          <Flex alignItems="center" flexDirection="column">
             <LaunchTile launch="next" {...nextLaunch} />
             <LaunchTile launch="prev" {...prevLaunch} />
           </Flex>

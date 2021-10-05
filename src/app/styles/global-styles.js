@@ -29,4 +29,8 @@ body {
 	width: 100%;
 }
 
+.ReactCollapse--collapse {
+  transition: height 500ms;
+}
+
 `;
