@@ -20,7 +20,7 @@ export const Dashboard = () => {
         prevLaunchResponse,
         canaveralResponse,
         starbaseResponse,
-        vanderbergResponse,
+        vandenbergResponse,
       ] = await Promise.all([
         api.launch.getNextLaunch(),
         api.launch.getPrevLaunch(),
@@ -29,14 +29,14 @@ export const Dashboard = () => {
         api.weather.getWeatherData(COORDINATES.VANDENBERG),
       ]);
       console.log({ prevLaunchResponse, nextLaunchResponse });
-      console.log({ canaveralResponse, starbaseResponse, vanderbergResponse });
+      console.log({ canaveralResponse, starbaseResponse, vandenbergResponse });
 
       setNextLaunch(nextLaunchResponse);
       setPrevLaunch(prevLaunchResponse);
       setWeather({
         canaveral: canaveralResponse,
-        starbase: starbaseResponse.config,
-        vandenberg: vanderbergResponse,
+        starbase: starbaseResponse,
+        vandenberg: vandenbergResponse,
       });
 
       setDataState("fullfilled");

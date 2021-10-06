@@ -21,7 +21,8 @@ Text.defaultProps = {
 export const Activator = styled(Flex).attrs({ as: "button" })`
   padding: 0;
   margin: 0;
-  margin-top: 5px;
+  margin-top: 10px;
+  margin-bottom: -15px;
   cursor: pointer;
   background-color: transparent;
   border: none;

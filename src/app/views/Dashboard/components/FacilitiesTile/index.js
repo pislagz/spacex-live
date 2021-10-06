@@ -1,13 +1,33 @@
 import React from "react";
 import { Tile } from "app/components/common/Tile";
-import { Flex } from "app/components/common/ui";
 import { Facility } from "app/views/Dashboard/components/FacilitiesTile/Facility";
+import { Dropdown } from "app/views/Dashboard/components/common/Dropdown";
+import { pics } from "app/views/Dashboard/components/FacilitiesTile/Facility/links";
 
-export const FacilitiesTile = ({ title }) => (
+export const FacilitiesTile = ({ title, data }) => (
   <Tile title={title}>
-    <Flex flexDirection="column">
-      <Facility image={"https://i.imgur.com/asp5L08.png"} />
-      <Facility image={"https://i.imgur.com/9oEMXwa.png"} />
-    </Flex>
+    <Facility
+      name="Cape Canaveral"
+      label="LC-39A & SLC-40"
+      image={pics.canaveral}
+      data={data?.canaveral}
+      region="Florida"
+    />
+    <Facility
+      name="Starbase Boca Chica"
+      label="Starship Launch Facility"
+      image={pics.starbase}
+      data={data?.starbase}
+      region="Texas"
+    />
+    <Dropdown>
+      <Facility
+        name="Vandenerg Base"
+        label="USSF Launch Complex 4E"
+        image={pics.vandenberg}
+        data={data?.vandenberg}
+        region="California"
+      />
+    </Dropdown>
   </Tile>
 );

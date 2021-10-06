@@ -4,12 +4,15 @@ import { zIndicies } from "app/styles/theme/zIndicies";
 import { radii } from "app/styles/theme/sizings";
 
 const Wrap = styled(Flex)`
+  /* Webkit border radius with overflow hidden fix*/
+  transform: translateZ(0);
+
   flex-direction: column;
   position: relative;
   margin-top: 1rem;
   border-radius: ${radii.md};
   overflow: hidden;
-  height: 120px;
+  /* height: 120px; */
 
   &:after {
     width: 100%;
@@ -39,6 +42,7 @@ const Picture = styled(Image)`
 
 export const Row = styled(Flex)``;
 export const Col = styled(Flex)``;
+export const Padder = styled(Box)``;
 
 export const Wrapper = ({ children, image }) => (
   <Wrap position="relative">
