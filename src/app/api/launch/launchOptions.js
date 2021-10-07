@@ -2,6 +2,7 @@ export const getLaunchOptions = ({ isUpcoming, sortDir }) => {
   return {
     query: {
       upcoming: isUpcoming,
+      date_precision: "hour",
     },
     options: {
       limit: 1,
@@ -13,6 +14,7 @@ export const getLaunchOptions = ({ isUpcoming, sortDir }) => {
         id: 1,
         date_local: 1,
         date_utc: 1,
+        date_unix: 1,
         flight_number: 1,
         details: 1,
         links: 1,
