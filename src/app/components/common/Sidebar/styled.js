@@ -1,4 +1,4 @@
-import { Box } from "app/components/common/ui";
+import { Box, Flex, Text } from "app/components/common/ui";
 import { Button } from "app/components/common/ui/Button";
 import { fontWeights } from "app/styles/theme/texts";
 import styled from "styled-components";
@@ -85,3 +85,14 @@ export const animations = {
     exit: { x: "100%" },
   },
 };
+
+export const Footer = ({ ...props }) => (
+  <Flex flexDirection="column" {...props}>
+    <Text fontWeight="light">
+      Made by <b>Pawel Pisulski</b>
+    </Text>
+    <Text fontWeight="light">
+      visit <b>pawelpisulski.pl</b>
+    </Text>
+  </Flex>
+);

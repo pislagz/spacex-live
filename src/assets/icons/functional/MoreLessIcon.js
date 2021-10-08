@@ -1,6 +1,6 @@
 import React from "react";
 
-export const MoreLessIcon = () => (
+export const MoreLessIcon = ({ fill = "#fff" }) => (
   <svg
     version="1.1"
     width="18px"
@@ -10,7 +10,7 @@ export const MoreLessIcon = () => (
     x="0px"
     y="0px"
     viewBox="0 0 512 512"
-    fill="#fff"
+    fill={fill}
   >
     <path
       d="M256,0C114.837,0,0,114.837,0,256s114.837,256,256,256s256-114.837,256-256S397.163,0,256,0z M335.083,271.083
