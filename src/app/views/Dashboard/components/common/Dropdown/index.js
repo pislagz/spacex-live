@@ -19,7 +19,7 @@ export const Dropdown = ({
         <Content>{children}</Content>
       </UnmountClosed>
       <Activator onClick={() => setIsCollapsed(!isCollapsed)}>
-        <IconWrapper isDown={isCollapsed}>
+        <IconWrapper isDown={revertArrow ? !isCollapsed : isCollapsed}>
           <MoreLessIcon fill={isBlack && "#000"} />
         </IconWrapper>
         <Text color={isBlack && "#000"}>{isCollapsed ? more : less}</Text>
