@@ -1,7 +1,7 @@
 import React from "react";
 import { Tile } from "app/components/common/Tile";
 import { Facility } from "app/views/Dashboard/components/FacilitiesTile/Facility";
-import { Dropdown } from "app/views/Dashboard/components/common/Dropdown";
+import { Dropdown } from "app/components/common/Dropdown";
 import { pics } from "app/views/Dashboard/components/FacilitiesTile/Facility/links";
 
 export const FacilitiesTile = ({ title, data }) => (
@@ -23,7 +23,7 @@ export const FacilitiesTile = ({ title, data }) => (
     <Dropdown>
       <Facility
         name="Vandenerg Base"
-        label="USSF Launch Complex 4E"
+        label="USSF SLC-4E"
         image={pics.vandenberg}
         data={data?.vandenberg}
         region="California"

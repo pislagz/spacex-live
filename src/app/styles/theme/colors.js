@@ -9,6 +9,9 @@ export const colors = {
     mediumDark: "#84858A",
     dark: "#333333",
   },
+  blue: {
+    sky: "#4f95ff",
+  },
   white: "#fff",
   transparentWhite: "rgba(255,255,255,0.5)",
 };

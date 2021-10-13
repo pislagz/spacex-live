@@ -4,7 +4,7 @@ import { Tile } from "app/components/common/Tile";
 import { Col } from "./styled";
 import { InfoItem } from "app/components/common/InfoItem";
 import { Human } from "assets/icons/buttons/Human";
-import { Dropdown } from "app/views/Dashboard/components/common/Dropdown";
+import { Dropdown } from "app/components/common/Dropdown";
 import { IconButton } from "app/components/common/IconButton";
 import { Payload } from "assets/icons/buttons/Payload";
 import { Crew } from "assets/icons/buttons/Crew";

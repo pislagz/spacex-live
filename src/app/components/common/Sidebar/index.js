@@ -1,15 +1,5 @@
 import React from "react";
-import {
-  Wrapper,
-  List,
-  ListElement,
-  NavLink,
-  CloseWrapper,
-  CloseButton,
-  Overlay,
-  animations,
-  Footer,
-} from "./styled";
+import { S } from "./styled";
 import {
   getSanitizedBreakpoint,
   largeWidth,
@@ -19,8 +9,9 @@ import { CloseIcon } from "assets/icons/functional/CloseIcon";
 import { ROUTES } from "app/constants/routes";
 import { useWindowSize } from "app/hooks/useWindowSize";
 import { AnimatePresence, motion } from "framer-motion";
-import { Dropdown } from "app/views/Dashboard/components/common/Dropdown";
+import { Dropdown } from "app/components/common/Dropdown";
 import { Flex } from "app/components/common/ui";
+import { UnitSwitcher } from "app/components/common/UnitSwitcher";
 
 export const Sidebar = ({ isMobileMenuVisible, setIsMobileMenuVisible }) => {
   const size = useWindowSize();
@@ -32,16 +23,16 @@ export const Sidebar = ({ isMobileMenuVisible, setIsMobileMenuVisible }) => {
       {isVisible && (
         <>
           {size.width < getSanitizedBreakpoint("lg") && (
-            <Overlay
+            <S.Overlay
               as={motion.div}
               onClick={() => setIsMobileMenuVisible(false)}
-              {...animations.overlay}
+              {...S.animations.overlay}
             />
           )}
-          <Wrapper
+          <S.Wrapper
             as={size.width >= getSanitizedBreakpoint("lg") ? "div" : motion.div}
-            {...animations.sidebar}
-            p={{ _: "4rem 1rem 0 2rem" }}
+            {...S.animations.sidebar}
+            p={{ _: "4rem 2rem 0 2rem" }}
             minWidth={{ _: "14rem" }}
             maxWidth={{ lg: "bigSidebar" }}
             right={{ _: "0", lg: "unset" }}
@@ -50,44 +41,41 @@ export const Sidebar = ({ isMobileMenuVisible, setIsMobileMenuVisible }) => {
           >
             <Flex flexDirection="column" height="100%">
               {size.width >= getSanitizedBreakpoint("lg") ? null : (
-                <CloseWrapper>
-                  <CloseButton onClick={() => setIsMobileMenuVisible(false)}>
+                <S.CloseWrapper>
+                  <S.CloseButton onClick={() => setIsMobileMenuVisible(false)}>
                     <CloseIcon />
-                  </CloseButton>
-                </CloseWrapper>
+                  </S.CloseButton>
+                </S.CloseWrapper>
               )}
               <Logo fill={"black"} />
 
               <nav>
-                <List fontSize="lg">
+                <S.List fontSize="lg">
                   {ROUTES.map((route) => (
-                    <ListElement key={route.name}>
-                      <NavLink
+                    <S.ListElement key={route.name}>
+                      <S.NavLink
                         to={`${route.route}`}
                         onClick={() => setIsMobileMenuVisible(false)}
                       >
                         {route.name}
-                      </NavLink>
-                    </ListElement>
+                      </S.NavLink>
+                    </S.ListElement>
                   ))}
-                </List>
+                </S.List>
               </nav>
               <Dropdown
                 marginTop="auto"
                 marginBottom="md"
                 more="settings"
-                bg="lightgrey"
                 less="hide"
                 isBlack
                 revertArrow
               >
-                windspeed
-                <br />
-                temp
+                <UnitSwitcher />
               </Dropdown>
-              <Footer marginBottom="md" />
+              <S.Footer marginBottom="md" />
             </Flex>
-          </Wrapper>
+          </S.Wrapper>
         </>
       )}
     </AnimatePresence>

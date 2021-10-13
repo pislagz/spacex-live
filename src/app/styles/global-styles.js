@@ -1,3 +1,4 @@
+import { colors } from "app/styles/theme/colors";
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
@@ -20,6 +21,7 @@ body {
     width: 100%;
 	overflow-x: hidden;
 	overscroll-behavior-y: none;
+	color: ${colors.black.dark}
 }
 
 
