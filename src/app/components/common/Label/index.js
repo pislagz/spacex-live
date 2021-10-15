@@ -11,7 +11,7 @@ const Wrapper = styled(Box).attrs({ as: "h4" })`
 Wrapper.defaultProps = {
   color: "transparentWhite",
   fontWeight: "normal",
-  fontSize: "xs",
+  fontSize: "xxs",
   margin: "0",
   padding: "0",
 };

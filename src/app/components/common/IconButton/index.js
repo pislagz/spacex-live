@@ -50,7 +50,7 @@ export const IconButton = ({ icon, label }) => {
       >
         {icon}
       </Flex>
-      <Label mt="5px" fontSize={{ _: "xxxs", md: "xxs" }}>
+      <Label mt="xxs" fontSize={{ _: "xxxs", md: "xxs" }}>
         {label}
       </Label>
     </Flex>
