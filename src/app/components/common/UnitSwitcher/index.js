@@ -8,9 +8,12 @@ import { UNITS } from "app/redux/reducers/unitReducer";
 export const UnitSwitcher = () => {
   const units = useSelector(selectUnit);
   const dispatch = useDispatch();
-  const handleUnitChange = (param, unit) =>
+  const handleUnitChange = (param, unit) => {
     dispatch(setUnit({ param: param, unit: unit }));
-  console.log(units);
+
+    localStorage.setItem(`${param}Saved`, unit);
+    console.log(units);
+  };
 
   return (
     <>

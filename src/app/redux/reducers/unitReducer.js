@@ -11,11 +11,14 @@ export const UNITS = {
   },
 };
 
+const tempSaved = localStorage.getItem("tempSaved");
+const windspeedSaved = localStorage.getItem("windspeedSaved");
+
 export const unitSlice = createSlice({
   name: "units",
   initialState: {
-    temp: UNITS.temp.celsius,
-    windspeed: UNITS.windspeed.ms,
+    temp: tempSaved ? tempSaved : UNITS.temp.celsius,
+    windspeed: windspeedSaved ? windspeedSaved : UNITS.windspeed.ms,
   },
 
   reducers: {
