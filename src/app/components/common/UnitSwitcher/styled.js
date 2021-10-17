@@ -2,9 +2,8 @@ import styled from "styled-components";
 import { Flex } from "app/components/common/ui";
 import { colors } from "app/styles/theme/colors";
 
-export const S = {
+const S = {
   Switch: styled(Flex).attrs({
-    bg: "gray.medium",
     borderRadius: "sm",
     overflow: "hidden",
   })`
@@ -16,9 +15,21 @@ export const S = {
     flexBasis: "50%",
     padding: "xxs",
   })`
+    background: ${({ isActive }) =>
+      isActive ? colors.blue.sky : colors.gray.medium};
+    color: ${({ isActive }) => (isActive ? colors.white : colors.black.dark)};
+
     &:hover {
+      background: ${({ isActive }) =>
+        isActive ? colors.blue.sky : colors.blue.light};
+      color: ${colors.white};
+    }
+
+    &:active {
       background: ${colors.blue.sky};
       color: ${colors.white};
     }
   `,
 };
+
+export default S;

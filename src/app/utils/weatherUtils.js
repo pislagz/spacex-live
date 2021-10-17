@@ -8,8 +8,8 @@ const convertKelvin = (temp, unit) =>
 const displayWindSpeed = (windspeed, unit) =>
   unit === "m/s"
     ? `${Math.round(windspeed)} m/s`
-    : unit === "knot"
-    ? `${Math.round(windspeed * 1.943844)} knt`
+    : unit === "kt"
+    ? `${Math.round(windspeed * 1.943844)} kt`
     : "Wrong wind syntax!";
 
 export const weatherUtils = {
