@@ -12,7 +12,6 @@ export const UnitSwitcher = () => {
     dispatch(setUnit({ param: param, unit: unit }));
 
     localStorage.setItem(`${param}Saved`, unit);
-    console.log(units);
   };
 
   return (

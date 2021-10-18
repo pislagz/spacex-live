@@ -1,64 +1,29 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect } from "react";
 import { Flex } from "app/components/common/ui";
 import { LaunchTile } from "./components/LaunchTile";
-import { api } from "app/api";
-import { COORDINATES } from "app/constants/coordinates";
 import { FacilitiesTile } from "app/views/Dashboard/components/FacilitiesTile";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchDashboardData } from "app/redux/actions/dashboard";
+import { selectDashboard } from "app/redux/selectors";
 
 export const Dashboard = () => {
-  const [nextLaunch, setNextLaunch] = useState({});
-  const [prevLaunch, setPrevLaunch] = useState({});
-  const [weather, setWeather] = useState({});
-  const [dataState, setDataState] = useState("idle");
-
-  const fetchAllData = useCallback(async () => {
-    setDataState("pending");
-
-    try {
-      const [
-        nextLaunchResponse,
-        prevLaunchResponse,
-        canaveralResponse,
-        starbaseResponse,
-        vandenbergResponse,
-      ] = await Promise.all([
-        api.launch.getNextLaunch(),
-        api.launch.getPrevLaunch(),
-        api.weather.getWeatherData(COORDINATES.CANAVERAL),
-        api.weather.getWeatherData(COORDINATES.STARBASE),
-        api.weather.getWeatherData(COORDINATES.VANDENBERG),
-      ]);
-      console.log({ prevLaunchResponse, nextLaunchResponse });
-      console.log({ canaveralResponse, starbaseResponse, vandenbergResponse });
-
-      setNextLaunch(nextLaunchResponse);
-      setPrevLaunch(prevLaunchResponse);
-      setWeather({
-        canaveral: canaveralResponse,
-        starbase: starbaseResponse,
-        vandenberg: vandenbergResponse,
-      });
-
-      setDataState("fullfilled");
-    } catch (err) {
-      console.log(err);
-    }
-  }, []);
+  const dispatch = useDispatch();
+  const data = useSelector(selectDashboard);
 
   useEffect(() => {
-    fetchAllData();
-  }, [fetchAllData]);
+    dispatch(fetchDashboardData());
+  }, [dispatch]);
 
   return (
     <>
-      {dataState === "fullfilled" && (
+      {data.status === "success" && (
         <>
           <Flex alignItems="center" flexDirection="column">
-            <LaunchTile launch="next" {...nextLaunch} />
-            <LaunchTile launch="prev" {...prevLaunch} />
+            <LaunchTile launch="next" {...data.launches.nextLaunch} />
+            <LaunchTile launch="prev" {...data.launches.prevLaunch} />
           </Flex>
           <Flex alignItems="center" flexDirection="column">
-            <FacilitiesTile title="Launch facilities" data={weather} />
+            <FacilitiesTile title="Launch facilities" data={data.weather} />
             <FacilitiesTile title="Starlink" />
           </Flex>
         </>
