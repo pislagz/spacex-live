@@ -7,6 +7,7 @@ import { sizings } from "app/styles/theme/sizings";
 export const Title = styled(Box).attrs({ as: "h3" })``;
 Title.defaultProps = {
   m: "0",
+  marginBottom: "0.5rem",
   p: "0",
 };
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { S } from "./styled";
+import S from "./styled";
 import {
   getSanitizedBreakpoint,
   largeWidth,

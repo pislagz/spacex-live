@@ -9,7 +9,6 @@ const Wrap = styled(Flex)`
 
   flex-direction: column;
   position: relative;
-  margin-top: 1rem;
   border-radius: ${radii.md};
   overflow: hidden;
   /* height: 120px; */
@@ -27,16 +26,20 @@ const Wrap = styled(Flex)`
     background: linear-gradient(
       180deg,
       rgba(0, 0, 0, 0.6) 0%,
-      rgba(0, 0, 0, 0) 100%
+      rgba(0, 0, 0, 0.1) 100%
     );
   }
 `;
+
+Wrap.defaultProps = {
+  marginTop: "1rem",
+};
 
 const Picture = styled(Image)`
   position: absolute;
   width: 100%;
   object-fit: cover;
-  object-position: bottom;
+  bottom: -50px;
   z-index: ${zIndicies.facilityBackground};
 `;
 
@@ -44,8 +47,8 @@ export const Row = styled(Flex)``;
 export const Col = styled(Flex)``;
 export const Padder = styled(Box)``;
 
-export const Wrapper = ({ children, image }) => (
-  <Wrap position="relative">
+export const Wrapper = ({ children, image, ...props }) => (
+  <Wrap position="relative" {...props}>
     <Box zIndex={zIndicies.content}>{children}</Box>
     <Picture src={image} />
   </Wrap>

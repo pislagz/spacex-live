@@ -9,9 +9,8 @@ export const IconButton = ({ icon, label, onClick }) => {
       as="li"
       flexDirection="column"
       alignItems="center"
-      m="5px"
-      width={{ _: "74px", md: "91px" }}
-      onClick={onClick}
+      m="10px 5px"
+      width={{ _: "91px", md: "88px", xl: "111px" }}
     >
       <Flex
         as="button"
@@ -22,6 +21,7 @@ export const IconButton = ({ icon, label, onClick }) => {
         height="40px"
         alignItems="center"
         justifyContent="center"
+        onClick={onClick}
         style={{ cursor: "pointer" }}
       >
         {icon}

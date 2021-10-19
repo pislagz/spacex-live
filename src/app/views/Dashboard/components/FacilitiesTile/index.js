@@ -12,6 +12,7 @@ export const FacilitiesTile = ({ title, data }) => (
       image={pics.canaveral}
       data={data?.canaveral}
       region="Florida"
+      marginTop="0"
     />
     <Facility
       name="Starbase Boca Chica"

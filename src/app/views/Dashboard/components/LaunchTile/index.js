@@ -40,7 +40,7 @@ export const LaunchTile = ({
             : "Rocket launch"
         }
       >
-        <Flex mt="1rem" width={"100%"} flexDirection="row">
+        <Flex width={"100%"} flexDirection="row">
           <Col>
             <InfoItem label="mission name" info={missionName} />
             <InfoItem label="rocket" info={rocket?.name} />
@@ -101,6 +101,7 @@ export const LaunchTile = ({
                   onClick={() => dispatch(openModal({ type: `${label}` }))}
                   icon={<Icon />}
                   label={label}
+                  key={`${label}ButtonMapKey`}
                 />
               );
             })}
@@ -115,6 +116,7 @@ export const LaunchTile = ({
             <Modal
               isOpen={modal.isOpen}
               closeModal={() => dispatch(closeModal())}
+              key={`${label}VerifyMapKey`}
             />
           )
         );

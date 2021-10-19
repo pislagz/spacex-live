@@ -1,6 +1,7 @@
 export const zIndicies = {
-  sidebar: 4,
-  sidebarOverlay: 3,
+  sidebar: 5,
+  sidebarOverlay: 4,
+  header: 3,
   content: 2,
   facilityGradient: 0,
   absoluteBg: 0,

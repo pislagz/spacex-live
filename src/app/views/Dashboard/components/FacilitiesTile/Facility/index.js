@@ -5,12 +5,12 @@ import { weatherUtils } from "app/utils/weatherUtils";
 import { selectUnit } from "app/redux/selectors";
 import { useSelector } from "react-redux";
 
-export const Facility = ({ image, data, name, label, region }) => {
+export const Facility = ({ image, data, name, label, region, ...props }) => {
   const units = useSelector(selectUnit);
 
   return (
-    <Wrapper image={image}>
-      <Padder p="0.5rem">
+    <Wrapper image={image} {...props}>
+      <Padder p="0.5rem 1rem">
         <Row justifyContent="space-between">
           <Col>
             <InfoItem
@@ -18,6 +18,7 @@ export const Facility = ({ image, data, name, label, region }) => {
               label={label}
               info={name}
               noUpper
+              m="0"
             />
           </Col>
           <Col>
@@ -28,8 +29,9 @@ export const Facility = ({ image, data, name, label, region }) => {
           <InfoItem
             label="temp"
             info={weatherUtils.convertKelvin(data?.main?.temp, units.temp)}
+            m="0"
           />
-          <InfoItem label="weather" info={data?.weather[0]?.main} />
+          <InfoItem label="weather" info={data?.weather[0]?.main} m="0" />
           <InfoItem
             alignItems="flex-end"
             label="wind"
@@ -37,6 +39,7 @@ export const Facility = ({ image, data, name, label, region }) => {
               data?.wind?.speed,
               units.windspeed
             )}
+            m="0"
           />
         </Row>
       </Padder>

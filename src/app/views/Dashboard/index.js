@@ -5,6 +5,7 @@ import { FacilitiesTile } from "app/views/Dashboard/components/FacilitiesTile";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchDashboardData } from "app/redux/actions/dashboard";
 import { selectDashboard } from "app/redux/selectors";
+import { Centerer } from "app/views/Dashboard/components/Centerer";
 
 export const Dashboard = () => {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ export const Dashboard = () => {
 
   return (
     <>
+      <Centerer />
       {data.status === "success" && (
         <>
           <Flex alignItems="center" flexDirection="column">

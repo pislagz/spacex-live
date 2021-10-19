@@ -56,6 +56,7 @@ const Inner = styled(Box)`
 
 const Picture = styled(Image)`
   object-fit: cover;
+  object-position: bottom;
 `;
 
 export const InnerWrapper = ({ children }) => (

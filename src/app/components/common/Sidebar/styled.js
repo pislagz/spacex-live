@@ -8,10 +8,11 @@ import { colors } from "app/styles/theme/colors";
 import { mediaQuery } from "app/styles/theme/breakpoints";
 import { sizings } from "app/styles/theme/sizings";
 
-export const S = {
+const S = {
   Wrapper: styled(Box)`
     z-index: ${zIndicies.sidebar};
     height: 100%;
+    min-height: 520px;
     background: ${colors.white};
     position: fixed;
     right: 0;
@@ -91,3 +92,5 @@ export const S = {
     </Flex>
   ),
 };
+
+export default S;
