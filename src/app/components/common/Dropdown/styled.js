@@ -5,7 +5,10 @@ import { fontSizes, fontWeights } from "app/styles/theme/texts";
 export const Wrapper = styled(Flex)``;
 Wrapper.defaultProps = {
   flexDirection: "column",
-  marginBottom: "-15px",
+  marginBottom: "-5px",
+
+  //push dropdown to the bottom & avoid floating during opening/collapse
+  marginTop: "auto",
 };
 
 export const Content = styled(Flex)``;
@@ -30,7 +33,6 @@ export const Activator = styled(Flex).attrs({ as: "button" })`
   font-size: ${fontSizes.md};
   font-weight: ${fontWeights.bold};
   align-items: center;
-  margin-top: 10px;
 `;
 
 export const IconWrapper = styled(Flex)`

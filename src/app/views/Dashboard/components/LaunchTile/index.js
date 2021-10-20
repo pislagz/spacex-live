@@ -11,12 +11,14 @@ import { selectModal } from "app/redux/selectors";
 import { openModal, closeModal } from "app/redux/reducers/modalReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { CONFIG } from "app/views/Dashboard/components/LaunchTile/config";
+import { showDate, dateFormats } from "app/utils/parseDate";
 
 export const LaunchTile = ({
   launch,
   name: missionName,
   flight_number: flightNo,
   date_utc: dateUTC,
+  date_precision: datePrecision,
   links,
   rocket,
   crew,
@@ -45,7 +47,10 @@ export const LaunchTile = ({
             <InfoItem label="mission name" info={missionName} />
             <InfoItem label="rocket" info={rocket?.name} />
             <InfoItem label="flight number" info={flightNo} />
-            <InfoItem label="time" info={String(dateUTC).slice(0, 10)} />
+            <InfoItem
+              label="time (utc)"
+              info={showDate(dateUTC, dateFormats[datePrecision])}
+            />
             <InfoItem
               label="links"
               links={{

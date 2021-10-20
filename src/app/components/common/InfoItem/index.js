@@ -22,7 +22,7 @@ export const InfoItem = ({
     {info && <Info>{info}</Info>}
     {details && (
       <Box m="0" as="p" fontSize={"xs"} fontWeight={"light"}>
-        {details}s
+        {details}
       </Box>
     )}
 

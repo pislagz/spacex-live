@@ -39,7 +39,7 @@ const Picture = styled(Image)`
   position: absolute;
   width: 100%;
   object-fit: cover;
-  bottom: -50px;
+  bottom: -30px;
   z-index: ${zIndicies.facilityBackground};
 `;
 
@@ -49,7 +49,9 @@ export const Padder = styled(Box)``;
 
 export const Wrapper = ({ children, image, ...props }) => (
   <Wrap position="relative" {...props}>
-    <Box zIndex={zIndicies.content}>{children}</Box>
+    <Box zIndex={zIndicies.content}>
+      <Padder p="0.5rem 1rem">{children}</Padder>
+    </Box>
     <Picture src={image} />
   </Wrap>
 );

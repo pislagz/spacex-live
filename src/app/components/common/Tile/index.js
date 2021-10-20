@@ -6,8 +6,8 @@ export const Tile = ({ children, title }) => (
   <Wrapper
     m={{ _: "0.5rem", md: "0.6rem" }}
     p={{ _: "1.5rem", md: "1.75rem" }}
-    width={{ _: "300px", sm: "352px", xl: "420px" }}
-    minHeight="333px"
+    width={{ _: "300px", sm: "380px", lg: "310", xl: "420px" }}
+    minHeight={{ _: "unset", md: "338px" }}
   >
     <Flex flexDirection="column" width="100%">
       <Title>{title}</Title>

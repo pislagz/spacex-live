@@ -28,6 +28,7 @@ export const FacilitiesTile = ({ title, data }) => (
         image={pics.vandenberg}
         data={data?.vandenberg}
         region="California"
+        marginBottom="xs"
       />
     </Dropdown>
   </Tile>
