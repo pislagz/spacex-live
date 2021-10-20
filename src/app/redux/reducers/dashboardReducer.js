@@ -6,6 +6,7 @@ export const dashboardSlice = createSlice({
   initialState: {
     launches: {},
     weather: {},
+    starlink: {},
     status: "loading",
   },
   extraReducers: {
@@ -16,6 +17,7 @@ export const dashboardSlice = createSlice({
       state.status = "success";
       state.launches = action.payload.launches;
       state.weather = action.payload.weather;
+      state.starlink = action.payload.starlink;
     },
     [actions.dashboard.fetchDashboardData.rejected]: (state, action) => {
       state.status = "failed";

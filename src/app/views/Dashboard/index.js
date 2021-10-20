@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchDashboardData } from "app/redux/actions/dashboard";
 import { selectDashboard } from "app/redux/selectors";
 import { Centerer } from "app/views/Dashboard/components/Centerer";
+import { StarlinkTile } from "app/views/Dashboard/components/StarlinkTile";
 
 export const Dashboard = () => {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ export const Dashboard = () => {
           </Flex>
           <Flex alignItems="center" flexDirection="column">
             <FacilitiesTile title="Launch facilities" data={data.weather} />
-            <FacilitiesTile title="Starlink" />
+            <StarlinkTile title="Starlink" count={data.starlink.activeCount} />
           </Flex>
         </>
       )}

@@ -35,4 +35,17 @@ body {
   transition: height 500ms;
 }
 
+.blinking-light {
+	@keyframes blink {
+		0% {
+		}
+
+		100% {
+			fill: rgba(255,255,255,0);
+		}
+	}
+
+	animation: blink 2s infinite;
+}
+
 `;

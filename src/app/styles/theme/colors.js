@@ -13,6 +13,11 @@ export const colors = {
     light: "#7db1ff",
     sky: "#4f95ff",
   },
+  blinkingLight: {
+    on: "#00EC09",
+    alert: "#ffd026",
+    off: "#ff1d0d",
+  },
   white: "#fff",
   transparentWhite: "rgba(255,255,255,0.5)",
 };

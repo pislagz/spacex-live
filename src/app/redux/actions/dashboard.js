@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { api } from "app/api";
 import { COORDINATES } from "app/constants/coordinates";
+import { api } from "app/api";
 
 export const fetchDashboardData = createAsyncThunk(
   "dashboard/data",
@@ -11,16 +11,19 @@ export const fetchDashboardData = createAsyncThunk(
       canaveralResponse,
       starbaseResponse,
       vandenbergResponse,
+      starlinkCountResponse,
     ] = await Promise.all([
       api.launch.getNextLaunch(),
       api.launch.getPrevLaunch(),
       api.weather.getWeatherData(COORDINATES.CANAVERAL),
       api.weather.getWeatherData(COORDINATES.STARBASE),
       api.weather.getWeatherData(COORDINATES.VANDENBERG),
+      api.starlink.getActiveCount(),
     ]);
 
     console.log({ prevLaunchResponse, nextLaunchResponse });
     console.log({ canaveralResponse, starbaseResponse, vandenbergResponse });
+    console.log({ activeStarlinks: starlinkCountResponse });
 
     return {
       launches: {
@@ -31,6 +34,9 @@ export const fetchDashboardData = createAsyncThunk(
         canaveral: canaveralResponse,
         starbase: starbaseResponse,
         vandenberg: vandenbergResponse,
+      },
+      starlink: {
+        activeCount: starlinkCountResponse,
       },
     };
   }

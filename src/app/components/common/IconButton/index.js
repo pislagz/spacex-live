@@ -1,5 +1,6 @@
 import React from "react";
 import { Flex } from "app/components/common/ui";
+import styled from "styled-components";
 import { colors } from "app/styles/theme/colors";
 import { Label } from "app/components/common/Label";
 
@@ -12,11 +13,11 @@ export const IconButton = ({ icon, label, onClick }) => {
       m="10px 5px"
       width={{ _: "74px", sm: "100px", md: "98px", xl: "111px" }}
     >
-      <Flex
+      <Button
         as="button"
         border="none"
         borderRadius={{ _: "sm" }}
-        background={colors.gray.dark}
+        bg={colors.black.dark}
         width="60px"
         height="40px"
         alignItems="center"
@@ -25,10 +26,21 @@ export const IconButton = ({ icon, label, onClick }) => {
         style={{ cursor: "pointer" }}
       >
         {icon}
-      </Flex>
+      </Button>
       <Label mt="xxs" fontSize={{ _: "xxxs", md: "xxs" }}>
         {label}
       </Label>
     </Flex>
   );
 };
+
+const Button = styled(Flex)`
+  &:hover {
+    background-color: ${colors.blue.light};
+    transition: background-color 0.1s ease-in-out;
+  }
+
+  &:active {
+    background-color: ${colors.blue.sky};
+  }
+`;
