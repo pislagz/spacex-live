@@ -7,11 +7,12 @@ import { Human } from "assets/icons/buttons/Human";
 import { Dropdown } from "app/components/common/Dropdown";
 import { IconButton } from "app/components/common/IconButton";
 import { motion } from "framer-motion";
-import { selectModal } from "app/redux/selectors";
+import { selectModal, selectDashboardSetting } from "app/redux/selectors";
 import { openModal, closeModal } from "app/redux/reducers/modalReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { CONFIG } from "app/views/Dashboard/components/LaunchTile/config";
 import { showDate, dateFormats } from "app/utils/parseDate";
+import { SETTINGS } from "app/constants/settings";
 
 export const LaunchTile = ({
   launch,
@@ -27,6 +28,7 @@ export const LaunchTile = ({
   details,
 }) => {
   const modal = useSelector(selectModal);
+  const settings = useSelector(selectDashboardSetting);
   const dispatch = useDispatch();
 
   return (
@@ -48,8 +50,18 @@ export const LaunchTile = ({
             <InfoItem label="rocket" info={rocket?.name} />
             <InfoItem label="flight number" info={flightNo} />
             <InfoItem
-              label="time (utc)"
-              info={showDate(dateUTC, dateFormats[datePrecision])}
+              noUpper
+              label={`TIME ${
+                settings.timezone === SETTINGS.dashboard.timezone.utc
+                  ? "(UTC)"
+                  : settings.timezone === SETTINGS.dashboard.timezone.local &&
+                    `(${settings.localZoneName})`
+              }`}
+              info={showDate(
+                dateUTC,
+                dateFormats[datePrecision],
+                settings.timezone
+              )}
             />
             <InfoItem
               label="links"

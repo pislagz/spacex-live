@@ -2,8 +2,8 @@ export const selectModal = (state) => {
   return state.modal;
 };
 
-export const selectUnit = (state) => {
-  return state.units;
+export const selectDashboardSetting = (state) => {
+  return state.dashboardSettings;
 };
 
 export const selectDashboard = (state) => {

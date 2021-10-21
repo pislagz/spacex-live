@@ -11,7 +11,7 @@ import { useWindowSize } from "app/hooks/useWindowSize";
 import { AnimatePresence, motion } from "framer-motion";
 import { Dropdown } from "app/components/common/Dropdown";
 import { Flex } from "app/components/common/ui";
-import { UnitSwitcher } from "app/components/common/UnitSwitcher";
+import { DashboardSettingsSwitcher } from "app/components/common/DashboardSettingsSwitcher";
 
 export const Sidebar = ({ isMobileMenuVisible, setIsMobileMenuVisible }) => {
   const size = useWindowSize();
@@ -71,7 +71,7 @@ export const Sidebar = ({ isMobileMenuVisible, setIsMobileMenuVisible }) => {
                 isBlack
                 revertArrow
               >
-                <UnitSwitcher />
+                <DashboardSettingsSwitcher />
               </Dropdown>
               <S.Footer marginBottom="md" />
             </Flex>

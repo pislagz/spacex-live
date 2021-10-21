@@ -2,11 +2,11 @@ import React from "react";
 import { InfoItem } from "app/components/common/InfoItem";
 import { Wrapper, Row, Col } from "./styled";
 import { weatherUtils } from "app/utils/weatherUtils";
-import { selectUnit } from "app/redux/selectors";
+import { selectDashboardSetting } from "app/redux/selectors";
 import { useSelector } from "react-redux";
 
 export const Facility = ({ image, data, name, label, region, ...props }) => {
-  const units = useSelector(selectUnit);
+  const settings = useSelector(selectDashboardSetting);
 
   return (
     <Wrapper image={image} {...props}>
@@ -27,7 +27,7 @@ export const Facility = ({ image, data, name, label, region, ...props }) => {
       <Row justifyContent="space-between">
         <InfoItem
           label="temp"
-          info={weatherUtils.convertKelvin(data?.main?.temp, units.temp)}
+          info={weatherUtils.convertKelvin(data?.main?.temp, settings.temp)}
           m="0"
         />
         <InfoItem label="weather" info={data?.weather[0]?.main} m="0" />
@@ -36,7 +36,7 @@ export const Facility = ({ image, data, name, label, region, ...props }) => {
           label="wind"
           info={weatherUtils.displayWindSpeed(
             data?.wind?.speed,
-            units.windspeed
+            settings.windspeed
           )}
           m="0"
         />

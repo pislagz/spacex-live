@@ -7,6 +7,8 @@ const S = {
     borderRadius: "sm",
     overflow: "hidden",
   })`
+    margin-bottom: 1rem;
+    margin-top: 0.25rem;
     cursor: pointer;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
   `,
