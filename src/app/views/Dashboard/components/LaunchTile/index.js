@@ -11,7 +11,7 @@ import { selectModal, selectDashboardSetting } from "app/redux/selectors";
 import { openModal, closeModal } from "app/redux/reducers/modalReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { CONFIG } from "app/views/Dashboard/components/LaunchTile/config";
-import { showDate, dateFormats } from "app/utils/parseDate";
+import { showDate, dateFormats, showOffset } from "app/utils/parseDate";
 import { SETTINGS } from "app/constants/settings";
 
 export const LaunchTile = ({
@@ -55,7 +55,7 @@ export const LaunchTile = ({
                 settings.timezone === SETTINGS.dashboard.timezone.utc
                   ? "(UTC)"
                   : settings.timezone === SETTINGS.dashboard.timezone.local &&
-                    `(${settings.localZoneName})`
+                    `(${showOffset(dateUTC, settings.timezone)})`
               }`}
               info={showDate(
                 dateUTC,

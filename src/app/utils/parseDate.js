@@ -22,3 +22,6 @@ export const showDate = (dateUtc, precision, timezone = "utc") => {
     return luxonDate.toFormat(precision);
   }
 };
+
+export const showOffset = (dateUtc, timezone = "utc") =>
+  DateTime.fromISO(dateUtc).setZone(timezone).offsetNameShort;
