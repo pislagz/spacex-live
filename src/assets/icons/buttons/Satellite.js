@@ -106,7 +106,7 @@ export const Satellite = ({ fill, lightColor }) => (
       fill={fill}
     />
     <path
-      class="blinking-light"
+      className="blinking-light"
       d="M434.234 323.492C426.18 329.194 415.028 327.288 409.325 319.234V319.234C403.623 311.18 405.529 300.028 413.583 294.325V294.325C421.637 288.623 432.789 290.529 438.492 298.583V298.583C444.194 306.637 442.288 317.789 434.234 323.492V323.492Z"
       fill={lightColor}
     />

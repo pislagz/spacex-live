@@ -13,7 +13,7 @@ const Main = styled(Flex).attrs({ as: "main" })`
   ${mediaQuery.md} {
     justify-content: center;
     flex-direction: row;
-    align-content: flex-start;
+    /* align-content: flex-start; */
   }
 
   /* ${mediaQuery.lg} {

@@ -1,0 +1,33 @@
+@keyframes fade-away {
+  to {
+    fill: transparent;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes shake {
+  to {
+    transform: scale(102%);
+  }
+}
+
+.outer-error {
+  animation: fade-away 1s forwards;
+}
+
+.inner-error {
+  animation: fade-away 1.5s forwards;
+}
+
+.lightning-error {
+  animation: appear 2s cubic-bezier(1, -0.01, 0.34, 1),
+    shake 0.3s infinite forwards;
+}

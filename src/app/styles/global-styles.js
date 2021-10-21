@@ -1,6 +1,8 @@
 import { colors } from "app/styles/theme/colors";
 import { createGlobalStyle } from "styled-components";
 
+const randomDegree = Math.floor(Math.random() * 366) + 1;
+
 export const GlobalStyles = createGlobalStyle`
 *, ::before, ::after {
 	-webkit-box-sizing: border-box;
@@ -35,6 +37,8 @@ body {
   transition: height 500ms;
 }
 
+//SVGs
+
 .blinking-light {
 	@keyframes blink {
 		0% {
@@ -46,6 +50,29 @@ body {
 	}
 
 	animation: blink 2s infinite;
+}
+
+@keyframes fullRotation {
+  from {
+    transform: rotate(${randomDegree}deg);
+  }
+  to {
+
+    transform: rotate(${randomDegree + 360}deg);
+  }
+}
+
+.satellite-loading {
+  animation: fullRotation 5s linear infinite;
+}
+
+.earth-loading {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  bottom: 25%;
+  right: 25%;
+  animation: fullRotation 45s linear infinite;
 }
 
 `;

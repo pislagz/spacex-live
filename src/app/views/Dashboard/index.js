@@ -7,6 +7,8 @@ import { fetchDashboardData } from "app/redux/actions/dashboard";
 import { selectDashboard } from "app/redux/selectors";
 import { Centerer } from "app/views/Dashboard/components/Centerer";
 import { StarlinkTile } from "app/views/Dashboard/components/StarlinkTile";
+import { Loading } from "app/components/common/Loading";
+import { Error } from "app/components/common/Error";
 
 export const Dashboard = () => {
   const dispatch = useDispatch();
@@ -19,6 +21,8 @@ export const Dashboard = () => {
   return (
     <>
       <Centerer />
+      {data.status === "loading" && <Loading />}
+      {data.status === "failed" && <Error />}
       {data.status === "success" && (
         <>
           <Flex alignItems="center" flexDirection="column">
