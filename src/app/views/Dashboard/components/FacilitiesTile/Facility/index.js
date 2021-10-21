@@ -29,8 +29,15 @@ export const Facility = ({ image, data, name, label, region, ...props }) => {
           label="temp"
           info={weatherUtils.convertKelvin(data?.main?.temp, settings.temp)}
           m="0"
+          width="30%;"
         />
-        <InfoItem label="weather" info={data?.weather[0]?.main} m="0" />
+        <InfoItem
+          alignItems="center"
+          label="weather"
+          info={data?.weather[0]?.main}
+          m="0"
+          width="30%;"
+        />
         <InfoItem
           alignItems="flex-end"
           label="wind"
@@ -39,6 +46,7 @@ export const Facility = ({ image, data, name, label, region, ...props }) => {
             settings.windspeed
           )}
           m="0"
+          width="30%;"
         />
       </Row>
     </Wrapper>

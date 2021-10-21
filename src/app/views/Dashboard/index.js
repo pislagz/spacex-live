@@ -5,7 +5,6 @@ import { FacilitiesTile } from "app/views/Dashboard/components/FacilitiesTile";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchDashboardData } from "app/redux/actions/dashboard";
 import { selectDashboard } from "app/redux/selectors";
-import { Centerer } from "app/views/Dashboard/components/Centerer";
 import { StarlinkTile } from "app/views/Dashboard/components/StarlinkTile";
 import { Loading } from "app/components/common/Loading";
 import { Error } from "app/components/common/Error";
@@ -20,16 +19,15 @@ export const Dashboard = () => {
 
   return (
     <>
-      <Centerer />
       {data.status === "loading" && <Loading />}
       {data.status === "failed" && <Error />}
       {data.status === "success" && (
         <>
-          <Flex alignItems="center" flexDirection="column">
+          <Flex alignItems="center" flexDirection="column" margin="auto 0">
             <LaunchTile launch="next" {...data.launches.nextLaunch} />
             <LaunchTile launch="prev" {...data.launches.prevLaunch} />
           </Flex>
-          <Flex alignItems="center" flexDirection="column">
+          <Flex alignItems="center" flexDirection="column" margin="auto 0">
             <FacilitiesTile title="Launch facilities" data={data.weather} />
             <StarlinkTile title="Starlink" count={data.starlink.activeCount} />
           </Flex>

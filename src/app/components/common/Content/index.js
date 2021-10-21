@@ -24,7 +24,7 @@ const Main = styled(Flex).attrs({ as: "main" })`
 export const Content = ({ children }) => (
   <Flex
     width="100%"
-    height={{ md: "100%;" }}
+    height={{ md: "90%", lg: "100%;" }}
     pl={{ _: "0", lg: "bigSidebar" }}
     justifyContent="center"
   >
