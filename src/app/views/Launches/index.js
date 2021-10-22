@@ -1,9 +1,10 @@
+import { Tile } from "app/components/common/Tile";
 import { Flex } from "app/components/common/ui";
 
 export const Launches = () => {
   return (
-    <Flex height="300px" width="300px" bg="white">
-      launches-view
+    <Flex margin="auto auto">
+      <Tile height="400px">Launches will appear here.</Tile>;
     </Flex>
   );
 };

@@ -44,8 +44,12 @@ const S = {
   `,
   NavLink: styled(Link)`
     text-decoration: none;
-    font-weight: ${fontWeights.light};
-    color: ${colors.black.medium};
+
+    font-weight: ${({ selected }) =>
+      selected ? fontWeights.bold : fontWeights.light};
+
+    color: ${({ selected }) =>
+      selected ? colors.black.dark : colors.black.medium};
     padding: 0.5rem 1rem;
     border-radius: ${sizings.radii.sm};
 

@@ -9,3 +9,7 @@ export const selectDashboardSetting = (state) => {
 export const selectDashboard = (state) => {
   return state.dashboardData;
 };
+
+export const selectCurrentRoute = (state) => {
+  return state.currentRoute;
+};

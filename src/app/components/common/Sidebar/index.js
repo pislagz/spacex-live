@@ -12,11 +12,20 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Dropdown } from "app/components/common/Dropdown";
 import { Flex } from "app/components/common/ui";
 import { DashboardSettingsSwitcher } from "app/components/common/settingsSwitchers/Dashboard";
+import { selectCurrentRoute } from "app/redux/selectors";
+import { setCurrentRoute } from "app/redux/reducers/currentRouteReducer";
+import { useDispatch, useSelector } from "react-redux";
 
 export const Sidebar = ({ isMobileMenuVisible, setIsMobileMenuVisible }) => {
   const size = useWindowSize();
   const isWideScreen = size.width >= largeWidth;
   const isVisible = isWideScreen || isMobileMenuVisible;
+
+  const currentRoute = useSelector(selectCurrentRoute);
+  const dispatch = useDispatch();
+  const handleRouteChange = (clickedRoute) => {
+    dispatch(setCurrentRoute(clickedRoute));
+  };
 
   return (
     <AnimatePresence>
@@ -51,13 +60,17 @@ export const Sidebar = ({ isMobileMenuVisible, setIsMobileMenuVisible }) => {
 
               <nav>
                 <S.List fontSize="lg">
-                  {ROUTES.map((route) => (
-                    <S.ListElement key={route.name}>
+                  {ROUTES.map(({ route, name }) => (
+                    <S.ListElement key={name}>
                       <S.NavLink
-                        to={`${route.route}`}
-                        onClick={() => setIsMobileMenuVisible(false)}
+                        to={`${route}`}
+                        onClick={() => {
+                          setIsMobileMenuVisible(false);
+                          handleRouteChange(name);
+                        }}
+                        selected={currentRoute.selected === name}
                       >
-                        {route.name}
+                        {name}
                       </S.NavLink>
                     </S.ListElement>
                   ))}
