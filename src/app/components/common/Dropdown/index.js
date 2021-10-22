@@ -10,6 +10,7 @@ export const Dropdown = ({
   less = "less",
   isBlack,
   revertArrow,
+  activatorMarginTop,
   ...props
 }) => {
   const [isCollapsed, setIsCollapsed] = useState(true);
@@ -19,7 +20,10 @@ export const Dropdown = ({
       <UnmountClosed isOpened={!isCollapsed}>
         <Content>{children}</Content>
       </UnmountClosed>
-      <Activator onClick={() => setIsCollapsed(!isCollapsed)}>
+      <Activator
+        onClick={() => setIsCollapsed(!isCollapsed)}
+        marginTop={activatorMarginTop}
+      >
         <IconWrapper isDown={revertArrow ? !isCollapsed : isCollapsed}>
           <MoreLessIcon fill={isBlack && colors.black.dark} />
         </IconWrapper>

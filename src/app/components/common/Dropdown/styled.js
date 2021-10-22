@@ -24,7 +24,6 @@ Text.defaultProps = {
 
 export const Activator = styled(Flex).attrs({ as: "button" })`
   padding: 0;
-  margin: 0;
   cursor: pointer;
   background-color: transparent;
   border: none;
@@ -34,6 +33,9 @@ export const Activator = styled(Flex).attrs({ as: "button" })`
   font-weight: ${fontWeights.bold};
   align-items: center;
 `;
+Activator.defaultProps = {
+  // margin: "0",
+};
 
 export const IconWrapper = styled(Flex)`
   justify-content: center;

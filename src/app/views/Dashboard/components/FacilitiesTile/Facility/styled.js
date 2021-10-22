@@ -39,7 +39,7 @@ const Picture = styled(Image)`
   position: absolute;
   width: 100%;
   object-fit: cover;
-  bottom: -30px;
+  bottom: -25px;
   z-index: ${zIndicies.facilityBackground};
 `;
 

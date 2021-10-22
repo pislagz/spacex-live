@@ -21,14 +21,13 @@ export const FacilitiesTile = ({ title, data }) => (
       data={data?.starbase}
       region="Texas"
     />
-    <Dropdown>
+    <Dropdown activatorMarginTop="xs">
       <Facility
         name="Vandenerg Base"
         label="USSF SLC-4E"
         image={pics.vandenberg}
         data={data?.vandenberg}
         region="California"
-        marginBottom="xs"
       />
     </Dropdown>
   </Tile>
