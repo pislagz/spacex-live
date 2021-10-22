@@ -25,6 +25,7 @@ export const Content = ({ children }) => (
   <Flex
     width="100%"
     height={{ md: "90%", lg: "100%;" }}
+    // minHeight={{ _: "90%", md: "unset" }}
     pl={{ _: "0", lg: "bigSidebar" }}
     justifyContent="center"
   >

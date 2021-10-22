@@ -31,3 +31,11 @@ export const Wrapper = styled(Flex).attrs({ as: "article" })`
     z-index: ${zIndicies.infoTileBlur};
   }
 `;
+
+Wrapper.defaultProps = {
+  m: { _: "0.5rem", md: "0.6rem" },
+  p: { _: "1.5rem", md: "1.75rem" },
+  width: { _: "300px", sm: "380px", lg: "310", xl: "420px" },
+  minHeight: { _: "unset", md: "338px" },
+  position: "relative",
+};
