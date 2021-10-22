@@ -63,15 +63,20 @@ body {
 }
 
 .satellite-loading {
+  position: absolute;
+  height:100%;
+  width: 100%;
   animation: fullRotation 5s linear infinite;
 }
 
 .earth-loading {
   position: absolute;
-  top: 25%;
-  left: 25%;
-  bottom: 25%;
-  right: 25%;
+  height: 100px;
+  width:100px;
+  top:25%;
+  bottom:25%;
+  left:25%;
+  right:25%;
   animation: fullRotation 45s linear infinite;
 }
 
