@@ -1,13 +1,84 @@
 import StyledReactModal from "styled-react-modal";
 import styled from "styled-components";
+import { Flex, Box } from "app/components/common/ui";
+import { Button } from "app/components/common/ui/Button";
+import { CloseIcon } from "assets/icons/functional/CloseIcon";
+import { colors } from "app/styles/theme/colors";
+import { radii } from "app/styles/theme/sizings";
 
-const StyledModal = StyledReactModal.styled``;
+export const Modal = ({
+  closeModal,
+  isOpen,
+  children,
+  type,
+  launch,
+  name,
+  availableDetails,
+  data,
+}) => {
+  return (
+    <S.StyledModal
+      isOpen={isOpen}
+      onBackgroundClick={closeModal}
+      onEscapeKeydown={closeModal}
+    >
+      <S.Topbar>
+        <S.RoutesWrapper>
+          {data.name}
+          {" | "}
+          {availableDetails?.map((title) => (
+            <S.ModalRoute key={title}>| {title} |</S.ModalRoute>
+          ))}
+          {console.log(availableDetails)}
+        </S.RoutesWrapper>
+        <S.CloseIconWrapper onClick={closeModal}>
+          <CloseIcon />
+        </S.CloseIconWrapper>
+      </S.Topbar>
+      This is a {type} view ({launch} launch).
+      <S.Contents>{children}</S.Contents>
+    </S.StyledModal>
+  );
+};
 
-export const Modal = ({ children }) => (
-  <Wrapper>
-    <Inner>{children}</Inner>
-  </Wrapper>
-);
+const S = {
+  StyledModal: StyledReactModal.styled`
+  border-radius: ${radii.lg};
+  min-width: 20rem;
+  min-height: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: ${colors.white};
+  padding: 1rem;
+  `,
+  Topbar: styled(Flex)`
+    width: 100%;
+  `,
+  Contents: styled(Flex)`
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  `,
+  CloseIconWrapper: styled(Button)`
+    display: flex;
+    top: 0.5rem;
+    right: 1rem;
+    padding: 0, 5rem;
+    cursor: pointer;
+    margin-left: auto;
+  `,
+  RoutesWrapper: styled(Flex).attrs({ as: "ul", m: "0", p: "0" })`
+    list-style: none;
+  `,
+  ModalRoute: styled(Box).attrs({ as: "li", m: "0", p: "0" })``,
+};
+
+// <Wrapper>
+//   <Inner>{children}</Inner>
+// </Wrapper>
 
 // export const ModalBackground = styled.div`
 //   @keyframes animateOnShows {

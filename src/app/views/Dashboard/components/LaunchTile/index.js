@@ -7,8 +7,8 @@ import { Human } from "assets/icons/buttons/Human";
 import { Dropdown } from "app/components/common/Dropdown";
 import { IconButton } from "app/components/common/IconButton";
 import { motion } from "framer-motion";
-import { selectModal, selectDashboardSetting } from "app/redux/selectors";
-import { openModal, closeModal } from "app/redux/reducers/modalReducer";
+import { selectDashboardSetting } from "app/redux/selectors";
+import { openModal } from "app/redux/reducers/modalReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { CONFIG } from "app/views/Dashboard/components/LaunchTile/config";
 import { showDate, dateFormats, showOffset } from "app/utils/parseDate";
@@ -23,11 +23,10 @@ export const LaunchTile = ({
   links,
   rocket,
   crew,
-  payloads,
   launchpad,
   details,
+  availableDetails,
 }) => {
-  const modal = useSelector(selectModal);
   const settings = useSelector(selectDashboardSetting);
   const dispatch = useDispatch();
 
@@ -112,32 +111,23 @@ export const LaunchTile = ({
               flexWrap: "wrap",
             }}
           >
-            {CONFIG.details.map(({ icon: Icon, label }) => {
-              return (
-                <IconButton
-                  onClick={() => dispatch(openModal({ type: `${label}` }))}
-                  icon={<Icon />}
-                  label={label}
-                  key={`${label}ButtonMapKey`}
-                />
-              );
-            })}
+            {CONFIG.details
+              .filter((button) => availableDetails.includes(button.label))
+              .map(({ icon: Icon, label }) => {
+                return (
+                  <IconButton
+                    onClick={() =>
+                      dispatch(openModal({ type: `${label}`, launch: launch }))
+                    }
+                    icon={<Icon />}
+                    label={label}
+                    key={`${label}ButtonMapKey`}
+                  />
+                );
+              })}
           </ul>
         </Dropdown>
       </Tile>
-
-      {/* modal */}
-      {CONFIG.details.map(({ label, modal: Modal }) => {
-        return (
-          label === modal.type && (
-            <Modal
-              isOpen={modal.isOpen}
-              closeModal={() => dispatch(closeModal())}
-              key={`${label}VerifyMapKey`}
-            />
-          )
-        );
-      })}
     </>
   );
 };
