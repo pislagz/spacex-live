@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { COORDINATES } from "app/constants/coordinates";
 import { api } from "app/api";
+import { checkDetailsAvailability } from "app/utils/checkDetailsAvailability";
 
 export const fetchDashboardData = createAsyncThunk(
   "dashboard/data",
@@ -27,8 +28,14 @@ export const fetchDashboardData = createAsyncThunk(
 
     return {
       launches: {
-        prevLaunch: prevLaunchResponse,
-        nextLaunch: nextLaunchResponse,
+        prevLaunch: {
+          data: prevLaunchResponse,
+          detailsAvailability: checkDetailsAvailability(prevLaunchResponse),
+        },
+        nextLaunch: {
+          data: nextLaunchResponse,
+          detailsAvailability: checkDetailsAvailability(nextLaunchResponse),
+        },
       },
       weather: {
         canaveral: canaveralResponse,

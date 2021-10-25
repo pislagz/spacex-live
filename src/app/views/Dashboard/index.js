@@ -26,8 +26,8 @@ export const Dashboard = () => {
       {data.status === "success" && (
         <>
           <Flex alignItems="center" flexDirection="column">
-            <LaunchTile launch="next" {...data.launches.nextLaunch} />
-            <LaunchTile launch="prev" {...data.launches.prevLaunch} />
+            <LaunchTile launch="next" {...data.launches.nextLaunch.data} />
+            <LaunchTile launch="prev" {...data.launches.prevLaunch.data} />
           </Flex>
           <Flex alignItems="center" flexDirection="column">
             <FacilitiesTile title="Launch facilities" data={data.weather} />

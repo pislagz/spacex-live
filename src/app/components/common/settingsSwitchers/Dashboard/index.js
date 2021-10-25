@@ -18,7 +18,7 @@ export const DashboardSettingsSwitcher = () => {
   return (
     <>
       {CONFIG.dashboard.map((option) => (
-        <>
+        <div key={option.name}>
           {option.name}
           <S.Switch>
             {[...Array(option.switchesCount)].map((e, i) => (
@@ -38,7 +38,7 @@ export const DashboardSettingsSwitcher = () => {
               </S.Item>
             ))}
           </S.Switch>
-        </>
+        </div>
       ))}
     </>
   );
