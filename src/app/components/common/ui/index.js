@@ -70,7 +70,7 @@ export const Container = ({ children, ...props }) => {
       height="100%"
       m="0 auto"
       p={{ _: "1rem 0" }}
-      maxWidth={"max-content-width"}
+      maxWidth={"maxContentWidth"}
       {...props}
     >
       {children}

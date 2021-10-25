@@ -25,7 +25,6 @@ StyledButton.defaultProps = {
 export const Button = ({ children, ...props }) => {
   return (
     <StyledButton
-      p="1rem"
       whileHover={{
         scale: 1.05,
         transition: {
@@ -35,7 +34,7 @@ export const Button = ({ children, ...props }) => {
       }}
       as={motion.button}
       borderRadius="full"
-      height="40px"
+      // height="40px"
       {...props}
     >
       {children}

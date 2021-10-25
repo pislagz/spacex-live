@@ -10,7 +10,7 @@ export const space = {
 };
 
 export const sizes = {
-  "max-content-width": "1280px",
+  maxContentWidth: "1280px",
   bigSidebar: bigSidebar,
 };
 
