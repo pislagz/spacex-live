@@ -10,6 +10,13 @@ const Main = styled(Flex).attrs({ as: "main" })`
   flex-direction: column;
   overflow-y: auto;
 
+  //hide the *inner app* scrollbar
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+  ::-webkit-scrollbar {
+    width: 0 !important;
+  }
+
   ${mediaQuery.md} {
     justify-content: center;
     flex-direction: row;
