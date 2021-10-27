@@ -16,7 +16,7 @@ export const OuterWrapper = styled(Flex)`
   align-items: center;
   position: absolute;
   overflow: ${({ isMobileMenuVisible }) =>
-    isMobileMenuVisible ? "hidden" : "overlay"};
+    isMobileMenuVisible ? "hidden" : "unset"};
   padding-right: ${({ isMobileMenuVisible }) =>
     isMobileMenuVisible && !isMobile ? "10px" : "0px"};
   z-index: ${zIndicies.absoluteBg};
@@ -39,7 +39,7 @@ const Inner = styled(Box)`
 
     background: linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0.2) 0%,
       rgba(0, 0, 0, 0) 100%
     );
 
@@ -71,13 +71,13 @@ export const InnerWrapper = ({ children }) => (
   <Inner position={{ lg: "relative" }}>
     <Picture
       //height set to 100vh to avoid bouncing on mobile toolbars collapse
-      height="100%"
+      height={{ _: "100vh", lg: "100%" }}
       alt=""
       position={{ _: "fixed", xl: "absolute" }}
       width={{ sm: "100%" }}
       left={{ lg: space.bigSidebar }}
       zIndex={zIndicies.photoBackground}
-      src={"https://live.staticflickr.com/7706/26751237322_22dc7de0f4_k.jpg"}
+      src={"https://live.staticflickr.com/7706/26751237322_5a52540ea3_h.jpg"}
     />
     {children}
   </Inner>

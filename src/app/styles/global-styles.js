@@ -19,8 +19,8 @@ body {
 	padding: 0;
 	font-size: 16px;
 	font-family: 'HelveticaNeue', sans-serif !important;
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 	overflow-x: hidden;
 	overscroll-behavior-y: none;
 	color: ${colors.black.dark}
