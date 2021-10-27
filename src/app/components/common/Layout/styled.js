@@ -6,6 +6,7 @@ import {
 } from "app/styles/theme/breakpoints";
 import { zIndicies } from "app/styles/theme/zIndicies";
 import { sizings, space } from "app/styles/theme/sizings";
+import { isMobile } from "react-device-detect";
 
 export const OuterWrapper = styled(Flex)`
   width: 100%;
@@ -14,6 +15,8 @@ export const OuterWrapper = styled(Flex)`
   justify-content: center;
   align-items: center;
   position: absolute;
+  overflow: ${({ overflow }) => (overflow ? "hidden" : "overlay")};
+  padding-right: ${({ overflow }) => (overflow && !isMobile ? "10px" : "0px")};
   z-index: ${zIndicies.absoluteBg};
 `;
 

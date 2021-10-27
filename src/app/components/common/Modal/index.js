@@ -20,15 +20,14 @@ export const Modal = ({
     <S.StyledModal
       isOpen={isOpen}
       onBackgroundClick={closeModal}
-      onEscapeKeydown={closeModal}
-    >
+      onEscapeKeydown={closeModal}>
       <S.Topbar>
         <S.RoutesWrapper>
           {data.name}
           {" | "}
-          {availableDetails?.map((title) => (
+          {/* {availableDetails?.map((title) => (
             <S.ModalRoute key={title}>| {title} |</S.ModalRoute>
-          ))}
+          ))} */}
           {console.log(availableDetails)}
         </S.RoutesWrapper>
         <S.CloseIconWrapper onClick={closeModal}>

@@ -10,7 +10,6 @@ import { motion } from "framer-motion";
 import { selectDashboardSetting } from "app/redux/selectors";
 import { openModal } from "app/redux/reducers/modalReducer";
 import { useDispatch, useSelector } from "react-redux";
-import { CONFIG } from "app/views/Dashboard/components/LaunchTile/config";
 import { showDate, dateFormats, showOffset } from "app/utils/parseDate";
 import { SETTINGS } from "app/constants/settings";
 
@@ -25,7 +24,7 @@ export const LaunchTile = ({
   crew,
   launchpad,
   details,
-  availableDetails,
+  detailsList,
 }) => {
   const settings = useSelector(selectDashboardSetting);
   const dispatch = useDispatch();
@@ -41,8 +40,7 @@ export const LaunchTile = ({
             : launch === "prev"
             ? "Previous launch"
             : "Rocket launch"
-        }
-      >
+        }>
         <Flex width={"100%"} flexDirection="row">
           <Col>
             <InfoItem label="mission name" info={missionName} />
@@ -109,12 +107,10 @@ export const LaunchTile = ({
               padding: "0",
               display: "flex",
               flexWrap: "wrap",
-            }}
-          >
-            {CONFIG.details
-              .filter((button) => availableDetails.includes(button.label))
-              .map(({ icon: Icon, label }) => {
-                return (
+            }}>
+            {detailsList.map(({ icon: Icon, label, isAvailable }) => {
+              return (
+                isAvailable && (
                   <IconButton
                     onClick={() =>
                       dispatch(openModal({ type: `${label}`, launch: launch }))
@@ -123,8 +119,9 @@ export const LaunchTile = ({
                     label={label}
                     key={`${label}ButtonMapKey`}
                   />
-                );
-              })}
+                )
+              );
+            })}
           </ul>
         </Dropdown>
       </Tile>

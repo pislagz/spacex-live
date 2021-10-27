@@ -15,7 +15,7 @@ export const Root = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <Layout>
+      <Layout isMobileMenuVisible={isMobileMenuVisible}>
         <Sidebar
           isMobileMenuVisible={isMobileMenuVisible}
           setIsMobileMenuVisible={setIsMobileMenuVisible}
