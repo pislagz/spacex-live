@@ -9,8 +9,10 @@ const Main = styled(Flex).attrs({ as: "main" })`
   flex-wrap: wrap;
   flex-direction: column;
   overflow-y: auto;
+  overscroll-behavior: contain;
 
   //hide the *inner app* scrollbar
+  scrollbar-color: transparent transparent;
   -ms-overflow-style: none;
   overflow: -moz-scrollbars-none;
   ::-webkit-scrollbar {

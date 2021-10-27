@@ -56,7 +56,9 @@ export const Sidebar = ({ isMobileMenuVisible, setIsMobileMenuVisible }) => {
                   </S.CloseButton>
                 </S.CloseWrapper>
               )}
-              <Logo fill={"black"} />
+              <S.LogoWrapper>
+                <Logo fill={"black"} />
+              </S.LogoWrapper>
 
               <nav>
                 <S.List fontSize="lg">

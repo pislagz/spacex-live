@@ -32,6 +32,11 @@ const S = {
     min-width: 33px;
     min-height: 21px;
   `,
+
+  LogoWrapper: styled(Box)`
+    min-height: 43px;
+    max-width: 174px;
+  `,
   List: styled(Box).attrs({ as: "ul" })`
     list-style: none;
     margin: 0;
@@ -65,10 +70,10 @@ const S = {
     position: fixed;
     z-index: ${zIndicies.sidebarOverlay};
     background: rgba(0, 0, 0, 0.75);
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
+    left: -300px;
+    top: -300px;
+    right: -300px;
+    bottom: -300px;
     content: "";
   `,
   animations: {
