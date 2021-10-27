@@ -9,7 +9,6 @@ const Main = styled(Flex).attrs({ as: "main" })`
   flex-wrap: wrap;
   flex-direction: column;
   overflow-y: auto;
-  overscroll-behavior: contain;
 
   //hide the *inner app* scrollbar
   scrollbar-color: transparent transparent;
@@ -22,7 +21,7 @@ const Main = styled(Flex).attrs({ as: "main" })`
   ${mediaQuery.md} {
     justify-content: center;
     flex-direction: row;
-    /* align-content: flex-start; */
+    align-content: flex-start;
   }
 
   /* ${mediaQuery.lg} {

@@ -15,8 +15,10 @@ export const OuterWrapper = styled(Flex)`
   justify-content: center;
   align-items: center;
   position: absolute;
-  overflow: ${({ overflow }) => (overflow ? "hidden" : "overlay")};
-  padding-right: ${({ overflow }) => (overflow && !isMobile ? "10px" : "0px")};
+  overflow: ${({ isMobileMenuVisible }) =>
+    isMobileMenuVisible ? "hidden" : "overlay"};
+  padding-right: ${({ isMobileMenuVisible }) =>
+    isMobileMenuVisible && !isMobile ? "10px" : "0px"};
   z-index: ${zIndicies.absoluteBg};
 `;
 
@@ -37,7 +39,7 @@ const Inner = styled(Box)`
 
     background: linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.8) 0%,
+      rgba(0, 0, 0, 0.1) 0%,
       rgba(0, 0, 0, 0) 100%
     );
 
@@ -51,7 +53,7 @@ const Inner = styled(Box)`
     max-height: 90vh;
     width: 1280px;
     position: relative;
-    border-radius: ${sizings.radii.md};
+    border-radius: ${sizings.radii.lg};
     overflow: hidden;
     box-shadow: 5px 5px 50px rgba(0, 0, 0, 0.1);
   } ;
@@ -59,22 +61,23 @@ const Inner = styled(Box)`
 
 const Picture = styled(Image)`
   object-fit: cover;
-  object-position: bottom;
+
+  ${mediaQuery.lg} {
+    margin-left: -100px;
+  }
 `;
 
 export const InnerWrapper = ({ children }) => (
   <Inner position={{ lg: "relative" }}>
     <Picture
       //height set to 100vh to avoid bouncing on mobile toolbars collapse
-      height="100vh"
+      height="100%"
       alt=""
       position={{ _: "fixed", xl: "absolute" }}
       width={{ sm: "100%" }}
       left={{ lg: space.bigSidebar }}
       zIndex={zIndicies.photoBackground}
-      src={
-        "https://assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvYXNzZXRzL2Y0Njk2ZTVhLTVmMzItNGNmNi05NmQyLTQ4ZTQwMzE0NDVkZjc1YWRmYmJlMDQwZjU4MWU0OV80ODQ4ODk5NTg0N19jY2M3MGYyNjA4X28uanBnIl0sWyJwIiwiY29udmVydCIsIiJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA4MSAtYXV0by1vcmllbnQiXSxbInAiLCJ0aHVtYiIsIjEyODB4PiJdXQ/48488995847_ccc70f2608_o.jpg"
-      }
+      src={"https://live.staticflickr.com/7706/26751237322_22dc7de0f4_k.jpg"}
     />
     {children}
   </Inner>

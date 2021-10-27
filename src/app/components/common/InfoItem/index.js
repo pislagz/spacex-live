@@ -45,7 +45,7 @@ export const InfoItem = ({
       <Flex
         justifyContent="center"
         alignItems="center"
-        bg="gray.dark"
+        bg="gray.darkTransparent"
         borderRadius="md"
         width="100px"
         height="100px"

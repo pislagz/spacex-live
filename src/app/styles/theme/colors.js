@@ -4,10 +4,11 @@ export const colors = {
     dark: "#353535",
   },
   gray: {
-    light: "#ededed",
+    light: "#f5f5f5",
     medium: "#dedede",
     mediumDark: "#84858A",
     dark: "#333333",
+    darkTransparent: "rgba(51,51,51,0.5)",
   },
   blue: {
     light: "#7db1ff",

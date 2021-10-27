@@ -9,7 +9,7 @@ export const Centerer = () => {
   return (
     <>
       {width >= getSanitizedBreakpoint("md") && height > 890 && (
-        <Box width="100%" height="0" marginTop="3vh"></Box>
+        <Box width="100%" height="0" marginTop="8vh"></Box>
       )}
     </>
   );
