@@ -12,6 +12,7 @@ import { openModal } from "app/redux/reducers/modalReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { showDate, dateFormats, showOffset } from "app/utils/parseDate";
 import { SETTINGS } from "app/constants/settings";
+import { iconsConfig } from "./config";
 
 export const LaunchTile = ({
   launch,
@@ -40,7 +41,8 @@ export const LaunchTile = ({
             : launch === "prev"
             ? "Previous launch"
             : "Rocket launch"
-        }>
+        }
+      >
         <Flex width={"100%"} flexDirection="row">
           <Col>
             <InfoItem label="mission name" info={missionName} />
@@ -107,7 +109,8 @@ export const LaunchTile = ({
               padding: "0",
               display: "flex",
               flexWrap: "wrap",
-            }}>
+            }}
+          >
             {detailsList.map(({ icon: Icon, label, isAvailable }) => {
               return (
                 isAvailable && (
@@ -115,7 +118,7 @@ export const LaunchTile = ({
                     onClick={() =>
                       dispatch(openModal({ type: `${label}`, launch: launch }))
                     }
-                    icon={<Icon />}
+                    icon={iconsConfig[label]}
                     label={label}
                     key={`${label}ButtonMapKey`}
                   />

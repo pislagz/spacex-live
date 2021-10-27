@@ -13,22 +13,23 @@ export const Modal = ({
   type,
   launch,
   name,
-  availableDetails,
+  detailsList,
   data,
 }) => {
   return (
     <S.StyledModal
       isOpen={isOpen}
       onBackgroundClick={closeModal}
-      onEscapeKeydown={closeModal}>
+      onEscapeKeydown={closeModal}
+    >
       <S.Topbar>
         <S.RoutesWrapper>
           {data.name}
           {" | "}
-          {/* {availableDetails?.map((title) => (
+          {/* {detailsList?.map((title) => (
             <S.ModalRoute key={title}>| {title} |</S.ModalRoute>
           ))} */}
-          {console.log(availableDetails)}
+          {console.log(detailsList)}
         </S.RoutesWrapper>
         <S.CloseIconWrapper onClick={closeModal}>
           <CloseIcon />

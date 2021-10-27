@@ -33,6 +33,7 @@ export const Dashboard = () => {
           <Flex alignItems="center" flexDirection="column">
             {launchTypes.map((launchType) => (
               <LaunchTile
+                key={launchType}
                 launch={launchType}
                 detailsList={launches[launchType].detailsList}
                 {...launches[launchType].data}
@@ -51,9 +52,8 @@ export const Dashboard = () => {
               type={modal.type}
               launch={modal.launch}
               data={{ ...launches[modal.launch].data }}
-              availableDetails={
-                launches[modal.launch].detailsAvailability
-              }></Modal>
+              detailsList={launches[modal.launch].detailsList}
+            ></Modal>
           )}
         </>
       )}
