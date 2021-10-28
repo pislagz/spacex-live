@@ -10,7 +10,7 @@ import { Loading } from "app/components/common/Loading";
 import { Error } from "app/components/common/Error";
 import { Centerer } from "app/views/Dashboard/components/Centerer";
 import { Modal } from "app/components/common/Modal";
-import { closeModal } from "app/redux/reducers/modalReducer";
+import { closeModal } from "app/redux/slices/modalSlice";
 
 export const Dashboard = () => {
   const dispatch = useDispatch();

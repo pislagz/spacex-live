@@ -2,7 +2,7 @@ import React from "react";
 import S from "./styled";
 import { selectDashboardSetting } from "app/redux/selectors";
 import { useDispatch, useSelector } from "react-redux";
-import { setSetting } from "app/redux/reducers/dashboardSettingsReducer";
+import { setSetting } from "app/redux/slices/dashboardSettingsSlice";
 import { SETTINGS } from "app/constants/settings";
 import { CONFIG } from "app/components/common/settingsSwitchers/config";
 

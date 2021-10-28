@@ -8,7 +8,7 @@ import { Dropdown } from "app/components/common/Dropdown";
 import { IconButton } from "app/components/common/IconButton";
 import { motion } from "framer-motion";
 import { selectDashboardSetting } from "app/redux/selectors";
-import { openModal } from "app/redux/reducers/modalReducer";
+import { openModal } from "app/redux/slices/modalSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { showDate, dateFormats, showOffset } from "app/utils/parseDate";
 import { SETTINGS } from "app/constants/settings";

@@ -13,7 +13,7 @@ import { Dropdown } from "app/components/common/Dropdown";
 import { Flex } from "app/components/common/ui";
 import { DashboardSettingsSwitcher } from "app/components/common/settingsSwitchers/Dashboard";
 import { selectCurrentRoute } from "app/redux/selectors";
-import { setCurrentRoute } from "app/redux/reducers/currentRouteReducer";
+import { setCurrentRoute } from "app/redux/slices/currentRouteSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 export const Sidebar = ({ isMobileMenuVisible, setIsMobileMenuVisible }) => {
