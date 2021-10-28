@@ -18,9 +18,12 @@ export const modalSlice = createSlice({
       state.type = action.payload.type;
       state.launch = action.payload.launch;
     },
+    changeModalType(state, action) {
+      state.type = action.payload.type;
+    },
   },
 });
 
-export const { openModal, closeModal } = modalSlice.actions;
+export const { openModal, closeModal, changeModalType } = modalSlice.actions;
 
 export default modalSlice.reducer;

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Flex, Box, Image } from "app/components/common/ui";
 import { zIndicies } from "app/styles/theme/zIndicies";
 import { radii } from "app/styles/theme/sizings";
+import { mediaQuery } from "app/styles/theme/breakpoints";
 
 const Wrap = styled(Flex)`
   /* Webkit border radius with overflow hidden fix*/
@@ -38,8 +39,12 @@ Wrap.defaultProps = {
 const Picture = styled(Image)`
   position: absolute;
   width: 100%;
-  bottom: -60px;
+  top: -25%;
   z-index: ${zIndicies.facilityBackground};
+
+  ${mediaQuery.sm} {
+    top: -50%;
+  }
 `;
 
 export const Row = styled(Flex)``;

@@ -5,7 +5,7 @@ import {
   getSanitizedBreakpoint,
 } from "app/styles/theme/breakpoints";
 import { zIndicies } from "app/styles/theme/zIndicies";
-import { sizings, space } from "app/styles/theme/sizings";
+import { app, sizings, space } from "app/styles/theme/sizings";
 import { isMobile } from "react-device-detect";
 
 export const OuterWrapper = styled(Flex)`
@@ -49,9 +49,9 @@ const Inner = styled(Box)`
   }
 
   ${mediaQuery.custom(getSanitizedBreakpoint("xl"))} {
-    height: 900px;
-    max-height: 90vh;
-    width: 1280px;
+    height: ${app.height};
+    max-height: ${app.maxHeight};
+    width: ${app.width};
     position: relative;
     border-radius: ${sizings.radii.lg};
     overflow: hidden;

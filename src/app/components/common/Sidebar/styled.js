@@ -56,7 +56,7 @@ const S = {
     color: ${({ selected }) =>
       selected ? colors.black.dark : colors.black.medium};
     padding: 0.5rem 1rem;
-    border-radius: ${sizings.radii.sm};
+    border-radius: ${sizings.radii.md};
 
     &:hover {
       background: ${colors.gray.light};

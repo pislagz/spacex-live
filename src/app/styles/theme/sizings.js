@@ -10,7 +10,6 @@ export const space = {
 };
 
 export const sizes = {
-  maxContentWidth: "1280px",
   bigSidebar: bigSidebar,
 };
 
@@ -26,4 +25,10 @@ export const sizings = {
   radii,
   space,
   sizes,
+};
+
+export const app = {
+  width: "1280px",
+  height: "900px",
+  maxHeight: "90vh",
 };
