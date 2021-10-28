@@ -10,7 +10,7 @@ export const getDetailsList = (response) => {
     const landpads = cores?.filter(({ landpad }) => !!landpad?.name?.length);
     const landpad = {
       isAvailable: !!landpads?.length,
-      isMultiple: landpads.filter((it) => it === true)?.length > 1,
+      isMultiple: landpads.filter((it) => it.landpad.name)?.length > 1,
     };
 
     return Object.values({

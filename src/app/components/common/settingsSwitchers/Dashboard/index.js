@@ -23,6 +23,7 @@ export const DashboardSettingsSwitcher = () => {
           <S.Switch>
             {[...Array(option.switchesCount)].map((e, i) => (
               <S.Item
+                key={option.options[i]}
                 isActive={
                   settings[option.setting] ===
                   SETTINGS.dashboard[option.setting][option.options[i]]

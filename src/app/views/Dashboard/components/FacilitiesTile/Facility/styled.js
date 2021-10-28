@@ -9,7 +9,7 @@ const Wrap = styled(Flex)`
 
   flex-direction: column;
   position: relative;
-  border-radius: ${radii.md};
+  border-radius: ${radii.lg};
   overflow: hidden;
   /* height: 120px; */
 
@@ -38,8 +38,7 @@ Wrap.defaultProps = {
 const Picture = styled(Image)`
   position: absolute;
   width: 100%;
-  object-fit: cover;
-  bottom: -25px;
+  bottom: -60px;
   z-index: ${zIndicies.facilityBackground};
 `;
 
