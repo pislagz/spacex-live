@@ -3,13 +3,31 @@ import { Flex, Box } from "app/components/common/ui";
 import { fontWeights } from "app/styles/theme/texts";
 import { colors } from "app/styles/theme/colors";
 import { radii } from "app/styles/theme/sizings";
+import { Button } from "app/components/common/ui/Button";
 
 export const S = {
-  Wrapper: styled(Flex).attrs({ flexDirection: "column", width: "100%" })``,
+  Wrapper: styled(Flex).attrs({
+    flexDirection: "column",
+    width: "100%",
+    fontSize: "md",
+  })``,
+  CloseIconWrapper: styled(Button)`
+    display: flex;
+    top: 0.5rem;
+    right: 1rem;
+    padding: 0, 5rem;
+    cursor: pointer;
+    margin-left: auto;
+  `,
+  Title: styled(Flex).attrs({ as: "h4", m: "0", p: "0" })``,
 };
 
 export const Nav = {
-  Wrapper: styled(Flex).attrs({ as: "ul", m: "0", p: "0" })`
+  Wrapper: styled(Flex).attrs({
+    as: "ul",
+    m: "0",
+    p: "0",
+  })`
     list-style: none;
   `,
   Route: styled(Box).attrs({

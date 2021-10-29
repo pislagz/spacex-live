@@ -1,22 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import { Flex } from "app/components/common/ui";
 import { S, Nav } from "./styled";
 import { firstToUpperCase } from "app/utils/textFormatting";
 import { useDispatch } from "react-redux";
-import { changeModalType } from "app/redux/slices/modalSlice";
+import { changeModalType, closeModal } from "app/redux/slices/modalSlice";
 import { useWindowSize } from "app/hooks/useWindowSize";
-import { UnmountClosed } from "react-collapse";
+import { CloseIcon } from "assets/icons/functional/CloseIcon";
 
 export const Topbar = ({ name, list, type }) => {
   const dispatch = useDispatch();
   const { width } = useWindowSize();
-  const [isModalMenuOpen, setIsModalMenuOpen] = useState(false);
 
   return width > 620 ? (
     <S.Wrapper>
       <Flex>
-        {name}
-        {" | "}
+        <S.Title>
+          {name}
+          {" | "}
+        </S.Title>
         <Nav.Wrapper>
           {list.map((route) => (
             <Nav.Route
@@ -28,40 +29,23 @@ export const Topbar = ({ name, list, type }) => {
             </Nav.Route>
           ))}
         </Nav.Wrapper>
+        <S.CloseIconWrapper onClick={() => dispatch(closeModal())}>
+          <CloseIcon />
+        </S.CloseIconWrapper>
       </Flex>
     </S.Wrapper>
   ) : (
     <S.Wrapper>
       <Flex>
-        {name}
-        {" | "}
-        <Nav.Wrapper>
-          <Nav.Route
-            isActive
-            onClick={() => setIsModalMenuOpen(!isModalMenuOpen)}
-          >
-            {type && firstToUpperCase(type)}
-          </Nav.Route>
-        </Nav.Wrapper>
+        <S.Title>
+          {name}
+          {" | "}
+          {type && firstToUpperCase(type)}
+        </S.Title>
+        <S.CloseIconWrapper onClick={() => dispatch(closeModal())}>
+          <CloseIcon />
+        </S.CloseIconWrapper>
       </Flex>
-      <UnmountClosed isOpened={isModalMenuOpen}>
-        {list
-          .filter((route) => route !== type)
-          .map((route) => (
-            <div
-              key={route}
-              onClick={() => {
-                dispatch(changeModalType({ type: route }));
-                setIsModalMenuOpen(false);
-              }}
-            >
-              {firstToUpperCase(route)}
-              <br />
-            </div>
-          ))}
-      </UnmountClosed>
     </S.Wrapper>
-
-    //dropdown somewhere here
   );
 };
