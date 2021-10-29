@@ -3,20 +3,23 @@ import { Modal } from "app/components/common/Modal";
 import { selectDashboard, selectModal } from "app/redux/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { closeModal } from "app/redux/slices/modalSlice";
+import { Crew } from "app/components/common/Modal/components/views/Crew";
 
 export const DashboardModal = () => {
   const dispatch = useDispatch();
   const { launches } = useSelector(selectDashboard);
-  const modal = useSelector(selectModal);
+  const { isOpen, type, launch } = useSelector(selectModal);
 
-  return modal.isOpen ? (
+  return isOpen ? (
     <Modal
-      isOpen={modal.isOpen}
+      isOpen={isOpen}
       closeModal={() => dispatch(closeModal())}
-      type={modal.type}
-      launch={modal.launch}
-      data={{ ...launches[modal.launch]?.data }}
-      detailsList={launches[modal.launch]?.detailsList}
-    ></Modal>
+      type={type}
+      launch={launch}
+      data={{ ...launches[launch]?.data }}
+      detailsList={launches[launch]?.detailsList}
+    >
+      {type === "crew" && <Crew crew={{ ...launches[launch]?.data?.crew }} />}
+    </Modal>
   ) : null;
 };

@@ -1,8 +1,6 @@
 import StyledReactModal from "styled-react-modal";
 import styled from "styled-components";
 import { Flex, Box } from "app/components/common/ui";
-import { Button } from "app/components/common/ui/Button";
-import { CloseIcon } from "assets/icons/functional/CloseIcon";
 import { colors } from "app/styles/theme/colors";
 import { radii } from "app/styles/theme/sizings";
 import { Topbar } from "app/components/common/Modal/components/Topbar";
@@ -31,14 +29,8 @@ export const Modal = ({
       onBackgroundClick={closeModal}
       onEscapeKeydown={closeModal}
     >
-      <S.Topbar>
-        {console.log({ "modal headers": availableDetails })}
-        <Topbar name={data.name} list={availableDetails} type={type} />
-        <S.CloseIconWrapper onClick={closeModal}>
-          <CloseIcon />
-        </S.CloseIconWrapper>
-      </S.Topbar>
-      This is a {type} view ({launch} launch).
+      <Topbar name={data.name} list={availableDetails} type={type} />
+
       <S.Contents>{children}</S.Contents>
     </S.StyledModal>
   );
@@ -50,13 +42,18 @@ const S = {
   flex-direction: column;
   align-items: center;
   background-color: ${colors.white};
-  border-radius: ${radii.lg};
-  min-height: 20rem;
-  // max-width: 300px;
-  height: 90vh;
 
+  height: 100%;
+  width: 100%;
   padding: 1rem;
+  overflow-Y: scroll;
   
+  ${mediaQuery.md}{
+    height: 90%;
+    width: 90%;
+    border-radius: ${radii.lg};
+  }
+
   ${mediaQuery.xl}{
     padding: 3rem;
     width: 1150px;
@@ -72,16 +69,7 @@ const S = {
     justify-self: center;
     justify-content: center;
     align-items: center;
-    height: 100%;
     width: 100%;
-  `,
-  CloseIconWrapper: styled(Button)`
-    display: flex;
-    top: 0.5rem;
-    right: 1rem;
-    padding: 0, 5rem;
-    cursor: pointer;
-    margin-left: auto;
   `,
   RoutesWrapper: styled(Flex).attrs({ as: "ul", m: "0", p: "0" })`
     list-style: none;

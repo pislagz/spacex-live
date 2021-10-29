@@ -15,10 +15,13 @@ export const InfoItem = ({
   label,
   details,
   noUpper,
+  labelColor,
   ...props
 }) => (
   <Wrapper {...props}>
-    <Label noUpper={noUpper}>{label}</Label>
+    <Label noUpper={noUpper} labelColor={labelColor}>
+      {label}
+    </Label>
     {info && <Info>{info}</Info>}
     {details && (
       <Box m="0" as="p" fontSize={"xs"} fontWeight={"light"}>

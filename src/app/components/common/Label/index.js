@@ -19,6 +19,7 @@ Wrapper.defaultProps = {
 export const Label = ({ ...props }) => (
   <Wrapper
     {...props}
+    color={props.labelColor}
     style={
       props.noUpper ? { textTransform: "none" } : { textTransform: "uppercase" }
     }
