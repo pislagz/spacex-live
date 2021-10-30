@@ -11,7 +11,7 @@ export const Topbar = ({ name, list, type }) => {
   const dispatch = useDispatch();
   const { width } = useWindowSize();
 
-  return width > 620 ? (
+  return width > 768 ? (
     <S.Wrapper>
       <Flex>
         <S.Title>

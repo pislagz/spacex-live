@@ -46,18 +46,25 @@ const S = {
   height: 100%;
   width: 100%;
   padding: 1rem;
-  overflow-Y: scroll;
+  overflow-y: auto;
   
-  ${mediaQuery.md}{
+  ${mediaQuery.sm}{
     height: 90%;
     width: 90%;
     border-radius: ${radii.lg};
   }
 
+  ${mediaQuery.md}{
+    padding: 2rem;
+    width: 95%;
+    height: 80%;
+    max-height: 80vh;
+  }
+
   ${mediaQuery.xl}{
-    padding: 3rem;
+    
     width: 1150px;
-    height: 800px;
+    height: 700px;
     max-height: 80vh;
   }
   `,
@@ -70,6 +77,12 @@ const S = {
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: 100%;
+
+    ${mediaQuery.lg} {
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
   `,
   RoutesWrapper: styled(Flex).attrs({ as: "ul", m: "0", p: "0" })`
     list-style: none;

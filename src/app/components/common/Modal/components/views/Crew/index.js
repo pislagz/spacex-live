@@ -37,8 +37,8 @@ export const Crew = ({ crew }) => {
               label="career status"
               info={firstToUpperCase(crew.status)}
             />
-            {crew?.wikipedia && <S.WikiButton link={crew.wikipedia} />}
           </S.Info>
+          {crew?.wikipedia && <S.WikiButton link={crew.wikipedia} />}
         </S.Tile>
       ))}
     </S.Wrapper>
