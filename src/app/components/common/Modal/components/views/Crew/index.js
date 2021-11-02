@@ -4,39 +4,32 @@ import { S } from "./styled";
 import { firstToUpperCase } from "app/utils/textFormatting";
 import { colors } from "app/styles/theme/colors";
 
-export const Crew = ({ crew }) => {
-  const array = Object.values(crew);
+const labels = ["name", "role", "agency", "career status"];
 
+export const Crew = ({ crew }) => {
   return (
     <S.Wrapper>
-      {array.map(({ crew, role }) => (
+      {crew.map(({ crew, role }) => (
         <S.Tile key={crew.name}>
           <S.Photo src={crew.image} />
           <S.Info>
-            <InfoItem
-              as="li"
-              labelColor={colors.black.medium}
-              label="name"
-              info={crew.name}
-            />
-            <InfoItem
-              as="li"
-              labelColor={colors.black.medium}
-              label="role"
-              info={role}
-            />
-            <InfoItem
-              as="li"
-              labelColor={colors.black.medium}
-              label="agency"
-              info={crew.agency}
-            />
-            <InfoItem
-              as="li"
-              labelColor={colors.black.medium}
-              label="career status"
-              info={firstToUpperCase(crew.status)}
-            />
+            {labels.map((label) => (
+              <InfoItem
+                key={label}
+                as="li"
+                labelColor={colors.black.medium}
+                label={label}
+                info={
+                  label === "name"
+                    ? crew.name
+                    : label === "role"
+                    ? role
+                    : label === "agency"
+                    ? crew.agency
+                    : firstToUpperCase(crew.status)
+                }
+              />
+            ))}
           </S.Info>
           {crew?.wikipedia && <S.WikiButton link={crew.wikipedia} />}
         </S.Tile>
