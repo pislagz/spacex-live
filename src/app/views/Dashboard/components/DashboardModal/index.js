@@ -7,11 +7,15 @@ import { Crew } from "app/components/common/Modal/components/views/Crew";
 import { Launchpad } from "app/components/common/Modal/components/views/Launchpad";
 import { Landpad } from "app/components/common/Modal/components/views/Landpad";
 
+import { Rocket } from "app/components/common/Modal/components/views/Rocket";
+import { Payload } from "app/components/common/Modal/components/views/Payload";
+import { Capsule } from "app/components/common/Modal/components/views/Capsule";
+
 export const DashboardModal = () => {
   const dispatch = useDispatch();
   const { launches } = useSelector(selectDashboard);
   const { isOpen, type, launch } = useSelector(selectModal);
-  const currentLaunchData = launches[launch]?.data;
+  const currentLaunch = launches[launch]?.data;
 
   return isOpen ? (
     <Modal
@@ -22,19 +26,26 @@ export const DashboardModal = () => {
       data={{ ...launches[launch]?.data }}
       detailsList={launches[launch]?.detailsList}
     >
-      {type === "crew" && <Crew crew={[...currentLaunchData.crew]} />}
+      {type === "crew" && <Crew crew={[...currentLaunch.crew]} />}
       {type === "launchpad" && (
-        <Launchpad launchpad={{ ...currentLaunchData.launchpad }} />
+        <Launchpad launchpad={{ ...currentLaunch.launchpad }} />
       )}
       {type.includes("landpad") && (
         <Landpad
+          type={type}
           cores={[
-            ...currentLaunchData.cores.map((core) =>
+            ...currentLaunch.cores.map((core) =>
               core?.landpad?.name ? core : null
             ),
           ]}
         />
       )}
+
+      {type === "rocket" && <Rocket />}
+
+      {type === "payload" && <Payload payloads={currentLaunch.payloads} />}
+
+      {type === "capsule" && <Capsule capsule={currentLaunch.capsules[0]} />}
     </Modal>
   ) : null;
 };

@@ -18,17 +18,17 @@ const S = {
     padding: "xxs",
   })`
     background: ${({ isActive }) =>
-      isActive ? colors.blue.sky : colors.gray.medium};
+      isActive ? colors.black.dark : colors.gray.medium};
     color: ${({ isActive }) => (isActive ? colors.white : colors.black.dark)};
 
     &:hover {
       background: ${({ isActive }) =>
-        isActive ? colors.blue.sky : colors.blue.light};
+        isActive ? colors.black.dark : colors.black.medium};
       color: ${colors.white};
     }
 
     &:active {
-      background: ${colors.blue.sky};
+      background: ${colors.black.dark};
       color: ${colors.white};
     }
   `,
