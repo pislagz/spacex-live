@@ -73,11 +73,10 @@ export const Payload = ({ payloads }) => {
               key={label}
               label={label}
               info={info}
-              labelColor={colors.black.dark}
+              labelColor={colors.gray.mediumDark}
             />
           ))}
         </S.Info>
-        <S.Picture />
       </S.Card>
     </Flex>
   );

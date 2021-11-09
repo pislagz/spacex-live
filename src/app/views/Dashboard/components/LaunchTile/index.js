@@ -101,6 +101,7 @@ export const LaunchTile = ({
                 ? details
                 : "No descriptive details have been provided for this mission."
             }
+            detailsLineHeight="22px"
           />
           <ul
             style={{

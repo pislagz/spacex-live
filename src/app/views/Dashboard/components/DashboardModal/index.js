@@ -4,8 +4,8 @@ import { selectDashboard, selectModal } from "app/redux/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { closeModal } from "app/redux/slices/modalSlice";
 import { Crew } from "app/components/common/Modal/components/views/Crew";
-import { Launchpad } from "app/components/common/Modal/components/views/Launchpad";
-import { Landpad } from "app/components/common/Modal/components/views/Landpad";
+import { Launchpad } from "app/components/common/Modal/components/views/Pads/Launchpad";
+import { Landpad } from "app/components/common/Modal/components/views/Pads/Landpad";
 
 import { Rocket } from "app/components/common/Modal/components/views/Rocket";
 import { Payload } from "app/components/common/Modal/components/views/Payload";
@@ -41,7 +41,12 @@ export const DashboardModal = () => {
         />
       )}
 
-      {type === "rocket" && <Rocket />}
+      {type === "rocket" && (
+        <Rocket
+          cores={currentLaunch.cores}
+          rocketName={currentLaunch.rocket.name}
+        />
+      )}
 
       {type === "payload" && <Payload payloads={currentLaunch.payloads} />}
 

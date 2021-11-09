@@ -16,6 +16,7 @@ export const InfoItem = ({
   details,
   noUpper,
   labelColor,
+  detailsLineHeight,
   ...props
 }) => (
   <Wrapper {...props}>
@@ -24,7 +25,13 @@ export const InfoItem = ({
     </Label>
     {info && <Info>{info}</Info>}
     {details && (
-      <Box m="0" as="p" fontSize={"xs"} fontWeight={"light"}>
+      <Box
+        m="0"
+        as="p"
+        fontSize={"xs"}
+        fontWeight={"light"}
+        lineHeight={detailsLineHeight}
+      >
         {details}
       </Box>
     )}

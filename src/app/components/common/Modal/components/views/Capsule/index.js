@@ -35,7 +35,7 @@ export const Capsule = ({ capsule }) => {
             key={it.label}
             label={it.label}
             info={it.info}
-            labelColor={colors.black.dark}
+            labelColor={colors.gray.mediumDark}
           />
         ))}
       </S.Info>

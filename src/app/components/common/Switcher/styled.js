@@ -2,31 +2,33 @@ import styled from "styled-components";
 import { Flex } from "app/components/common/ui";
 import { colors } from "app/styles/theme/colors";
 
-export const Switch = styled(Flex).attrs({
-  borderRadius: "sm",
-  overflow: "hidden",
-})`
+export const Switch = styled(Flex)`
   margin-bottom: 1rem;
   margin-top: 0.25rem;
-  cursor: pointer;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
 `;
 export const Item = styled(Flex).attrs({
   as: "button",
   justifyContent: "center",
-  padding: "xxs",
+  borderRadius: "sm",
+  overflow: "hidden",
+  fontSize: "sm",
 })`
-  flex-basis: ${({ itemsCount }) => (itemsCount > 1 ? "50%" : "100%")};
-  cursor: pointer;
-  border: none;
+  margin: 0 0.5px;
+  padding: 5px 20px;
+  width: 120px;
+  border: 1px solid ${colors.black.dark};
+  cursor: ${({ itemsCount }) => (itemsCount > 1 ? "pointer" : "unset")};
   background: ${({ isActive }) =>
-    isActive ? colors.black.dark : colors.gray.medium};
+    isActive ? colors.black.dark : colors.white};
   color: ${({ isActive }) => (isActive ? colors.white : colors.black.dark)};
 
   &:hover {
     background: ${({ isActive }) =>
       isActive ? colors.black.dark : colors.black.medium};
     color: ${colors.white};
+    border-color: ${({ isActive }) =>
+      isActive ? colors.black.dark : colors.black.medium};
   }
 
   &:active {

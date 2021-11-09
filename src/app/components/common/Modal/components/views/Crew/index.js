@@ -17,7 +17,7 @@ export const Crew = ({ crew }) => {
               <InfoItem
                 key={label}
                 as="li"
-                labelColor={colors.black.medium}
+                labelColor={colors.gray.mediumDark}
                 label={label}
                 info={
                   label === "name"
