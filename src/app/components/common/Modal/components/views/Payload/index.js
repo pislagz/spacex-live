@@ -37,16 +37,18 @@ export const Payload = ({ payloads }) => {
     },
     {
       label: manufacturers.length > 1 ? "manufacturers" : "manufacturer",
-      info: manufacturers.join(", "),
+      info: manufacturers.length ? manufacturers.join(", ") : "Unspecified",
     },
     { label: "orbit", info: orbit },
     {
       label: nationalities
-        ? nationalities > 1
+        ? nationalities.length > 1
           ? "nationalities"
-          : "nationality"
+          : nationalities.length === 1
+          ? "nationality"
+          : null
         : null,
-      info: nationalities,
+      info: nationalities.length ? nationalities : null,
     },
   ];
 

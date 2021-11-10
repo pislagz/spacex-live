@@ -45,6 +45,8 @@ export const DashboardModal = () => {
         <Rocket
           cores={currentLaunch.cores}
           rocketName={currentLaunch.rocket.name}
+          capsule={currentLaunch.capsules[0]}
+          fairings={currentLaunch.fairings}
         />
       )}
 

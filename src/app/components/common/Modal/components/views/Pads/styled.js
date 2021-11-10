@@ -3,6 +3,7 @@ import { Box, Flex, Image } from "app/components/common/ui";
 import { shadows } from "app/styles/theme/shadows";
 import { radii } from "app/styles/theme/sizings";
 import { zIndicies } from "app/styles/theme/zIndicies";
+import { mediaQuery } from "app/styles/theme/breakpoints";
 
 export const Wrapper = styled(Flex)`
   width: 100%;
@@ -17,6 +18,10 @@ export const Card = styled(Flex).attrs({
 })`
   padding: 2rem;
   box-shadow: ${shadows.medium};
+  margin-top: 20px;
+  ${mediaQuery.lg} {
+    margin-top: 0;
+  }
 `;
 export const Col = styled(Flex)`
   flex-direction: column;

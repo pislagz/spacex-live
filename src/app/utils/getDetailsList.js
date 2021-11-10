@@ -1,5 +1,5 @@
 export const getDetailsList = (response) => {
-  const { rocket, crew, payloads, launchpad, cores, capsules } = response;
+  const { rocket, crew, payloads, launchpad, cores } = response;
 
   if (response) {
     const isCrew = !!crew?.length;
@@ -21,10 +21,6 @@ export const getDetailsList = (response) => {
       payloads: {
         label: "payload",
         isAvailable: isPayloads,
-      },
-      capsule: {
-        label: "capsule",
-        isAvailable: !isPayloads && !!capsules?.[0]?.id,
       },
       crew: {
         label: "crew",
