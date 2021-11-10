@@ -63,6 +63,7 @@ const S = {
 
   ${mediaQuery.xl}{
     
+    padding: 2rem 3rem;
     width: 1150px;
     height: 700px;
     max-height: 80vh;
@@ -89,11 +90,3 @@ const S = {
   `,
   ModalRoute: styled(Box).attrs({ as: "li", m: "0", p: "0" })``,
 };
-
-// const Wrapper = styled(Flex).attrs({ flexDirection: column, width: "100%" })``;
-// const TopbarX = () => (
-//   <Wrapper>
-//     <Navigation list={availableDetails} type={type} />
-//     <UnmountClosed></UnmountClosed>
-//   </Wrapper>
-// );

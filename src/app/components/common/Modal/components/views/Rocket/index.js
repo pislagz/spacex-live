@@ -32,7 +32,6 @@ export const Rocket = ({ cores, rocketName, capsule, fairings }) => {
       </Flex>
 
       <Flex
-        marginTop={{ _: "40px", lg: "unset" }}
         mr={{ _: "unset", lg: "2rem" }}
         mb={{ _: "1rem", lg: "unset" }}
         flexDirection="column"

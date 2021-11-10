@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import * as S from "./styled.js";
 import { Flex } from "app/components/common/ui";
 import { InfoItem } from "app/components/common/InfoItem";
 import { colors } from "app/styles/theme/colors";
@@ -12,11 +11,11 @@ export const Payload = ({ payloads }) => {
 
   const {
     customers,
-    manufacturers,
+    // manufacturers,
     mass_kg: massKG,
     mass_lbs: massLBS,
     name,
-    nationalities,
+    // nationalities,
     orbit,
     type,
   } = payloads[selectedPayload];
@@ -25,35 +24,40 @@ export const Payload = ({ payloads }) => {
     { label: "name", info: name },
     { label: "type", info: type },
     {
+      label: customers.length > 1 ? "customers" : "customer",
+      info: customers.join(", "),
+    },
+    {
       label: "mass",
       info:
         massKG && massLBS
           ? `${addSeparators(massKG)}kg (${addSeparators(massLBS)}lbs)`
           : "Unavailable",
     },
-    {
-      label: customers.length > 1 ? "customers" : "customer",
-      info: customers.join(", "),
-    },
-    {
-      label: manufacturers.length > 1 ? "manufacturers" : "manufacturer",
-      info: manufacturers.length ? manufacturers.join(", ") : "Unspecified",
-    },
     { label: "orbit", info: orbit },
-    {
-      label: nationalities
-        ? nationalities.length > 1
-          ? "nationalities"
-          : nationalities.length === 1
-          ? "nationality"
-          : null
-        : null,
-      info: nationalities.length ? nationalities : null,
-    },
+    // {
+    //   label: manufacturers.length > 1 ? "manufacturers" : "manufacturer",
+    //   info: manufacturers.length ? manufacturers.join(", ") : "Unspecified",
+    // },
+    // {
+    //   label: nationalities
+    //     ? nationalities.length > 1
+    //       ? "nationalities"
+    //       : nationalities.length === 1
+    //       ? "nationality"
+    //       : null
+    //     : null,
+    //   info: nationalities.length ? nationalities : null,
+    // },
   ];
 
   return (
-    <Flex flexDirection="column" alignSelf="center" margin="0 auto">
+    <Flex
+      flexDirection="column"
+      alignSelf={{ _: "unset", lg: "center" }}
+      margin="0 auto"
+    >
+      <InfoItem label="payload" labelColor={colors.gray.mediumDark} />
       {/* payloads.length > 1 && */}
       {payloads.length && (
         <Switcher
@@ -62,14 +66,14 @@ export const Payload = ({ payloads }) => {
           handleClick={setSelectedPayload}
         />
       )}
-      <S.Card
+      <Flex
         flexDirection={{ _: "column", md: "row" }}
         boxShadow={shadows.medium}
         borderRadius="lg"
         padding="2rem"
-        justifyContent="space-around"
+        width={{ _: "unset", lg: "600px" }}
       >
-        <S.Info>
+        <Flex flexDirection="column">
           {data.map(({ label, info }) => (
             <InfoItem
               key={label}
@@ -78,8 +82,8 @@ export const Payload = ({ payloads }) => {
               labelColor={colors.gray.mediumDark}
             />
           ))}
-        </S.Info>
-      </S.Card>
+        </Flex>
+      </Flex>
     </Flex>
   );
 };

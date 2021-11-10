@@ -15,7 +15,7 @@ export const Item = styled(Flex).attrs({
   fontSize: "sm",
 })`
   margin: 0 0.5px;
-  padding: 5px 20px;
+  padding: 5px 0;
   width: 120px;
   border: 1px solid ${colors.black.dark};
   cursor: ${({ itemsCount }) => (itemsCount > 1 ? "pointer" : "unset")};

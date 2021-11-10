@@ -17,6 +17,7 @@ export const Topbar = ({ name, list, type }) => {
         <S.Title>
           {name}
           {" | "}
+          <Flex marginRight="xs" />
         </S.Title>
         <Nav.Wrapper>
           {list.map((route) => (
@@ -40,6 +41,7 @@ export const Topbar = ({ name, list, type }) => {
         <S.Title>
           {name}
           {" | "}
+          <Flex marginRight="xs" />
           {type && firstToUpperCase(type)}
         </S.Title>
         <S.CloseIconWrapper onClick={() => dispatch(closeModal())}>

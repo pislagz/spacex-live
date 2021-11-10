@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Flex, Image } from "app/components/common/ui";
 import { radii } from "app/styles/theme/sizings";
 import { zIndicies } from "app/styles/theme/zIndicies";
+import { shadows } from "app/styles/theme/shadows";
 
 const CardWrapper = styled(Flex)`
   flex-direction: column;
@@ -10,6 +11,8 @@ const CardWrapper = styled(Flex)`
   border-radius: ${radii.md};
   overflow: hidden;
   object-fit: cover;
+
+  box-shadow: ${shadows.medium};
 
   img {
     width: 308px;
