@@ -36,11 +36,18 @@ export const IconButton = ({ icon, label, onClick }) => {
 
 const Button = styled(Flex)`
   &:hover {
-    background-color: ${colors.blue.light};
+    background-color: ${colors.white};
     transition: background-color 0.1s ease-in-out;
+
+    path {
+      fill: ${colors.black.dark};
+    }
+    circle {
+      stroke: ${colors.black.dark};
+    }
   }
 
   &:active {
-    background-color: ${colors.blue.sky};
+    background-color: ${colors.black.medium};
   }
 `;
