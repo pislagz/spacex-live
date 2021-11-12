@@ -8,98 +8,97 @@ import { colors } from "app/styles/theme/colors";
 import { mediaQuery } from "app/styles/theme/breakpoints";
 import { sizings } from "app/styles/theme/sizings";
 
-const S = {
-  Wrapper: styled(Box)`
-    z-index: ${zIndicies.sidebar};
-    height: 100%;
-    min-height: 520px;
-    background: ${colors.white};
-    position: fixed;
-    right: 0;
+export const Wrapper = styled(Box)`
+  z-index: ${zIndicies.sidebar};
+  height: 100%;
+  background: ${colors.white};
+  position: fixed;
+  right: 0;
 
-    ${mediaQuery.xl} {
-      position: absolute;
-    }
-  `,
-  CloseWrapper: styled(Box)`
-    display: flex;
-    width: 100%;
-    margin-top: -1.5rem;
-    margin-left: -1rem;
-  `,
-  CloseButton: styled(Button)`
-    padding: 1rem;
-    min-width: 33px;
-    min-height: 21px;
-  `,
+  ${mediaQuery.xl} {
+    position: absolute;
+  }
+`;
 
-  LogoWrapper: styled(Box)`
-    min-height: 43px;
-    max-width: 174px;
-  `,
-  List: styled(Box).attrs({ as: "ul" })`
-    list-style: none;
-    margin: 0;
-    margin-top: 5rem;
-    padding: 0;
-  `,
-  ListElement: styled.li`
-    padding: 0.5rem 0;
-    margin-left: -1rem;
-  `,
-  NavLink: styled(Link)`
-    text-decoration: none;
+export const CloseButton = styled(Button)`
+  position: absolute;
+  z-index: -1;
+  top: 2.75rem;
+  left: -2.5rem;
+`;
+export const LogoWrapper = styled(Box)`
+  min-height: 43px;
+  max-width: 174px;
+`;
+export const List = styled(Box).attrs({ as: "ul" })`
+  list-style: none;
+  margin: 0;
+  margin-top: 5rem;
+  padding: 0;
+`;
+export const ListElement = styled.li`
+  padding: 0.5rem 0;
+  margin-left: -1rem;
+`;
+export const NavLink = styled(Link)`
+  text-decoration: none;
 
-    font-weight: ${({ selected }) =>
-      selected ? fontWeights.bold : fontWeights.light};
+  font-weight: ${({ selected }) =>
+    selected ? fontWeights.bold : fontWeights.light};
 
-    color: ${({ selected }) =>
-      selected ? colors.black.dark : colors.black.medium};
-    padding: 0.5rem 1rem;
-    border-radius: ${sizings.radii.md};
+  color: ${({ selected }) =>
+    selected ? colors.black.dark : colors.black.medium};
+  padding: 0.5rem 1rem;
+  border-radius: ${sizings.radii.md};
 
-    &:hover {
-      background: ${colors.gray.light};
-    }
+  &:hover {
+    background: ${colors.gray.light};
+  }
 
-    &:active {
-      background: ${colors.gray.medium};
-    }
-  `,
-  Overlay: styled(Box)`
-    position: fixed;
-    z-index: ${zIndicies.sidebarOverlay};
-    background: rgba(0, 0, 0, 0.75);
-    left: -300px;
-    top: -300px;
-    right: -300px;
-    bottom: -300px;
-    content: "";
-  `,
-  animations: {
-    overlay: {
-      transition: { duration: 0.5, ease: "easeOut" },
-      initial: { opacity: 0 },
-      animate: { opacity: 1 },
-      exit: { opacity: 0 },
-    },
-    sidebar: {
-      transition: { duration: 0.5, ease: "easeOut" },
-      initial: { x: "100%" },
-      animate: { x: 0 },
-      exit: { x: "100%" },
-    },
+  &:active {
+    background: ${colors.gray.medium};
+  }
+`;
+export const Overlay = styled(Box)`
+  position: fixed;
+  z-index: ${zIndicies.sidebarOverlay};
+  background: rgba(0, 0, 0, 0.75);
+  left: -300px;
+  top: -300px;
+  right: -300px;
+  bottom: -300px;
+  content: "";
+`;
+export const animations = {
+  overlay: {
+    transition: { duration: 0.5, ease: "easeOut" },
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
   },
-  Footer: ({ ...props }) => (
-    <Flex flexDirection="column" {...props}>
-      <Text fontWeight="light">
-        Made by <b>Pawel Pisulski</b>
-      </Text>
-      <Text fontWeight="light">
-        visit <b>pawelpisulski.pl</b>
-      </Text>
-    </Flex>
-  ),
+  sidebar: {
+    transition: { duration: 0.5, ease: "easeOut" },
+    initial: { x: "100%" },
+    animate: { x: 0 },
+    exit: { x: "100%" },
+  },
 };
 
-export default S;
+export const Footer = ({ ...props }) => (
+  <Flex
+    as="a"
+    href="https://github.com/pislagz"
+    flexDirection="column"
+    color={colors.black.dark}
+    target="_blank"
+    style={{ textDecoration: "none" }}
+    {...props}
+  >
+    <Text fontWeight="light">
+      Made by <b>Pawel Pisulski</b>
+    </Text>
+    {/* <Text fontWeight="light">
+        visit <b>pawelpisulski.pl</b>
+      </Text> */}
+  </Flex>
+);

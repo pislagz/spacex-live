@@ -1,5 +1,5 @@
 import React from "react";
-import S from "./styled";
+import * as S from "./styled";
 import {
   getSanitizedBreakpoint,
   largeWidth,
@@ -38,25 +38,28 @@ export const Sidebar = ({ isMobileMenuVisible, setIsMobileMenuVisible }) => {
               {...S.animations.overlay}
             />
           )}
+
           <S.Wrapper
             as={size.width >= getSanitizedBreakpoint("lg") ? "div" : motion.div}
             {...S.animations.sidebar}
-            p={{ _: "4rem 2rem 0 2rem" }}
+            p={{ _: "0 2rem 0 2rem" }}
             minWidth={{ _: "14rem" }}
             maxWidth={{ lg: "bigSidebar" }}
             right={{ _: "0", lg: "unset" }}
             left={{ _: "unset", lg: "0" }}
             position="relative"
           >
-            <Flex flexDirection="column" height="100%">
-              {size.width >= getSanitizedBreakpoint("lg") ? null : (
-                <S.CloseWrapper>
-                  <S.CloseButton onClick={() => setIsMobileMenuVisible(false)}>
-                    <CloseIcon />
-                  </S.CloseButton>
-                </S.CloseWrapper>
-              )}
-              <S.LogoWrapper>
+            {size.width >= getSanitizedBreakpoint("lg") ? null : (
+              <S.CloseButton onClick={() => setIsMobileMenuVisible(false)}>
+                <CloseIcon fill={"white"} />
+              </S.CloseButton>
+            )}
+            <Flex
+              flexDirection="column"
+              height="100%"
+              style={{ overflowY: "auto" }}
+            >
+              <S.LogoWrapper marginTop="4rem">
                 <Logo fill={"black"} />
               </S.LogoWrapper>
 

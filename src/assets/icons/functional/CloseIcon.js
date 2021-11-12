@@ -1,7 +1,15 @@
+import { colors } from "app/styles/theme/colors";
 import React from "react";
 
-export const CloseIcon = () => (
-  <svg x="0px" y="0px" width="25px" height="25px" viewBox="0 0 357 357">
+export const CloseIcon = ({ fill = colors.black.dark }) => (
+  <svg
+    x="0px"
+    y="0px"
+    width="25px"
+    height="25px"
+    viewBox="0 0 357 357"
+    fill={fill}
+  >
     <g>
       <g id="close">
         <polygon
