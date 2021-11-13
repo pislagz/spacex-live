@@ -1,26 +1,20 @@
 @font-face {
   font-family: "HelveticaNeue";
-  src: url("../../assets/fonts/Light.otf") format("opentype");
-  font-style: normal;
-  font-display: swap;
+  src: url(../../assets/fonts/Light.otf) format("opentype");
   font-weight: 100;
   font-display: block; /* Fix flickering */
 }
 
 @font-face {
   font-family: "HelveticaNeue";
-  src: url("../../assets/fonts/Normal.otf") format("opentype");
-  font-style: normal;
-  font-display: swap;
+  src: url(../../assets/fonts/Normal.otf) format("opentype");
   font-weight: 200;
   font-display: block; /* Fix flickering */
 }
 
 @font-face {
   font-family: "HelveticaNeue";
-  src: url("../../assets/fonts/Bold.otf") format("opentype");
-  font-style: normal;
-  font-display: swap;
+  src: url(../../assets/fonts/Bold.otf) format("opentype");
   font-weight: 300;
   font-display: block; /* Fix flickering */
 }

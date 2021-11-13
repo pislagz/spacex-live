@@ -1,4 +1,5 @@
 import React from "react";
+import { Box } from "app/components/common/ui";
 import { Hamburger, Wrapper } from "./styled";
 import { HamburgerIcon } from "assets/icons/functional/HamburgerIcon";
 import { Logo } from "assets/icons/logo/Logo";
@@ -10,7 +11,9 @@ export const Header = ({ setIsMobileMenuVisible }) => {
 
   return size.width >= largeWidth ? null : (
     <Wrapper>
-      <Logo fill={"white"} width={"201"} height={"50"} />
+      <Box as="a" href="/">
+        <Logo fill={"white"} width={"201"} height={"50"} />
+      </Box>
       <Hamburger onClick={() => setIsMobileMenuVisible(true)}>
         <HamburgerIcon />
       </Hamburger>
