@@ -17,11 +17,14 @@ export const Fairings = ({ fairings }) => {
       </Box>
       <S.Card src={links.fairings}>
         <Flex flexDirection="column">
-          <InfoItem
-            color={colors.white}
-            label="condition"
-            info={reused === null ? "Unknown" : reused ? "Reused" : "New"}
-          />
+          {reused === null ? null : (
+            <InfoItem
+              color={colors.white}
+              label="condition"
+              info={reused ? "Reused" : "New"}
+            />
+          )}
+
           <InfoItem
             color={colors.white}
             label="recovery"
