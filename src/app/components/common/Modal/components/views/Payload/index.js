@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Flex } from "app/components/common/ui";
+import { Flex, Box } from "app/components/common/ui";
 import { InfoItem } from "app/components/common/InfoItem";
 import { colors } from "app/styles/theme/colors";
 import { shadows } from "app/styles/theme/shadows";
@@ -21,7 +21,6 @@ export const Payload = ({ payloads }) => {
   } = payloads[selectedPayload];
 
   const data = [
-    { label: "name", info: name },
     { label: "type", info: type },
     {
       label: customers.length > 1 ? "customers" : "customer",
@@ -35,20 +34,6 @@ export const Payload = ({ payloads }) => {
           : "Unavailable",
     },
     { label: "orbit", info: orbit },
-    // {
-    //   label: manufacturers.length > 1 ? "manufacturers" : "manufacturer",
-    //   info: manufacturers.length ? manufacturers.join(", ") : "Unspecified",
-    // },
-    // {
-    //   label: nationalities
-    //     ? nationalities.length > 1
-    //       ? "nationalities"
-    //       : nationalities.length === 1
-    //       ? "nationality"
-    //       : null
-    //     : null,
-    //   info: nationalities.length ? nationalities : null,
-    // },
   ];
 
   return (
@@ -57,31 +42,49 @@ export const Payload = ({ payloads }) => {
       alignSelf={{ _: "unset", lg: "center" }}
       margin="0 auto"
     >
-      <InfoItem label="payload" labelColor={colors.gray.mediumDark} />
-      {/* payloads.length > 1 && */}
-      {payloads.length && (
-        <Switcher
-          options={payloads}
-          activeOption={selectedPayload}
-          handleClick={setSelectedPayload}
-        />
+      {payloads.length > 1 && (
+        <>
+          <InfoItem label="payload" labelColor={colors.gray.mediumDark} />
+          <Switcher
+            options={payloads.map((e, i) => ({
+              name: `${i + 1}`,
+            }))}
+            activeOption={selectedPayload}
+            handleClick={setSelectedPayload}
+          />
+        </>
       )}
       <Flex
         flexDirection={{ _: "column", md: "row" }}
         boxShadow={shadows.medium}
-        borderRadius="lg"
-        padding="2rem"
+        borderRadius="md"
         width={{ _: "unset", lg: "600px" }}
+        overflow="hidden"
       >
-        <Flex flexDirection="column">
-          {data.map(({ label, info }) => (
-            <InfoItem
-              key={label}
-              label={label}
-              info={info}
-              labelColor={colors.gray.mediumDark}
-            />
-          ))}
+        <Flex flexDirection="column" width="100%">
+          <Flex width="100%">
+            <Box
+              as="p"
+              m="0"
+              p="10px 20px"
+              fontSize="md"
+              color={colors.white}
+              bg={colors.black.dark}
+              width="100%"
+            >
+              {name}
+            </Box>
+          </Flex>
+          <Flex flexDirection="column" padding="2rem">
+            {data.map(({ label, info }) => (
+              <InfoItem
+                key={label}
+                label={label}
+                info={info}
+                labelColor={colors.gray.mediumDark}
+              />
+            ))}
+          </Flex>
         </Flex>
       </Flex>
     </Flex>
