@@ -1,9 +1,11 @@
+import { colors } from "app/styles/theme/colors";
+
 export const getActivityStatus = (name, isActive) =>
   !isActive ? (name === "Starship" ? "In development" : "Retired") : "Active";
 
 export const colorizeStatus = (status) =>
   status === "Active"
-    ? "rgba(29,143,36,0.6)"
+    ? colors.rocketActivity.active
     : status === "In development"
-    ? "rgba(255, 179, 3,0.5)"
-    : "rgba(186,17,17,0.5)";
+    ? colors.rocketActivity.inDevelopment
+    : colors.rocketActivity.retired;

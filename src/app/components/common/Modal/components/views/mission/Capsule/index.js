@@ -2,7 +2,6 @@ import React from "react";
 import * as S from "./styled";
 import { InfoItem } from "app/components/common/InfoItem";
 import { firstToUpperCase } from "app/utils/textFormatting";
-import { colors } from "app/styles/theme/colors";
 
 export const Capsule = ({ capsule }) => {
   const {
@@ -31,12 +30,7 @@ export const Capsule = ({ capsule }) => {
     <S.Card>
       <S.Info>
         {data.map((it) => (
-          <InfoItem
-            key={it.label}
-            label={it.label}
-            info={it.info}
-            labelColor={colors.gray.mediumDark}
-          />
+          <InfoItem key={it.label} label={it.label} info={it.info} dark />
         ))}
       </S.Info>
       <S.Picture />

@@ -117,7 +117,13 @@ export const LaunchTile = ({
                 isAvailable && (
                   <IconButton
                     onClick={() =>
-                      dispatch(openModal({ type: `${label}`, launch: launch }))
+                      dispatch(
+                        openModal({
+                          type: `${label}`,
+                          launch: launch,
+                          item: null,
+                        })
+                      )
                     }
                     icon={iconsConfig[label]}
                     label={label}

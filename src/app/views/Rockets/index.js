@@ -10,13 +10,16 @@ import { Error } from "app/components/common/Error";
 import { colors } from "app/styles/theme/colors";
 import { MoreLessIcon } from "assets/icons/functional/MoreLessIcon";
 import * as S from "./styled";
+import { openModal } from "app/redux/slices/modalSlice";
 import {
   colorizeStatus,
   getActivityStatus,
 } from "app/utils/getRocketActivityStatus";
+import { RocketsModal } from "./components/RocketsModal";
 
 export const Rockets = () => {
   const dispatch = useDispatch();
+
   const { rockets, status } = useSelector(selectRockets);
   const [seeMore, setSeeMore] = useState(false);
 
@@ -40,7 +43,20 @@ export const Rockets = () => {
                     : !active && name !== "Starship"
                 )
                 .map(({ name, active, flickr_images: flickrImages }, index) => (
-                  <Flex flexDirection="column" margin="1rem">
+                  <Flex
+                    key={name}
+                    flexDirection="column"
+                    margin="1rem"
+                    onClick={() =>
+                      dispatch(
+                        openModal({
+                          type: "Overview",
+                          launch: null,
+                          item: name,
+                        })
+                      )
+                    }
+                  >
                     <Box as="p" m="0" p="0" fontSize="md">
                       {name}
                     </Box>
@@ -71,6 +87,7 @@ export const Rockets = () => {
           </Flex>
         </S.Wrapper>
       )}
+      <RocketsModal />
     </>
   );
 };

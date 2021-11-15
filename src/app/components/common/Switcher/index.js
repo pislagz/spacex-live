@@ -5,12 +5,14 @@ export const Switcher = ({ options, activeOption, handleClick }) => (
   <S.Switch>
     {options.map((option, index) => (
       <S.Item
-        key={option.name}
+        key={option.name || option}
         isActive={activeOption === index}
-        onClick={() => handleClick(index)}
+        onClick={
+          option.name ? () => handleClick(index) : () => handleClick(option)
+        }
         itemsCount={options.length}
       >
-        {option.name}
+        {option.name || option}
       </S.Item>
     ))}
   </S.Switch>

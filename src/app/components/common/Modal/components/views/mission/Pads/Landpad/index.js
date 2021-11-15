@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import * as S from "../styled";
 import { InfoItem } from "app/components/common/InfoItem";
-import { colors } from "app/styles/theme/colors";
 import { Flex } from "app/components/common/ui";
 import { Maps } from "assets/icons/buttons/Maps";
 import { firstToUpperCase } from "app/utils/textFormatting";
@@ -40,7 +39,7 @@ export const Landpad = ({ cores, type }) => {
         <Flex flexDirection="column">
           {type.includes("landpad") && (
             <>
-              <InfoItem labelColor={colors.gray.mediumDark} label="booster" />
+              <InfoItem dark label="booster" />
               <Switcher
                 options={boosterNumbers}
                 activeOption={selectedBooster}
@@ -48,11 +47,7 @@ export const Landpad = ({ cores, type }) => {
               />
             </>
           )}
-          <InfoItem
-            labelColor={colors.gray.mediumDark}
-            label="landpad"
-            marginBottom="1rem"
-          />
+          <InfoItem dark label="landpad" marginBottom="1rem" />
           <Flex>
             <S.PhotoWrapper src={images.large[0]}>
               <InfoItem
@@ -67,42 +62,18 @@ export const Landpad = ({ cores, type }) => {
           <Flex marginTop="1rem" height="100%">
             <S.Col marginRight="sm">
               <Flex>
-                <InfoItem
-                  labelColor={colors.gray.mediumDark}
-                  label="location"
-                  info={locality}
-                />
+                <InfoItem dark label="location" info={locality} />
               </Flex>
-              <InfoItem
-                labelColor={colors.gray.mediumDark}
-                label="region"
-                info={region}
-              />
+              <InfoItem dark label="region" info={region} />
             </S.Col>
             <S.Col marginRight="sm">
-              <InfoItem
-                labelColor={colors.gray.mediumDark}
-                label="status"
-                info={firstToUpperCase(status)}
-              />
+              <InfoItem dark label="status" info={firstToUpperCase(status)} />
 
-              <InfoItem
-                labelColor={colors.gray.mediumDark}
-                label="abbreviation"
-                info={name}
-              />
+              <InfoItem dark label="abbreviation" info={name} />
             </S.Col>
             <S.Col>
-              <InfoItem
-                labelColor={colors.gray.mediumDark}
-                label="landings"
-                info={landingSuccesses}
-              />
-              <InfoItem
-                labelColor={colors.gray.mediumDark}
-                label="land fails"
-                info={landingFailures}
-              />
+              <InfoItem dark label="landings" info={landingSuccesses} />
+              <InfoItem dark label="land fails" info={landingFailures} />
             </S.Col>
           </Flex>
         </Flex>
@@ -117,7 +88,7 @@ export const Landpad = ({ cores, type }) => {
         width={{ _: "100%", sm: "90%", md: "80%" }}
       >
         <InfoItem
-          labelColor={colors.gray.mediumDark}
+          dark
           label="description"
           details={details}
           detailsLineHeight="28px"

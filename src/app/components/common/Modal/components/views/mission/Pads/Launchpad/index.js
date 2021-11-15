@@ -8,7 +8,6 @@ import { DateTime } from "luxon";
 import { showOffset } from "app/utils/parseDate";
 import { weatherUtils } from "app/utils/weatherUtils";
 import { InfoItem } from "app/components/common/InfoItem";
-import { colors } from "app/styles/theme/colors";
 
 export const Launchpad = ({ launchpad }) => {
   const {
@@ -49,11 +48,7 @@ export const Launchpad = ({ launchpad }) => {
 
       <S.Card position="relative">
         <Flex flexDirection="column">
-          <InfoItem
-            labelColor={colors.gray.mediumDark}
-            label="launchpad"
-            marginBottom="1rem"
-          />
+          <InfoItem dark label="launchpad" marginBottom="1rem" />
           <Flex>
             <S.PhotoWrapper src={images.large[0]}>
               <InfoItem
@@ -68,7 +63,7 @@ export const Launchpad = ({ launchpad }) => {
           <Flex marginTop="1rem" height="100%">
             <S.Col marginRight="sm">
               <InfoItem
-                labelColor={colors.gray.mediumDark}
+                dark
                 label={`TIME (${showOffset(DateTime.now(), timezone)})`}
                 info={DateTime.now({ zone: timezone }).toFormat(
                   "LLL dd hh':'mm a"
@@ -76,7 +71,7 @@ export const Launchpad = ({ launchpad }) => {
               />
 
               <InfoItem
-                labelColor={colors.gray.mediumDark}
+                dark
                 label="weather"
                 info={`${localWeather().weather[0].main}, ${convertKelvin(
                   localWeather().main.temp,
@@ -86,7 +81,7 @@ export const Launchpad = ({ launchpad }) => {
             </S.Col>
             <S.Col marginRight="sm">
               <InfoItem
-                labelColor={colors.gray.mediumDark}
+                dark
                 label="launches"
                 info={`${launchAttempts} ${
                   launchFailures ? `(incl. ${launchFailures} failed)` : ""
@@ -94,22 +89,14 @@ export const Launchpad = ({ launchpad }) => {
               />
 
               <InfoItem
-                labelColor={colors.gray.mediumDark}
+                dark
                 label="wind"
                 info={displayWindSpeed(localWeather().wind.speed, windUnit)}
               />
             </S.Col>
             <S.Col>
-              <InfoItem
-                labelColor={colors.gray.mediumDark}
-                label="location"
-                info={locality}
-              />
-              <InfoItem
-                labelColor={colors.gray.mediumDark}
-                label="region"
-                info={region}
-              />
+              <InfoItem dark label="location" info={locality} />
+              <InfoItem dark label="region" info={region} />
             </S.Col>
           </Flex>
         </Flex>
@@ -124,7 +111,7 @@ export const Launchpad = ({ launchpad }) => {
         width={{ _: "100%", sm: "90%", md: "80%" }}
       >
         <InfoItem
-          labelColor={colors.gray.mediumDark}
+          dark
           label="description"
           details={details}
           detailsLineHeight="28px"

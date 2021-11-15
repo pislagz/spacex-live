@@ -2,7 +2,6 @@ import React from "react";
 import { InfoItem } from "app/components/common/InfoItem";
 import { S } from "./styled";
 import { firstToUpperCase } from "app/utils/textFormatting";
-import { colors } from "app/styles/theme/colors";
 
 const labels = ["name", "role", "agency", "career status"];
 
@@ -17,7 +16,7 @@ export const Crew = ({ crew }) => {
               <InfoItem
                 key={label}
                 as="li"
-                labelColor={colors.gray.mediumDark}
+                dark
                 label={label}
                 info={
                   label === "name"

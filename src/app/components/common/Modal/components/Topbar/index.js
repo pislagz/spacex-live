@@ -3,7 +3,7 @@ import { Flex } from "app/components/common/ui";
 import { S, Nav } from "./styled";
 import { firstToUpperCase } from "app/utils/textFormatting";
 import { useDispatch } from "react-redux";
-import { changeModalType, closeModal } from "app/redux/slices/modalSlice";
+import { shiftModalType, closeModal } from "app/redux/slices/modalSlice";
 import { useWindowSize } from "app/hooks/useWindowSize";
 import { CloseIcon } from "assets/icons/functional/CloseIcon";
 
@@ -16,7 +16,7 @@ export const Topbar = ({ name, list, type }) => {
       <Flex>
         <S.Title>
           {name}
-          {" | "}
+          {list.length ? " | " : null}
           <Flex marginRight="xs" />
         </S.Title>
         <Nav.Wrapper>
@@ -24,7 +24,7 @@ export const Topbar = ({ name, list, type }) => {
             <Nav.Route
               key={route}
               isActive={type === route}
-              onClick={() => dispatch(changeModalType({ type: route }))}
+              onClick={() => dispatch(shiftModalType({ type: route }))}
             >
               {firstToUpperCase(route)}
             </Nav.Route>
@@ -40,7 +40,7 @@ export const Topbar = ({ name, list, type }) => {
       <Flex>
         <S.Title>
           {name}
-          {" | "}
+          {list.length ? " | " : null}
           <Flex marginRight="xs" />
           {type && firstToUpperCase(type)}
         </S.Title>

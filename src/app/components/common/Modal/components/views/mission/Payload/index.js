@@ -44,7 +44,7 @@ export const Payload = ({ payloads }) => {
     >
       {payloads.length > 1 && (
         <>
-          <InfoItem label="payload" labelColor={colors.gray.mediumDark} />
+          <InfoItem dark label="payload" />
           <Switcher
             options={payloads.map((e, i) => ({
               name: `${i + 1}`,
@@ -77,12 +77,7 @@ export const Payload = ({ payloads }) => {
           </Flex>
           <Flex flexDirection="column" padding="2rem">
             {data.map(({ label, info }) => (
-              <InfoItem
-                key={label}
-                label={label}
-                info={info}
-                labelColor={colors.gray.mediumDark}
-              />
+              <InfoItem key={label} label={label} info={info} dark />
             ))}
           </Flex>
         </Flex>

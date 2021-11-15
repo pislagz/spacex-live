@@ -4,6 +4,7 @@ import { Info, IconLink, Wrapper } from "./styled";
 import { Label } from "app/components/common/Label";
 import { Falcon9 } from "assets/icons/falcons/Falcon9";
 import { FalconHeavy } from "assets/icons/falcons/FalconHeavy";
+import { colors } from "app/styles/theme/colors";
 
 //noUpper prop ensures the label isn't text-transformed with uppercase
 
@@ -16,11 +17,15 @@ export const InfoItem = ({
   details,
   noUpper,
   labelColor,
+  dark,
   detailsLineHeight,
   ...props
 }) => (
   <Wrapper {...props}>
-    <Label noUpper={noUpper} labelColor={labelColor}>
+    <Label
+      noUpper={noUpper}
+      labelColor={dark ? colors.gray.mediumDark : labelColor}
+    >
       {label}
     </Label>
     {info && <Info>{info}</Info>}

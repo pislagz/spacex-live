@@ -11,13 +11,21 @@ const CardWrapper = styled(Flex)`
   border-radius: ${radii.md};
   overflow: hidden;
   object-fit: cover;
-
+  cursor: pointer;
   box-shadow: ${shadows.medium};
+
+  &:hover {
+    img {
+      transform: scale(1.065);
+    }
+  }
 
   img {
     width: 220px;
     height: 355px;
     object-fit: cover;
+
+    transition: transform 0.2s ease;
   }
 
   &:after {

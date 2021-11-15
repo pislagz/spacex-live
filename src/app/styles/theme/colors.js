@@ -20,9 +20,9 @@ export const colors = {
     off: "#ff1d0d",
   },
   rocketActivity: {
-    active: "rgba(29,143,36,0.6)",
-    retired: "rgba(186,17,17,0.5)",
-    inDevelopment: "rgba(255, 179, 3,0.5)",
+    active: "rgba(29,143,36,0.4)",
+    retired: "rgba(186,17,17,0.4)",
+    inDevelopment: "rgba(255, 179, 3,0.4)",
   },
   white: "#fff",
   transparentWhite: "rgba(255,255,255,0.5)",

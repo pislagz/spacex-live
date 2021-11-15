@@ -20,6 +20,10 @@ export const OuterWrapper = styled(Flex)`
   padding-right: ${({ isMobileMenuVisible }) =>
     isMobileMenuVisible && !isMobile ? "10px" : "0px"};
   z-index: ${zIndicies.absoluteBg};
+
+  ${mediaQuery.lg} {
+    padding-right: unset;
+  }
 `;
 
 const Inner = styled(Box)`

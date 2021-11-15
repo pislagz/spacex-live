@@ -3,13 +3,13 @@ import { Modal } from "app/components/common/Modal";
 import { selectDashboard, selectModal } from "app/redux/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { closeModal } from "app/redux/slices/modalSlice";
-import { Crew } from "app/components/common/Modal/components/views/Crew";
-import { Launchpad } from "app/components/common/Modal/components/views/Pads/Launchpad";
-import { Landpad } from "app/components/common/Modal/components/views/Pads/Landpad";
 
-import { Rocket } from "app/components/common/Modal/components/views/Rocket";
-import { Payload } from "app/components/common/Modal/components/views/Payload";
-import { Capsule } from "app/components/common/Modal/components/views/Capsule";
+import { Crew } from "app/components/common/Modal/components/views/mission/Crew";
+import { Launchpad } from "app/components/common/Modal/components/views/mission/Pads/Launchpad";
+import { Landpad } from "app/components/common/Modal/components/views/mission/Pads/Landpad";
+import { Rocket } from "app/components/common/Modal/components/views/mission/Rocket";
+import { Payload } from "app/components/common/Modal/components/views/mission/Payload";
+import { Capsule } from "app/components/common/Modal/components/views/mission/Capsule";
 
 export const DashboardModal = () => {
   const dispatch = useDispatch();
