@@ -19,7 +19,13 @@ export const S = {
     cursor: pointer;
     margin-left: auto;
   `,
-  Title: styled(Flex).attrs({ as: "h4", m: "0", p: "0" })``,
+  Title: styled(Flex).attrs({
+    as: "h4",
+    m: "0",
+    p: "0",
+    alignItems: "center",
+    fontSize: "lg",
+  })``,
 };
 
 export const Nav = {
@@ -33,8 +39,9 @@ export const Nav = {
   Route: styled(Box).attrs({
     as: "li",
     m: "0",
-    marginTop: "-0.25rem",
+    // marginTop: "-0.25rem",
     p: "0.25rem 0.8rem",
+    fontSize: "lg",
   })`
     font-weight: ${({ isActive }) =>
       isActive ? fontWeights.bold : fontWeights.light};

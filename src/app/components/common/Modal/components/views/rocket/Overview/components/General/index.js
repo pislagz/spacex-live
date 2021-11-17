@@ -1,7 +1,8 @@
 import React from "react";
-import { Flex } from "app/components/common/ui";
 import { InfoItem } from "app/components/common/InfoItem";
-import { addSeparators } from "app/utils/textFormatting";
+import { formatBigNumber, addSeparators } from "app/utils/textFormatting";
+import { DateTime } from "luxon";
+import { Col } from "../../styled";
 
 export const General = ({ data }) => {
   const {
@@ -12,14 +13,19 @@ export const General = ({ data }) => {
     country,
     stages,
     boosters,
-    company,
+    height,
+    mass,
     // wikipedia,
   } = data;
 
   return (
     <>
-      <Flex flexDirection="column">
+      <Col marginRight="md">
         <InfoItem dark label="name" info={name} />
+        <InfoItem dark label="height" info={height.meters + "m"} />
+        <InfoItem dark label="mass" info={addSeparators(mass.kg) + "kg"} />
+      </Col>
+      <Col marginRight="md">
         <InfoItem
           dark
           label="status"
@@ -28,26 +34,29 @@ export const General = ({ data }) => {
               ? "Active"
               : name === "Starship"
               ? "In development"
-              : "Inactive"
+              : "Retired"
           }
         />
         <InfoItem
           dark
-          label="cost per launch"
-          info={`$ ${addSeparators(launchCost)}`}
+          label="launch cost"
+          info={`$${formatBigNumber(launchCost, 2)}`}
         />
-        <InfoItem dark label="first flight date" info={firstFlight} />
-      </Flex>
-      <Flex flexDirection="column">
+        <InfoItem
+          dark
+          label="first flight"
+          info={DateTime.fromISO(firstFlight).toFormat("DD")}
+        />
+      </Col>
+      <Col>
         <InfoItem dark label="country" info={country} />
-        <InfoItem dark label="stages count" info={stages} />
+        <InfoItem dark label="stages" info={stages} />
         <InfoItem
           dark
           label="side boosters"
           info={boosters ? boosters : "None"}
         />
-        <InfoItem dark label="company" info={company} />
-      </Flex>
+      </Col>
     </>
   );
 };

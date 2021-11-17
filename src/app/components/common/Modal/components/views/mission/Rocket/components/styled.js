@@ -11,7 +11,7 @@ const CardWrapper = styled(Flex)`
   border-radius: ${radii.md};
   overflow: hidden;
   object-fit: cover;
-
+  min-height: 430px;
   box-shadow: ${shadows.medium};
 
   img {

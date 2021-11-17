@@ -5,12 +5,13 @@ import { Flex } from "app/components/common/ui";
 // import { selectDashboard, selectDashboardSetting } from "app/redux/selectors";
 // import { DateTime } from "luxon";
 import { Switcher } from "app/components/common/Switcher";
-import { Card } from "app/components/common/Modal/components/views/mission/Rocket/styled";
+import { Card } from "app/components/common/Modal/components/views/mission/Rocket/components/styled";
 import { optionsList, OPTIONS } from "./config";
+import { InfoItem } from "app/components/common/InfoItem";
 
 export const Overview = ({ data }) => {
   const {
-    // description,
+    description,
     flickr_images: flickrImages,
     name,
     active,
@@ -22,12 +23,12 @@ export const Overview = ({ data }) => {
     company,
     wikipedia,
     // landing_legs: landingLegs,
-    diameter,
+    // diameter,
     height,
     mass,
     engines,
     first_stage: firstStage,
-    second_stage: secondStage,
+    second_stage: secondStageData,
     payload_weights: payloadWeights,
   } = data;
 
@@ -42,12 +43,9 @@ export const Overview = ({ data }) => {
       boosters,
       company,
       wikipedia,
-      // landingLegs,
-    },
-    dimensions: {
-      diameter,
       height,
       mass,
+      // landingLegs,
     },
     propulsion: {
       engines,
@@ -56,11 +54,10 @@ export const Overview = ({ data }) => {
       firstStage,
     },
     secondStage: {
-      secondStage,
+      secondStageData,
       payloadWeights,
     },
   };
-
   const [currentOption, setCurrentOption] = useState(OPTIONS[0].label);
   // const { temp: tempUnit, windspeed: windUnit } = useSelector(
   //   selectDashboardSetting
@@ -78,32 +75,39 @@ export const Overview = ({ data }) => {
         src={name !== "Falcon 1" ? flickrImages[1] : flickrImages[0]}
       ></Card>
 
-      {console.log(data)}
-
-      <S.Specs
+      <Flex
         flexDirection="column"
-        marginLeft={{ _: "unset", lg: "2rem" }}
         marginTop={{ _: "2rem", lg: "unset" }}
         width={{ _: "100%", sm: "90%", md: "80%" }}
-        borderRadius="md"
-        p="2rem"
+        marginLeft={{ _: "unset", lg: "2rem" }}
       >
-        <Switcher
-          options={optionsList}
-          activeOption={optionsList.indexOf(currentOption)}
-          onClick={console.log(currentOption)}
-          handleClick={setCurrentOption}
-        />
-        <Flex>
-          {/* <General data={dataChunks["general"]} /> */}
-          {OPTIONS.map(
-            ({ label, component: View, short }) =>
-              currentOption === label && (
-                <View key={short} data={dataChunks[short]} />
-              )
-          )}
-        </Flex>
-      </S.Specs>
+        <S.Specs
+          flexDirection="column"
+          borderRadius="md"
+          p="2rem"
+          height="430px"
+        >
+          <Flex marginBottom="md">
+            <InfoItem dark label="description" details={description} />
+          </Flex>
+          <InfoItem dark label="specs" />
+          <Switcher
+            options={optionsList}
+            activeOption={optionsList.indexOf(currentOption)}
+            onClick={console.log(currentOption)}
+            handleClick={setCurrentOption}
+          />
+          <Flex height="100%">
+            {/* <General data={dataChunks["general"]} /> */}
+            {OPTIONS.map(
+              ({ label, component: View, short }) =>
+                currentOption === label && (
+                  <View key={short} data={dataChunks[short]} />
+                )
+            )}
+          </Flex>
+        </S.Specs>
+      </Flex>
     </Flex>
   );
 };

@@ -63,7 +63,7 @@ const S = {
 
   ${mediaQuery.xl}{
     
-    padding: 2rem 3rem;
+    padding: 4rem;
     width: 1150px;
     height: 700px;
     max-height: 80vh;

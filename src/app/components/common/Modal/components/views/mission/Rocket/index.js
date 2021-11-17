@@ -6,8 +6,8 @@ import {
 import { Flex } from "app/components/common/ui";
 import { Rocket as RocketCard } from "./components/Rocket";
 import { Booster } from "./components/Booster";
-import { Fairings } from "./components/Fairings";
-import { Capsule } from "./components/Capsule";
+import { Fairings as FairingsCard } from "./components/Fairings";
+import { Capsule as CapsuleCard } from "./components/Capsule";
 
 export const Rocket = ({ cores, rocketName, capsule, fairings }) => {
   return (
@@ -24,21 +24,23 @@ export const Rocket = ({ cores, rocketName, capsule, fairings }) => {
       })}
       <Flex
         marginTop={{ _: "40px", lg: "unset" }}
-        mr={{ _: "unset", lg: "2rem" }}
+        mr={{ _: "unset", lg: "3rem" }}
         mb={{ _: "1rem", lg: "unset" }}
         flexDirection="column"
       >
         <RocketCard rocketName={rocketName} capsule={capsule} />
       </Flex>
 
-      <Flex
-        mr={{ _: "unset", lg: "2rem" }}
-        mb={{ _: "1rem", lg: "unset" }}
-        flexDirection="column"
-      >
-        {fairings && <Fairings fairings={fairings} />}
-        {capsule && <Capsule capsule={capsule} />}
-      </Flex>
+      {fairings || capsule ? (
+        <Flex
+          mr={{ _: "unset", lg: "3rem" }}
+          mb={{ _: "1rem", lg: "unset" }}
+          flexDirection="column"
+        >
+          {fairings && <FairingsCard fairings={fairings} />}
+          {capsule && <CapsuleCard capsule={capsule} />}
+        </Flex>
+      ) : null}
 
       <Flex flexDirection="column">
         <Booster cores={cores} />

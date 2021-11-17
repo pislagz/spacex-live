@@ -1,13 +1,17 @@
 import React from "react";
-import { Flex } from "app/components/common/ui";
 import { InfoItem } from "app/components/common/InfoItem";
+import {
+  firstToUpperCase,
+  everyFirstToUpperCase,
+} from "app/utils/textFormatting";
+import { Col } from "../../styled";
 
 export const Propulsion = ({ data }) => {
   const { engines } = data;
   const {
     engine_loss_max: maxEngineLoss,
     isp,
-    layout,
+    // layout,
     number,
     propellant_1: propellant1,
     propellant_2: propellant2,
@@ -20,20 +24,17 @@ export const Propulsion = ({ data }) => {
 
   return (
     <>
-      <Flex flexDirection="column">
+      <Col marginRight="md">
+        <InfoItem
+          dark
+          label="engine type"
+          info={firstToUpperCase(`${type} ${version}`)}
+        />
         <InfoItem dark label="engine count" info={number} />
-        <InfoItem dark label="engine type" info={type} />
-        <InfoItem dark label="engine version" info={version} />
-        <InfoItem dark label="engine layout" info={layout} />
-      </Flex>
-
-      <Flex flexDirection="column">
-        <InfoItem dark label="max engine loss" info={maxEngineLoss} />
-        <InfoItem dark label="propellant #1" info={propellant1} />
-        <InfoItem dark label="propellant #2" info={propellant2} />
-      </Flex>
-      <Flex flexDirection="column">
         <InfoItem dark label="TWR" info={TWR} />
+      </Col>
+
+      <Col marginRight="md">
         <InfoItem dark label="sea level thrust" info={seaLevelThrust.kN} />
         <InfoItem dark label="vacuum thrust" info={vacuumThrust.kN} />
         <InfoItem
@@ -41,7 +42,24 @@ export const Propulsion = ({ data }) => {
           label="isp (sea/vacuum)"
           info={`${isp.sea_level}/${isp.vacuum}`}
         />
-      </Flex>
+      </Col>
+      <Col>
+        <InfoItem
+          dark
+          label="propellant #1"
+          info={everyFirstToUpperCase(propellant1)}
+        />
+        <InfoItem
+          dark
+          label="propellant #2"
+          info={everyFirstToUpperCase(propellant2)}
+        />
+        <InfoItem
+          dark
+          label="max engine loss"
+          info={maxEngineLoss !== null ? maxEngineLoss : "Unknown"}
+        />
+      </Col>
     </>
   );
 };

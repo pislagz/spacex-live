@@ -9,7 +9,10 @@ import { YoutubeIcon } from "assets/icons/media/YoutubeIcon";
 export const Wrapper = styled(Flex)``;
 Wrapper.defaultProps = {
   flexDirection: "column",
-  margin: "4px 0",
+  marginTop: "4px",
+  marginBottom: "4px",
+  marginLeft: "0",
+  marginRight: "0",
 };
 
 export const Info = styled(Box).attrs({ as: "p" })`

@@ -16,7 +16,6 @@ export const Topbar = ({ name, list, type }) => {
       <Flex>
         <S.Title>
           {name}
-          {list.length ? " | " : null}
           <Flex marginRight="xs" />
         </S.Title>
         <Nav.Wrapper>
@@ -40,7 +39,6 @@ export const Topbar = ({ name, list, type }) => {
       <Flex>
         <S.Title>
           {name}
-          {list.length ? " | " : null}
           <Flex marginRight="xs" />
           {type && firstToUpperCase(type)}
         </S.Title>

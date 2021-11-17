@@ -1,6 +1,6 @@
 import React from "react";
-import { Flex } from "app/components/common/ui";
 import { InfoItem } from "app/components/common/InfoItem";
+import { Col } from "../../styled";
 
 export const FirstStage = ({ data }) => {
   const { firstStage } = data;
@@ -15,16 +15,16 @@ export const FirstStage = ({ data }) => {
 
   return (
     <>
-      <Flex flexDirection="column">
-        <InfoItem dark label="engine burn time" info={burnTime} />
+      <Col marginRight="md">
+        <InfoItem dark label="engine burn time" info={burnTime || "Unknown"} />
         <InfoItem dark label="engine count" info={engines} />
         <InfoItem dark label="fuel capacity" info={`${tonsOfFuel}t`} />
-      </Flex>
-      <Flex flexDirection="column">
-        <InfoItem dark label="reusability" info={reusable ? "Yes" : "No"} />
+      </Col>
+      <Col>
+        <InfoItem dark label="reusable" info={reusable ? "Yes" : "No"} />
         <InfoItem dark label="sea level thrust" info={seaLevelThrust.kN} />
         <InfoItem dark label="vacuum thrust" info={vacuumThrust.kN} />
-      </Flex>
+      </Col>
     </>
   );
 };

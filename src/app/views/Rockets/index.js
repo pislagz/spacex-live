@@ -79,7 +79,7 @@ export const Rockets = () => {
             </Flex>
 
             <S.Button onClick={() => setSeeMore(!seeMore)}>
-              {!seeMore ? "See more" : "Go back"}
+              {!seeMore ? "View retired" : "View active"}
               <S.IconWrapper isLeft={seeMore}>
                 <MoreLessIcon />
               </S.IconWrapper>
