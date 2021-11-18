@@ -3,7 +3,7 @@ import { Button } from "app/components/common/ui/Button";
 import { fontWeights } from "app/styles/theme/texts";
 import styled from "styled-components";
 import { zIndicies } from "app/styles/theme/zIndicies";
-import { Link } from "react-router-dom";
+import { NavLink as ReactRouterNavLink } from "react-router-dom";
 import { colors } from "app/styles/theme/colors";
 import { mediaQuery } from "app/styles/theme/breakpoints";
 import { sizings } from "app/styles/theme/sizings";
@@ -40,14 +40,10 @@ export const ListElement = styled.li`
   padding: 0.5rem 0;
   margin-left: -1rem;
 `;
-export const NavLink = styled(Link)`
+export const NavLink = styled(ReactRouterNavLink)`
   text-decoration: none;
-
-  font-weight: ${({ selected }) =>
-    selected ? fontWeights.bold : fontWeights.light};
-
-  color: ${({ selected }) =>
-    selected ? colors.black.dark : colors.black.medium};
+  font-weight: ${fontWeights.light};
+  color: ${colors.black.medium};
   padding: 0.5rem 1rem;
   border-radius: ${sizings.radii.md};
 

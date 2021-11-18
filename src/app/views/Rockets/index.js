@@ -38,7 +38,7 @@ export const Rockets = () => {
             <Flex
               width="100%"
               flexDirection={{ _: "column", md: "row" }}
-              justifyContent="space-around"
+              // justifyContent="space-around"
             >
               {rockets
                 .filter(({ active, name }) =>

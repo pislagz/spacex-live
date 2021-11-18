@@ -16,6 +16,7 @@ export const Rocket = ({ cores, rocketName, capsule, fairings }) => {
       minHeight="480px"
       marginTop={{ _: "unset", lg: "20px" }}
       alignItems={{ _: "unset", xl: "center" }}
+      flexWrap={{ _: "unset", lg: "wrap" }}
     >
       {console.log({
         rocketName,

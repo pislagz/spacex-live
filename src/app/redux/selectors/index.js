@@ -10,10 +10,6 @@ export const selectDashboard = (state) => {
   return state.dashboardData;
 };
 
-export const selectCurrentRoute = (state) => {
-  return state.currentRoute;
-};
-
 export const selectRockets = (state) => {
   return state.rocketsData;
 };

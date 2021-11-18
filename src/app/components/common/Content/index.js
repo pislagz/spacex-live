@@ -10,6 +10,16 @@ const Main = styled(Flex).attrs({ as: "main" })`
   flex-direction: column;
   overflow-y: auto;
 
+  ${mediaQuery.md} {
+    justify-content: center;
+    flex-direction: row;
+    align-content: flex-start;
+  }
+
+  /* ${mediaQuery.xl} {
+    align-content: center;
+  } */
+
   //hide the *inner app* scrollbar
   scrollbar-color: transparent transparent;
   -ms-overflow-style: none;
@@ -17,16 +27,6 @@ const Main = styled(Flex).attrs({ as: "main" })`
   ::-webkit-scrollbar {
     width: 0 !important;
   }
-
-  ${mediaQuery.md} {
-    justify-content: center;
-    flex-direction: row;
-    align-content: flex-start;
-  }
-
-  /* ${mediaQuery.lg} {
-    align-items: center;
-  } */
 `;
 
 export const Content = ({ children }) => (
