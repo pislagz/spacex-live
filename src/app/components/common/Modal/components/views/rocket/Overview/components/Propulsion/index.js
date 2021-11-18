@@ -5,6 +5,7 @@ import {
   everyFirstToUpperCase,
 } from "app/utils/textFormatting";
 import { Col } from "../../styled";
+import { Flex } from "app/components/common/ui";
 
 export const Propulsion = ({ data }) => {
   const { engines } = data;
@@ -23,26 +24,28 @@ export const Propulsion = ({ data }) => {
   } = engines;
 
   return (
-    <>
-      <Col marginRight="md">
-        <InfoItem
-          dark
-          label="engine type"
-          info={firstToUpperCase(`${type} ${version}`)}
-        />
-        <InfoItem dark label="engine count" info={number} />
-        <InfoItem dark label="TWR" info={TWR} />
-      </Col>
+    <Flex flexDirection={{ _: "column", sm: "row" }}>
+      <Flex>
+        <Col marginRight={{ _: "sm", smd: "md" }}>
+          <InfoItem
+            dark
+            label="engine type"
+            info={firstToUpperCase(`${type} ${version}`)}
+          />
+          <InfoItem dark label="engine count" info={number} />
+          <InfoItem dark label="TWR" info={TWR} />
+        </Col>
 
-      <Col marginRight="md">
-        <InfoItem dark label="sea level thrust" info={seaLevelThrust.kN} />
-        <InfoItem dark label="vacuum thrust" info={vacuumThrust.kN} />
-        <InfoItem
-          dark
-          label="isp (sea/vacuum)"
-          info={`${isp.sea_level}/${isp.vacuum}`}
-        />
-      </Col>
+        <Col marginRight={{ _: "sm", md: "md" }}>
+          <InfoItem dark label="sea level thrust" info={seaLevelThrust.kN} />
+          <InfoItem dark label="vacuum thrust" info={vacuumThrust.kN} />
+          <InfoItem
+            dark
+            label="isp (sea/vacuum)"
+            info={`${isp.sea_level}/${isp.vacuum}`}
+          />
+        </Col>
+      </Flex>
       <Col>
         <InfoItem
           dark
@@ -60,6 +63,6 @@ export const Propulsion = ({ data }) => {
           info={maxEngineLoss !== null ? maxEngineLoss : "Unknown"}
         />
       </Col>
-    </>
+    </Flex>
   );
 };

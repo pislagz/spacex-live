@@ -84,8 +84,9 @@ export const Overview = ({ data }) => {
         <S.Specs
           flexDirection="column"
           borderRadius="md"
-          p="2rem"
-          height="430px"
+          p={{ _: "1rem", md: "2rem" }}
+          height={{ _: "unset", lg: "430px" }}
+          minHeight={{ _: "430px", lg: "unset" }}
         >
           <Flex marginBottom="md">
             <InfoItem dark label="description" details={description} />

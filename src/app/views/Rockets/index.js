@@ -33,9 +33,13 @@ export const Rockets = () => {
       {status === "failed" && <Error />}
       {status === "success" && console.log(rockets)}
       {status === "success" && (
-        <S.Wrapper minWidth="820px">
+        <S.Wrapper width={{ _: "100%", xl: "820px" }}>
           <Flex flexDirection="column" width="100%">
-            <Flex width="100%">
+            <Flex
+              width="100%"
+              flexDirection={{ _: "column", md: "row" }}
+              justifyContent="space-around"
+            >
               {rockets
                 .filter(({ active, name }) =>
                   !seeMore

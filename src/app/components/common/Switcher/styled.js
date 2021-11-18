@@ -12,7 +12,7 @@ export const Item = styled(Flex).attrs({
   justifyContent: "center",
   borderRadius: "sm",
   overflow: "hidden",
-  fontSize: "sm",
+  fontSize: { _: "xxs", sm: "sm" },
 })`
   margin: 0 0.5px;
   padding: 5px 0;

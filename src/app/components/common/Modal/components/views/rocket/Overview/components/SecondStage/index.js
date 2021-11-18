@@ -22,27 +22,34 @@ export const SecondStage = ({ data }) => {
   )[0];
 
   return (
-    <>
-      <Col marginRight="md">
-        <InfoItem dark label="engine burn time" info={burnTime || "Unknown"} />
-        <InfoItem dark label="engine count" info={engines} />
-        <InfoItem dark label="fuel capacity" info={`${tonsOfFuel}t`} />
-      </Col>
-      <Col marginRight="md">
-        <InfoItem dark label="reusable" info={reusable ? "Yes" : "No"} />
-        <InfoItem dark label="thrust" info={thrust.kN} />
-        <InfoItem
-          dark
-          label="max payload"
-          info={addSeparators(payloadWeights?.[0].kg + "kg")}
-        />
-      </Col>
+    <Flex flexDirection={{ _: "column", lg: "row" }} width="100%">
+      <Flex marginBottom={{ _: "sm", lg: "unset" }}>
+        <Col marginRight="md">
+          <InfoItem
+            dark
+            label="engine burn time"
+            info={burnTime || "Unknown"}
+          />
+          <InfoItem dark label="engine count" info={engines} />
+          <InfoItem dark label="fuel capacity" info={`${tonsOfFuel}t`} />
+        </Col>
+        <Col marginRight="md">
+          <InfoItem dark label="reusable" info={reusable ? "Yes" : "No"} />
+          <InfoItem dark label="thrust" info={thrust.kN} />
+          <InfoItem
+            dark
+            label="max payload"
+            info={addSeparators(payloadWeights?.[0].kg + "kg")}
+          />
+        </Col>
+      </Flex>
       <Flex
         p="1rem"
         flexDirection="column"
         width="300px"
         borderRadius="lg"
         bg={colors.gray.light}
+        maxWidth="250px"
       >
         <InfoItem alignItems="center" dark label="max payloads" />
         <Switcher
@@ -59,6 +66,6 @@ export const SecondStage = ({ data }) => {
           />
         </Flex>
       </Flex>
-    </>
+    </Flex>
   );
 };

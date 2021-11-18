@@ -3,6 +3,7 @@ import { Flex, Image } from "app/components/common/ui";
 import { radii } from "app/styles/theme/sizings";
 import { zIndicies } from "app/styles/theme/zIndicies";
 import { shadows } from "app/styles/theme/shadows";
+import { mediaQuery } from "app/styles/theme/breakpoints";
 
 const CardWrapper = styled(Flex)`
   flex-direction: column;
@@ -21,11 +22,18 @@ const CardWrapper = styled(Flex)`
   }
 
   img {
-    width: 220px;
+    width: 100%;
     height: 355px;
     object-fit: cover;
 
     transition: transform 0.2s ease;
+
+    ${mediaQuery.md} {
+      width: 210px;
+    }
+    ${mediaQuery.xl} {
+      width: 220px;
+    }
   }
 
   &:after {
