@@ -22,8 +22,6 @@ export const Overview = ({ data }) => {
     boosters,
     company,
     wikipedia,
-    // landing_legs: landingLegs,
-    // diameter,
     height,
     mass,
     engines,
@@ -45,7 +43,6 @@ export const Overview = ({ data }) => {
       wikipedia,
       height,
       mass,
-      // landingLegs,
     },
     propulsion: {
       engines,
@@ -88,7 +85,7 @@ export const Overview = ({ data }) => {
           height={{ _: "unset", lg: "430px" }}
           minHeight={{ _: "430px", lg: "unset" }}
         >
-          <Flex marginBottom="md">
+          <Flex marginBottom="sm">
             <InfoItem dark label="description" details={description} />
           </Flex>
           <InfoItem dark label="specs" />
@@ -100,7 +97,7 @@ export const Overview = ({ data }) => {
               handleClick={setCurrentOption}
             />
           </Flex>
-          <Flex height="100%">
+          <Flex>
             {/* <General data={dataChunks["general"]} /> */}
             {OPTIONS.map(
               ({ label, component: View, short }) =>

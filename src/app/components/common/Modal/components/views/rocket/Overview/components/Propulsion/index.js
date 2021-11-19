@@ -4,7 +4,6 @@ import {
   firstToUpperCase,
   everyFirstToUpperCase,
 } from "app/utils/textFormatting";
-import { Col } from "../../styled";
 import { Flex } from "app/components/common/ui";
 
 export const Propulsion = ({ data }) => {
@@ -12,7 +11,6 @@ export const Propulsion = ({ data }) => {
   const {
     engine_loss_max: maxEngineLoss,
     isp,
-    // layout,
     number,
     propellant_1: propellant1,
     propellant_2: propellant2,
@@ -23,46 +21,32 @@ export const Propulsion = ({ data }) => {
     version,
   } = engines;
 
-  return (
-    <Flex flexDirection={{ _: "column", sm: "row" }}>
-      <Flex>
-        <Col marginRight={{ _: "sm", smd: "md" }}>
-          <InfoItem
-            dark
-            label="engine type"
-            info={firstToUpperCase(`${type} ${version}`)}
-          />
-          <InfoItem dark label="engine count" info={number} />
-          <InfoItem dark label="TWR" info={TWR} />
-        </Col>
+  const content = [
+    { label: "engine type", info: firstToUpperCase(`${type} ${version}`) },
+    { label: "engine count", info: number },
+    { label: "TWR", info: TWR },
+    { label: "sea level thrust", info: seaLevelThrust.kN },
+    { label: "vacuum thrust", info: vacuumThrust.kN },
+    { label: "isp (sea/vacuum)", info: `${isp.sea_level}/${isp.vacuum}` },
+    { label: "propellant #1", info: everyFirstToUpperCase(propellant1) },
+    { label: "propellant #2", info: everyFirstToUpperCase(propellant2) },
+    {
+      label: "max engine loss",
+      info: maxEngineLoss !== null ? maxEngineLoss : "Unknown",
+    },
+  ];
 
-        <Col marginRight={{ _: "sm", md: "md" }}>
-          <InfoItem dark label="sea level thrust" info={seaLevelThrust.kN} />
-          <InfoItem dark label="vacuum thrust" info={vacuumThrust.kN} />
-          <InfoItem
-            dark
-            label="isp (sea/vacuum)"
-            info={`${isp.sea_level}/${isp.vacuum}`}
-          />
-        </Col>
-      </Flex>
-      <Col>
-        <InfoItem
-          dark
-          label="propellant #1"
-          info={everyFirstToUpperCase(propellant1)}
-        />
-        <InfoItem
-          dark
-          label="propellant #2"
-          info={everyFirstToUpperCase(propellant2)}
-        />
-        <InfoItem
-          dark
-          label="max engine loss"
-          info={maxEngineLoss !== null ? maxEngineLoss : "Unknown"}
-        />
-      </Col>
+  return (
+    <Flex flexWrap="wrap">
+      {content.map(({ label, info }) => (
+        <Flex
+          key={label}
+          width={{ _: "100px", sm: "120px", md: "150px" }}
+          m="xs"
+        >
+          <InfoItem dark label={label} info={info} />
+        </Flex>
+      ))}
     </Flex>
   );
 };

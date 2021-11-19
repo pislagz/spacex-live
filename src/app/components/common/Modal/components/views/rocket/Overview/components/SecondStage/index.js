@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { InfoItem } from "app/components/common/InfoItem";
-import { Col } from "../../styled";
 import { addSeparators } from "app/utils/textFormatting";
 import { Flex } from "app/components/common/ui";
 import { Switcher } from "app/components/common/Switcher";
@@ -21,32 +20,35 @@ export const SecondStage = ({ data }) => {
     ({ id }) => id.toUpperCase() === currentOrbit
   )[0];
 
+  const content = [
+    { label: "engine burn time", info: burnTime || "Unknown" },
+    { label: "engine count", info: engines },
+    { label: "fuel capacity", info: `${tonsOfFuel}t` },
+    { label: "reusable", info: reusable ? "Yes" : "No" },
+    { label: "thrust", info: thrust.kN },
+    {
+      label: "max payload",
+      info: addSeparators(payloadWeights?.[0].kg + "kg"),
+    },
+  ];
+
   return (
-    <Flex flexDirection={{ _: "column", lg: "row" }} width="100%">
-      <Flex marginBottom={{ _: "sm", lg: "unset" }}>
-        <Col marginRight="md">
-          <InfoItem
-            dark
-            label="engine burn time"
-            info={burnTime || "Unknown"}
-          />
-          <InfoItem dark label="engine count" info={engines} />
-          <InfoItem dark label="fuel capacity" info={`${tonsOfFuel}t`} />
-        </Col>
-        <Col marginRight="md">
-          <InfoItem dark label="reusable" info={reusable ? "Yes" : "No"} />
-          <InfoItem dark label="thrust" info={thrust.kN} />
-          <InfoItem
-            dark
-            label="max payload"
-            info={addSeparators(payloadWeights?.[0].kg + "kg")}
-          />
-        </Col>
+    <Flex flexDirection={{ _: "column", lg: "row" }}>
+      <Flex flexWrap="wrap">
+        {content.map(({ label, info }) => (
+          <Flex
+            key={label}
+            width={{ _: "100px", sm: "120px", md: "130px" }}
+            m="xs"
+          >
+            <InfoItem dark label={label} info={info} />
+          </Flex>
+        ))}
       </Flex>
       <Flex
         p="1rem"
         flexDirection="column"
-        width="300px"
+        width={{ _: "unset", md: "600px" }}
         borderRadius="lg"
         bg={colors.gray.light}
         maxWidth="250px"
