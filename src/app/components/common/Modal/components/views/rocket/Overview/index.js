@@ -92,12 +92,14 @@ export const Overview = ({ data }) => {
             <InfoItem dark label="description" details={description} />
           </Flex>
           <InfoItem dark label="specs" />
-          <Switcher
-            options={optionsList}
-            activeOption={optionsList.indexOf(currentOption)}
-            onClick={console.log(currentOption)}
-            handleClick={setCurrentOption}
-          />
+          <Flex maxWidth="520px">
+            <Switcher
+              options={optionsList}
+              activeOption={optionsList.indexOf(currentOption)}
+              onClick={console.log(currentOption)}
+              handleClick={setCurrentOption}
+            />
+          </Flex>
           <Flex height="100%">
             {/* <General data={dataChunks["general"]} /> */}
             {OPTIONS.map(

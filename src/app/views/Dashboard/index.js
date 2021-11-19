@@ -8,8 +8,8 @@ import { selectDashboard } from "app/redux/selectors";
 import { StarlinkTile } from "app/views/Dashboard/components/StarlinkTile";
 import { Loading } from "app/components/common/Loading";
 import { Error } from "app/components/common/Error";
-import { Centerer } from "app/views/Dashboard/components/Centerer";
 import { DashboardModal } from "app/views/Dashboard/components/DashboardModal";
+import { TopPadder } from "../../components/common/TopPadder";
 
 export const Dashboard = () => {
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ export const Dashboard = () => {
 
   return (
     <>
-      <Centerer />
+      <TopPadder intensity="8" />
       {status === "loading" && <Loading />}
       {status === "failed" && <Error />}
       {status === "success" && (
