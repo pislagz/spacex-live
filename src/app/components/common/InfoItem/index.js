@@ -25,8 +25,7 @@ export const InfoItem = ({
   <Wrapper {...props}>
     <Label
       noUpper={noUpper}
-      labelColor={dark ? colors.gray.mediumDark : labelColor}
-    >
+      labelColor={dark ? colors.gray.mediumDark : labelColor}>
       {label}
     </Label>
     {info && <Info>{info}</Info>}
@@ -36,8 +35,7 @@ export const InfoItem = ({
         as="p"
         fontSize={"xs"}
         fontWeight={"light"}
-        lineHeight={detailsLineHeight}
-      >
+        lineHeight={detailsLineHeight}>
         {details}
       </Box>
     )}
@@ -49,8 +47,7 @@ export const InfoItem = ({
         m="0"
         p="0"
         minHeight="20px"
-        alignItems="center"
-      >
+        alignItems="center">
         <IconLink site="wikipedia" link={links?.wikipedia} />
         <IconLink site="youtube" link={links?.youtube} />
         <IconLink site="reddit" link={links?.reddit} />
@@ -63,12 +60,11 @@ export const InfoItem = ({
         alignItems="center"
         bg="gray.darkTransparent"
         borderRadius="lg"
-        width={isOnList ? "80px" : { _: "110px", md: "120px", lg: "130px" }}
-        height={isOnList ? "80px" : { _: "110px", md: "120px", lg: "130px" }}
+        width={isOnList ? "90px" : { _: "110px", md: "120px", lg: "130px" }}
+        height={isOnList ? "90px" : { _: "110px", md: "120px", lg: "130px" }}
         p="xs"
         mt="xxs"
-        mb="xs"
-      >
+        mb="xs">
         {patchUrl && (
           <Image
             maxWidth="80%"
