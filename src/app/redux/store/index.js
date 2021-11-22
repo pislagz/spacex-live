@@ -3,6 +3,7 @@ import dashboardSettingsReducer from "app/redux/slices/dashboardSettingsSlice";
 import dashboardDataReducer from "app/redux/slices/dashboardDataSlice";
 import modalReducer from "app/redux/slices/modalSlice";
 import rocketsDataReducer from "app/redux/slices/rocketsDataSlice";
+import launchesDataReducer from "app/redux/slices/launchesSlice";
 
 export const store = configureStore({
   reducer: {
@@ -10,5 +11,6 @@ export const store = configureStore({
     dashboardSettings: dashboardSettingsReducer,
     dashboardData: dashboardDataReducer,
     rocketsData: rocketsDataReducer,
+    launchesData: launchesDataReducer,
   },
 });

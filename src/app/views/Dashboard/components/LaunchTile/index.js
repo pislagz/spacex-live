@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 import { selectDashboardSetting } from "app/redux/selectors";
 import { openModal } from "app/redux/slices/modalSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { showDate, dateFormats, showOffset } from "app/utils/parseDate";
+import { showDate, showOffset } from "app/utils/parseDate";
 import { SETTINGS } from "app/constants/settings";
 import { iconsConfig } from "./config";
 
@@ -56,11 +56,7 @@ export const LaunchTile = ({
                   : settings.timezone === SETTINGS.dashboard.timezone.local &&
                     `(${showOffset(dateUTC, settings.timezone)})`
               }`}
-              info={showDate(
-                dateUTC,
-                dateFormats[datePrecision],
-                settings.timezone
-              )}
+              info={showDate(dateUTC, datePrecision, settings.timezone)}
             />
             <InfoItem
               label="links"

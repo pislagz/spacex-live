@@ -12,14 +12,16 @@ export const dateFormats = {
 };
 
 export const showDate = (dateUtc, precision, timezone = "utc") => {
-  const luxonDate = DateTime.fromISO(dateUtc).setZone(timezone);
+  const luxonDate = DateTime.fromISO(dateUtc, { locale: "en" }).setZone(
+    timezone
+  );
 
   if (precision === "half") {
     return luxonDate.month > 6
       ? `H2 ${luxonDate.year}`
       : `H1 ${luxonDate.year}`;
   } else {
-    return luxonDate.toFormat(precision);
+    return luxonDate.toFormat(dateFormats[precision]);
   }
 };
 

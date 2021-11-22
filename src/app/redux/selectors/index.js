@@ -13,3 +13,7 @@ export const selectDashboard = (state) => {
 export const selectRockets = (state) => {
   return state.rocketsData;
 };
+
+export const selectLaunches = (state) => {
+  return state.launchesData;
+};

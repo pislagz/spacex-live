@@ -86,7 +86,12 @@ export const Overview = ({ data }) => {
           minHeight={{ _: "430px", lg: "unset" }}
         >
           <Flex marginBottom="sm">
-            <InfoItem dark label="description" details={description} />
+            <InfoItem
+              dark
+              label="description"
+              details={description}
+              detailsLineHeight="1.7"
+            />
           </Flex>
           <InfoItem dark label="specs" />
           <Flex maxWidth="520px">

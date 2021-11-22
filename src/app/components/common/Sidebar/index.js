@@ -66,7 +66,7 @@ export const Sidebar = ({ isMobileMenuVisible, setIsMobileMenuVisible }) => {
                           setIsMobileMenuVisible(false);
                         }}
                         activeStyle={{
-                          fontWeight: "600",
+                          fontWeight: "500",
                           color: colors.black.dark,
                         }}
                         exact

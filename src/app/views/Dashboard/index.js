@@ -23,11 +23,11 @@ export const Dashboard = () => {
 
   return (
     <>
-      <TopPadder intensity="8" />
       {status === "loading" && <Loading />}
       {status === "failed" && <Error />}
       {status === "success" && (
         <>
+          <TopPadder intensity="8" />
           <Flex alignItems="center" flexDirection="column">
             {launchTypes.map((launchType) => (
               <LaunchTile

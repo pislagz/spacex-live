@@ -19,6 +19,7 @@ export const InfoItem = ({
   labelColor,
   dark,
   detailsLineHeight,
+  isOnList,
   ...props
 }) => (
   <Wrapper {...props}>
@@ -62,8 +63,8 @@ export const InfoItem = ({
         alignItems="center"
         bg="gray.darkTransparent"
         borderRadius="lg"
-        width={{ _: "110px", md: "120px", lg: "130px" }}
-        height={{ _: "110px", md: "120px", lg: "130px" }}
+        width={isOnList ? "80px" : { _: "110px", md: "120px", lg: "130px" }}
+        height={isOnList ? "80px" : { _: "110px", md: "120px", lg: "130px" }}
         p="xs"
         mt="xxs"
         mb="xs"

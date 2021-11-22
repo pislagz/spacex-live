@@ -1,6 +1,9 @@
 import axios from "axios";
 import { SPACEX_API } from "app/api/source";
-import { getLaunchOptions } from "app/api/launch/launchOptions";
+import {
+  getLaunchOptions,
+  getBasicOptions,
+} from "app/api/launch/launchOptions";
 import { flight } from "app/api/launch/flight";
 
 const getNextLaunch = async () =>
@@ -27,8 +30,13 @@ const getLaunchByFlightNumber = async (flightNumber) =>
     )
   ).data.docs?.[0];
 
+const getAllLaunches = async () =>
+  (await axios.post(SPACEX_API + "/v5/launches/query", getBasicOptions())).data
+    .docs;
+
 export const launch = {
   getPrevLaunch,
   getNextLaunch,
   getLaunchByFlightNumber,
+  getAllLaunches,
 };
