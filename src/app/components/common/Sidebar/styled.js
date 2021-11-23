@@ -41,6 +41,7 @@ export const ListElement = styled.li`
   margin-left: -1rem;
 `;
 export const NavLink = styled(ReactRouterNavLink)`
+  transition: all 0.2s ease-out;
   text-decoration: none;
   font-weight: ${fontWeights.light};
   color: ${colors.black.medium};

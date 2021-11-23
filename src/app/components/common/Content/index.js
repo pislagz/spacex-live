@@ -16,9 +16,8 @@ const Main = styled(Flex).attrs({ as: "main" })`
     align-content: flex-start;
   }
 
-  /* ${mediaQuery.xl} {
-    align-content: center;
-  } */
+  //Center launches list
+  align-content: center;
 
   //hide the *inner app* scrollbar
   scrollbar-color: transparent transparent;

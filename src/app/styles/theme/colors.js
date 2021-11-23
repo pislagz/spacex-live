@@ -19,13 +19,14 @@ export const colors = {
     alert: "#ffd026",
     off: "#ff1d0d",
   },
-  rocketActivity: {
-    active: "rgba(29,143,36,0.4)",
-    retired: "rgba(186,17,17,0.4)",
-    inDevelopment: "rgba(255, 179, 3,0.4)",
+  availability: {
+    green: "rgba(29,143,36,0.4)",
+    red: "rgba(186,17,17,0.4)",
+    orange: "rgba(255, 179, 3,0.4)",
   },
   white: "#fff",
   transparentWhite: "rgba(255,255,255,0.5)",
+  transparent: "rgba(0,0,0,0)",
 };
 
 export const gradients = {};

@@ -99,6 +99,4 @@ body {
   right:25%;
   animation: fullRotation 45s linear infinite;
 }
-
-
 `;

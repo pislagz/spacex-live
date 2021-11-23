@@ -1,5 +1,5 @@
 import React from "react";
-import S from "./styled";
+import * as S from "./styled";
 import { selectDashboardSetting } from "app/redux/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { setSetting } from "app/redux/slices/dashboardSettingsSlice";

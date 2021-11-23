@@ -11,10 +11,8 @@ import { colors } from "app/styles/theme/colors";
 import { MoreLessIcon } from "assets/icons/functional/MoreLessIcon";
 import * as S from "./styled";
 import { openModal } from "app/redux/slices/modalSlice";
-import {
-  colorizeStatus,
-  getActivityStatus,
-} from "app/utils/getRocketActivityStatus";
+import { getRocketActivityStatus } from "app/utils/getStatus";
+import { colorizeRocketStatus } from "app/utils/colorizeStatus";
 import { RocketsModal } from "./components/RocketsModal";
 import { TopPadder } from "../../components/common/TopPadder";
 
@@ -76,8 +74,10 @@ export const Rockets = () => {
                             labelColor={colors.transparentWhite}
                             p="xxs"
                             borderRadius="sm"
-                            bg={colorizeStatus(getActivityStatus(name, active))}
-                            info={getActivityStatus(name, active)}
+                            bg={colorizeRocketStatus(
+                              getRocketActivityStatus(name, active)
+                            )}
+                            info={getRocketActivityStatus(name, active)}
                           />
                         </Card>
                       </Flex>

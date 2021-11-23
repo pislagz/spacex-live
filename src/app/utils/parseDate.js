@@ -7,8 +7,8 @@ export const dateFormats = {
   half: "half",
   year: "yyyy",
   month: "MMMM yyyy",
-  day: "LLLL dd",
-  hour: "LLL dd hh':'mm a",
+  day: "LLL dd',' yyyy",
+  hour: "LLL dd',' hh':'mm a",
 };
 
 export const showDate = (dateUtc, precision, timezone = "utc") => {
