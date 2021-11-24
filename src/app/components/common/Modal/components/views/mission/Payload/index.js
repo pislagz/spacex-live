@@ -24,7 +24,7 @@ export const Payload = ({ payloads }) => {
     { label: "type", info: type },
     {
       label: customers.length > 1 ? "customers" : "customer",
-      info: customers.join(", "),
+      info: customers.length ? customers.join(", ") : "Unavailable",
     },
     {
       label: "mass",

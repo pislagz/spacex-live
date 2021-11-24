@@ -20,6 +20,11 @@ const CardWrapper = styled(Flex)`
       transform: scale(1.065);
     }
   }
+  &:active {
+    img {
+      transform: scale(1);
+    }
+  }
 
   img {
     width: 100%;

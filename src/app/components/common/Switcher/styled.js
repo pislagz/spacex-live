@@ -15,6 +15,7 @@ export const Item = styled(Flex).attrs({
   overflow: "hidden",
   fontSize: { _: "xxs", sm: "sm" },
 })`
+  transition: all 0.1s ease-out;
   flex: auto;
   margin: 3px;
   padding: 5px 0;

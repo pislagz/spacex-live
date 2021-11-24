@@ -12,6 +12,8 @@ import { Tile } from "./components/Tile";
 import styled from "styled-components";
 import { colorizeMissionStatus } from "app/utils/colorizeStatus";
 import { getMissionStatus } from "app/utils/getStatus";
+import { openModal } from "app/redux/slices/modalSlice";
+import { LaunchesModal } from "./components/LaunchesModal";
 
 const Wrapper = styled(Flex)`
   &:hover {
@@ -75,6 +77,15 @@ export const Launches = () => {
                       width="100%"
                       flexWrap={{ _: "wrap", sm: "nowrap" }}
                       m={0}
+                      onClick={() => {
+                        dispatch(
+                          openModal({
+                            type: "rocket",
+                            launch: flightNumber,
+                            item: null,
+                          })
+                        );
+                      }}
                     >
                       <InfoItem
                         width={{ _: "50%", sm: "auto" }}
@@ -103,7 +114,7 @@ export const Launches = () => {
                       >
                         <Flex>
                           <InfoItem
-                            p="5px"
+                            p="xxs"
                             label="status"
                             borderRadius="sm"
                             bg={colorizeMissionStatus(
@@ -114,7 +125,7 @@ export const Launches = () => {
                         </Flex>
                         <Flex>
                           <InfoItem
-                            p="5px"
+                            p="xxs"
                             label={`TIME ${
                               settings.timezone ===
                               SETTINGS.dashboard.timezone.utc
@@ -146,6 +157,7 @@ export const Launches = () => {
           </Wrapper>
         </Flex>
       )}
+      <LaunchesModal />
     </>
   );
 };

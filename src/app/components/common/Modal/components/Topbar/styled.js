@@ -43,6 +43,7 @@ export const Nav = {
     p: "0.25rem 0.8rem",
     fontSize: "lg",
   })`
+    transition: background 0.2s ease-out;
     font-weight: ${({ isActive }) =>
       isActive ? fontWeights.bold : fontWeights.light};
     color: ${({ isActive }) =>
