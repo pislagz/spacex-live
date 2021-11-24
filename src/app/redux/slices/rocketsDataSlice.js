@@ -5,7 +5,7 @@ export const rocketsSlice = createSlice({
   name: "rocketsData",
   initialState: {
     rockets: [],
-    status: "loading",
+    status: "idle",
   },
   extraReducers: {
     [actions.rockets.fetchRocketsData.pending]: (state, action) => {

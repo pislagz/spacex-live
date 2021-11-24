@@ -11,7 +11,7 @@ export const StarlinkTile = ({ title, count }) => {
   return (
     <Tile title={title}>
       <Wrapper>
-        <IconWrapper onClick={() => setClickCount(clickCount + 1)}>
+        <IconWrapper as="button" onClick={() => setClickCount(clickCount + 1)}>
           <Satellite
             fill={"rgba(255,255,255,0.4)"}
             lightColor={
@@ -41,6 +41,11 @@ const Wrapper = styled(Flex)`
 `;
 
 const IconWrapper = styled(Flex)`
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
   width: 170px;
   height: 170px;
   justify-content: center;

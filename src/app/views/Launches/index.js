@@ -14,6 +14,7 @@ import { colorizeMissionStatus } from "app/utils/colorizeStatus";
 import { getMissionStatus } from "app/utils/getStatus";
 import { openModal } from "app/redux/slices/modalSlice";
 import { LaunchesModal } from "./components/LaunchesModal";
+import { fetchWeatherData } from "app/redux/actions/weather";
 
 const Wrapper = styled(Flex)`
   &:hover {
@@ -47,6 +48,7 @@ export const Launches = () => {
 
   useEffect(() => {
     dispatch(fetchAllLaunches());
+    dispatch(fetchWeatherData());
   }, [dispatch]);
 
   return (
@@ -80,8 +82,8 @@ export const Launches = () => {
                       onClick={() => {
                         dispatch(
                           openModal({
-                            type: "rocket",
                             launch: flightNumber,
+                            type: "rocket",
                             item: null,
                           })
                         );

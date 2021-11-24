@@ -5,7 +5,7 @@ export const launchesSlice = createSlice({
   name: "launchesData",
   initialState: {
     launches: [],
-    status: "loading",
+    status: "idle",
   },
   extraReducers: {
     [actions.launches.fetchAllLaunches.pending]: (state, action) => {

@@ -17,3 +17,7 @@ export const selectRockets = (state) => {
 export const selectLaunches = (state) => {
   return state.launchesData;
 };
+
+export const selectWeather = (state) => {
+  return state.weatherData;
+};

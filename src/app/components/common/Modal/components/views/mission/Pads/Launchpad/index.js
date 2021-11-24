@@ -2,7 +2,7 @@ import React from "react";
 import * as S from "../styled";
 import { Flex } from "app/components/common/ui";
 import { useSelector } from "react-redux";
-import { selectDashboard, selectDashboardSetting } from "app/redux/selectors";
+import { selectDashboardSetting, selectWeather } from "app/redux/selectors";
 import { Maps } from "assets/icons/buttons/Maps";
 import { DateTime } from "luxon";
 import { showOffset } from "app/utils/parseDate";
@@ -27,15 +27,15 @@ export const Launchpad = ({ launchpad }) => {
   const { temp: tempUnit, windspeed: windUnit } = useSelector(
     selectDashboardSetting
   );
-  const { weather } = useSelector(selectDashboard);
+  const { weather } = useSelector(selectWeather);
   const { convertKelvin, displayWindSpeed } = weatherUtils;
   const localWeather = () =>
     locality === "Cape Canaveral"
-      ? weather.canaveral
+      ? "canaveral"
       : locality === "Vandenberg Space Force Base"
-      ? weather.vandenberg
+      ? "vandenberg"
       : locality === "Boca Chica Village"
-      ? weather.starbase
+      ? "starbase"
       : null;
 
   return (
@@ -73,8 +73,10 @@ export const Launchpad = ({ launchpad }) => {
               <InfoItem
                 dark
                 label="weather"
-                info={`${localWeather().weather[0].main}, ${convertKelvin(
-                  localWeather().main.temp,
+                info={`${
+                  weather[localWeather()].weather[0].main
+                }, ${convertKelvin(
+                  weather[localWeather()].main.temp,
                   tempUnit
                 )}`}
               />
@@ -91,7 +93,10 @@ export const Launchpad = ({ launchpad }) => {
               <InfoItem
                 dark
                 label="wind"
-                info={displayWindSpeed(localWeather().wind.speed, windUnit)}
+                info={displayWindSpeed(
+                  weather[localWeather()].wind.speed,
+                  windUnit
+                )}
               />
             </S.Col>
             <S.Col>

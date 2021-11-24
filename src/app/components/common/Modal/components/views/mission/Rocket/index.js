@@ -38,7 +38,7 @@ export const Rocket = ({ cores, rocketName, capsule, fairings }) => {
           mb={{ _: "1rem", lg: "unset" }}
           flexDirection="column"
         >
-          {fairings && <FairingsCard fairings={fairings} />}
+          {capsule ? null : fairings && <FairingsCard fairings={fairings} />}
           {capsule && <CapsuleCard capsule={capsule} />}
         </Flex>
       ) : null}

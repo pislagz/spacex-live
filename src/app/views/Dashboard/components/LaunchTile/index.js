@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { showDate, showOffset } from "app/utils/parseDate";
 import { SETTINGS } from "app/constants/settings";
 import { iconsConfig } from "./config";
+import { DateTime } from "luxon";
 
 export const LaunchTile = ({
   launch,
@@ -37,7 +38,9 @@ export const LaunchTile = ({
         layout
         title={
           launch === "next"
-            ? "Upcoming launch"
+            ? DateTime.fromISO(dateUTC).hasSame(DateTime.local(), "day")
+              ? "Current launch"
+              : "Upcoming launch"
             : launch === "prev"
             ? "Previous launch"
             : "Rocket launch"

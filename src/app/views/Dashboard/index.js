@@ -10,6 +10,7 @@ import { Loading } from "app/components/common/Loading";
 import { Error } from "app/components/common/Error";
 import { DashboardModal } from "app/views/Dashboard/components/DashboardModal";
 import { TopPadder } from "../../components/common/TopPadder";
+import { fetchWeatherData } from "app/redux/actions/weather";
 
 export const Dashboard = () => {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ export const Dashboard = () => {
 
   useEffect(() => {
     dispatch(fetchDashboardData());
+    dispatch(fetchWeatherData());
   }, [dispatch]);
 
   const launchTypes = ["next", "prev"];
