@@ -29,4 +29,6 @@ export const colors = {
   transparent: "rgba(0,0,0,0)",
 };
 
-export const gradients = {};
+export const gradients = {
+  tile: "linear-gradient(0deg,rgba(0, 0, 0, 0.4) 0%,rgba(0, 0, 0, 0.6) 100%)",
+};

@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import { Flex } from "app/components/common/ui";
 import { zIndicies } from "app/styles/theme/zIndicies";
-import { colors } from "app/styles/theme/colors";
+import { colors, gradients } from "app/styles/theme/colors";
 import { sizings } from "app/styles/theme/sizings";
 
 export const Wrapper = styled(Flex).attrs({ as: "article" })`
   color: ${colors.white};
   border-radius: ${sizings.radii.lg};
-  background: rgba(0, 0, 0, 0.5);
+  background: ${gradients.tile};
   position: relative;
   z-index: ${zIndicies.content};
   padding: 2rem;

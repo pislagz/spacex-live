@@ -18,6 +18,8 @@ export const Rocket = ({ rocketName, capsule }) => (
             : links.rocket.falcon9.cargo
           : rocketName === "Falcon Heavy"
           ? links.rocket.falconHeavy
+          : rocketName === "Falcon 1"
+          ? links.rocket.falcon1
           : links.rocket.falcon9.cargo
       }
     >

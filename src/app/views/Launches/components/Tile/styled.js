@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Flex, Box } from "app/components/common/ui";
 import { zIndicies } from "app/styles/theme/zIndicies";
-import { colors } from "app/styles/theme/colors";
+import { colors, gradients } from "app/styles/theme/colors";
 import { sizings } from "app/styles/theme/sizings";
 
 export const Title = styled(Box).attrs({ as: "h3" })``;
@@ -14,29 +14,11 @@ Title.defaultProps = {
 export const Wrapper = styled(Flex).attrs({ as: "article" })`
   color: ${colors.white};
   border-radius: ${sizings.radii.lg};
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.4) 0%,
-    rgba(0, 0, 0, 0.6) 100%
-  );
+  background: ${gradients.tile};
   position: relative;
   z-index: ${zIndicies.content};
-
   justify-content: space-around;
   align-items: center;
-
-  //blur mask
-  &:before {
-    border-radius: ${sizings.radii.lg};
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    /* backdrop-filter: blur(10px); */
-    z-index: ${zIndicies.infoTileBlur};
-  }
 `;
 
 Wrapper.defaultProps = {

@@ -6,6 +6,7 @@ export const links = {
     },
     falconHeavy:
       "https://live.staticflickr.com/4631/39337245145_75611f0118_z.jpg",
+    falcon1: "https://i.imgur.com/DaCfMsj.jpg",
   },
   fairings: "https://live.staticflickr.com/4259/34868730393_50815223c3_h.jpg",
   capsule: "https://live.staticflickr.com/1602/24159153709_9f9be8ddfe_h.jpg",

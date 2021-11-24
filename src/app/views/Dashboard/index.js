@@ -4,7 +4,7 @@ import { LaunchTile } from "./components/LaunchTile";
 import { FacilitiesTile } from "app/views/Dashboard/components/FacilitiesTile";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchDashboardData } from "app/redux/actions/dashboard";
-import { selectDashboard } from "app/redux/selectors";
+import { selectDashboard, selectWeather } from "app/redux/selectors";
 import { StarlinkTile } from "app/views/Dashboard/components/StarlinkTile";
 import { Loading } from "app/components/common/Loading";
 import { Error } from "app/components/common/Error";
@@ -15,12 +15,17 @@ import { animationProps } from "app/styles/animations";
 
 export const Dashboard = () => {
   const dispatch = useDispatch();
-  const { launches, status, weather, starlink } = useSelector(selectDashboard);
+  const { launches, status, starlink } = useSelector(selectDashboard);
+  const weather = useSelector(selectWeather);
 
   useEffect(() => {
-    dispatch(fetchDashboardData());
-    dispatch(fetchWeatherData());
-  }, [dispatch]);
+    if (!Object.keys(launches).length) {
+      dispatch(fetchDashboardData());
+    }
+    if (!Object.keys(weather.weather).length) {
+      dispatch(fetchWeatherData());
+    }
+  }, [dispatch, launches, weather.weather]);
 
   const launchTypes = ["next", "prev"];
 

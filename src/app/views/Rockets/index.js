@@ -24,8 +24,10 @@ export const Rockets = () => {
   const [seeMore, setSeeMore] = useState(false);
 
   useEffect(() => {
-    dispatch(fetchRocketsData());
-  }, [dispatch]);
+    if (!rockets.length) {
+      dispatch(fetchRocketsData());
+    }
+  }, [dispatch, rockets.length]);
 
   return (
     <>

@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import * as S from "./styled";
 import { Flex } from "app/components/common/ui";
-// import { useSelector } from "react-redux";
-// import { selectDashboard, selectDashboardSetting } from "app/redux/selectors";
-// import { DateTime } from "luxon";
 import { Switcher } from "app/components/common/Switcher";
 import { Card } from "app/components/common/Modal/components/views/mission/Rocket/components/styled";
 import { optionsList, OPTIONS } from "./config";
 import { InfoItem } from "app/components/common/InfoItem";
+import { animationProps } from "app/styles/animations";
 
 export const Overview = ({ data }) => {
   const {
@@ -56,9 +54,6 @@ export const Overview = ({ data }) => {
     },
   };
   const [currentOption, setCurrentOption] = useState(OPTIONS[0].label);
-  // const { temp: tempUnit, windspeed: windUnit } = useSelector(
-  //   selectDashboardSetting
-  // );
 
   return (
     <Flex
@@ -67,6 +62,7 @@ export const Overview = ({ data }) => {
       justifyContent={{ _: "flex-start", lg: "center" }}
       alignItems="center"
       flexDirection={{ _: "column", lg: "row" }}
+      {...animationProps}
     >
       <Card
         src={name !== "Falcon 1" ? flickrImages[1] : flickrImages[0]}
@@ -103,11 +99,14 @@ export const Overview = ({ data }) => {
             />
           </Flex>
           <Flex>
-            {/* <General data={dataChunks["general"]} /> */}
             {OPTIONS.map(
               ({ label, component: View, short }) =>
                 currentOption === label && (
-                  <View key={short} data={dataChunks[short]} />
+                  <View
+                    key={short}
+                    data={dataChunks[short]}
+                    {...animationProps}
+                  />
                 )
             )}
           </Flex>

@@ -16,9 +16,9 @@ export const Item = styled(Flex).attrs({
   fontSize: { _: "xxs", sm: "sm" },
 })`
   transition: all 0.1s ease-out;
-  flex: auto;
+  flex: ${({ itemsCount }) => (itemsCount > 1 ? "auto" : "unset")};
   margin: 3px;
-  padding: 5px 0;
+  padding: ${({ itemsCount }) => (itemsCount > 1 ? "5px 0" : "5px 10px")};
   border: none;
   cursor: ${({ itemsCount }) => (itemsCount > 1 ? "pointer" : "unset")};
   background: ${({ isActive }) =>

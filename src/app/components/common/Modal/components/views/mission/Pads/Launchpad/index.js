@@ -72,16 +72,18 @@ export const Launchpad = ({ launchpad }) => {
                 )}
               />
 
-              <InfoItem
-                dark
-                label="weather"
-                info={`${
-                  weather[localWeather()].weather[0].main
-                }, ${convertKelvin(
-                  weather[localWeather()].main.temp,
-                  tempUnit
-                )}`}
-              />
+              {localWeather() ? (
+                <InfoItem
+                  dark
+                  label="weather"
+                  info={`${
+                    weather[localWeather()].weather[0].main
+                  }, ${convertKelvin(
+                    weather[localWeather()].main.temp,
+                    tempUnit
+                  )}`}
+                />
+              ) : null}
             </S.Col>
             <S.Col marginRight="sm">
               <InfoItem
@@ -92,14 +94,16 @@ export const Launchpad = ({ launchpad }) => {
                 }`}
               />
 
-              <InfoItem
-                dark
-                label="wind"
-                info={displayWindSpeed(
-                  weather[localWeather()].wind.speed,
-                  windUnit
-                )}
-              />
+              {localWeather() ? (
+                <InfoItem
+                  dark
+                  label="wind"
+                  info={displayWindSpeed(
+                    weather[localWeather()].wind.speed,
+                    windUnit
+                  )}
+                />
+              ) : null}
             </S.Col>
             <S.Col>
               <InfoItem dark label="location" info={locality} />

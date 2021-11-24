@@ -20,11 +20,32 @@ const Main = styled(Flex).attrs({ as: "main" })`
   align-content: center;
 
   //hide the *inner app* scrollbar
-  scrollbar-color: transparent transparent;
+
+  /* scrollbar-color: transparent transparent;
   -ms-overflow-style: none;
   overflow: -moz-scrollbars-none;
   ::-webkit-scrollbar {
     width: 0 !important;
+  } */
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
   }
 `;
 
