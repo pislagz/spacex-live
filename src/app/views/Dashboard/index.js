@@ -11,6 +11,7 @@ import { Error } from "app/components/common/Error";
 import { DashboardModal } from "app/views/Dashboard/components/DashboardModal";
 import { TopPadder } from "../../components/common/TopPadder";
 import { fetchWeatherData } from "app/redux/actions/weather";
+import { animationProps } from "app/styles/animations";
 
 export const Dashboard = () => {
   const dispatch = useDispatch();
@@ -30,7 +31,7 @@ export const Dashboard = () => {
       {status === "success" && (
         <>
           <TopPadder intensity="8" />
-          <Flex alignItems="center" flexDirection="column">
+          <Flex alignItems="center" flexDirection="column" {...animationProps}>
             {launchTypes.map((launchType) => (
               <LaunchTile
                 key={launchType}
@@ -40,7 +41,7 @@ export const Dashboard = () => {
               />
             ))}
           </Flex>
-          <Flex alignItems="center" flexDirection="column">
+          <Flex alignItems="center" flexDirection="column" {...animationProps}>
             <FacilitiesTile title="Launch facilities" data={weather} />
             <StarlinkTile title="Starlink" count={starlink.activeCount} />
           </Flex>

@@ -5,6 +5,7 @@ import { Flex } from "app/components/common/ui";
 import { Maps } from "assets/icons/buttons/Maps";
 import { firstToUpperCase } from "app/utils/textFormatting";
 import { Switcher } from "app/components/common/Switcher";
+import { animationProps } from "app/styles/animations";
 
 export const Landpad = ({ cores, type }) => {
   const [selectedBooster, setSelectedBooster] = useState(0);
@@ -32,6 +33,7 @@ export const Landpad = ({ cores, type }) => {
       justifyContent={{ _: "flex-start", lg: "center" }}
       alignItems="center"
       flexDirection={{ _: "column", lg: "row" }}
+      {...animationProps}
     >
       {console.log(cores)}
 

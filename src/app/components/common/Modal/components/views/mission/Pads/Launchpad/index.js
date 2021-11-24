@@ -8,6 +8,7 @@ import { DateTime } from "luxon";
 import { showOffset } from "app/utils/parseDate";
 import { weatherUtils } from "app/utils/weatherUtils";
 import { InfoItem } from "app/components/common/InfoItem";
+import { animationProps } from "app/styles/animations";
 
 export const Launchpad = ({ launchpad }) => {
   const {
@@ -43,6 +44,7 @@ export const Launchpad = ({ launchpad }) => {
       justifyContent={{ _: "flex-start", lg: "center" }}
       alignItems="center"
       flexDirection={{ _: "column", lg: "row" }}
+      {...animationProps}
     >
       {console.log(launchpad)}
 

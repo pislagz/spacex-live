@@ -15,6 +15,7 @@ import { getMissionStatus } from "app/utils/getStatus";
 import { openModal } from "app/redux/slices/modalSlice";
 import { LaunchesModal } from "./components/LaunchesModal";
 import { fetchWeatherData } from "app/redux/actions/weather";
+import { animationProps } from "app/styles/animations";
 
 const Wrapper = styled(Flex)`
   &:hover {
@@ -58,7 +59,7 @@ export const Launches = () => {
       {status === "success" && (
         <Flex padding="80px 0" width="90%">
           <Wrapper width="100%">
-            <Flex width="100%" flexDirection="column">
+            <Flex width="100%" flexDirection="column" {...animationProps}>
               {launches.map(
                 (
                   {

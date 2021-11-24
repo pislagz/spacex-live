@@ -11,19 +11,6 @@ export const Wrapper = styled(Flex).attrs({ as: "article" })`
   position: relative;
   z-index: ${zIndicies.content};
   padding: 2rem;
-
-  //blur mask
-  &:before {
-    border-radius: ${sizings.radii.lg};
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    backdrop-filter: blur(10px);
-    z-index: ${zIndicies.infoTileBlur};
-  }
 `;
 
 export const Button = styled(Flex).attrs({ as: "button" })`

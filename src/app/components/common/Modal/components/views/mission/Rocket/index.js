@@ -8,6 +8,7 @@ import { Rocket as RocketCard } from "./components/Rocket";
 import { Booster } from "./components/Booster";
 import { Fairings as FairingsCard } from "./components/Fairings";
 import { Capsule as CapsuleCard } from "./components/Capsule";
+import { animationProps } from "app/styles/animations";
 
 export const Rocket = ({ cores, rocketName, capsule, fairings }) => {
   return (
@@ -17,6 +18,7 @@ export const Rocket = ({ cores, rocketName, capsule, fairings }) => {
       marginTop={{ _: "unset", lg: "20px" }}
       alignItems={{ _: "unset", xl: "center" }}
       flexWrap={{ _: "unset", lg: "wrap" }}
+      {...animationProps}
     >
       {console.log({
         rocketName,

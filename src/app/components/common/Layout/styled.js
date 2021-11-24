@@ -67,6 +67,8 @@ const Picture = styled(Image)`
   object-fit: cover;
 
   ${mediaQuery.lg} {
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
     margin-left: -100px;
   }
 `;

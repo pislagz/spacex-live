@@ -5,6 +5,7 @@ import { colors } from "app/styles/theme/colors";
 import { shadows } from "app/styles/theme/shadows";
 import { addSeparators } from "app/utils/textFormatting";
 import { Switcher } from "app/components/common/Switcher/index.js";
+import { animationProps } from "app/styles/animations";
 
 export const Payload = ({ payloads }) => {
   const [selectedPayload, setSelectedPayload] = useState(0);
@@ -41,6 +42,7 @@ export const Payload = ({ payloads }) => {
       flexDirection="column"
       alignSelf={{ _: "unset", lg: "center" }}
       margin="0 auto"
+      {...animationProps}
     >
       {payloads.length > 1 && (
         <>

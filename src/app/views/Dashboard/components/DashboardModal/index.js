@@ -9,7 +9,6 @@ import { Launchpad } from "app/components/common/Modal/components/views/mission/
 import { Landpad } from "app/components/common/Modal/components/views/mission/Pads/Landpad";
 import { Rocket } from "app/components/common/Modal/components/views/mission/Rocket";
 import { Payload } from "app/components/common/Modal/components/views/mission/Payload";
-import { Capsule } from "app/components/common/Modal/components/views/mission/Capsule";
 
 export const DashboardModal = () => {
   const dispatch = useDispatch();
@@ -51,8 +50,6 @@ export const DashboardModal = () => {
       )}
 
       {type === "payload" && <Payload payloads={currentLaunch.payloads} />}
-
-      {type === "capsule" && <Capsule capsule={currentLaunch.capsules[0]} />}
     </Modal>
   ) : null;
 };
