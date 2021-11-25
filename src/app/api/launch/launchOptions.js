@@ -4,7 +4,7 @@ export const getLaunchOptions = ({ query, sortDir = "asc", limit = 1 }) => {
     options: {
       limit: limit,
       sort: {
-        date_utc: sortDir,
+        flight_number: sortDir,
       },
       populate: [
         {
