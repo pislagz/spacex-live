@@ -15,7 +15,12 @@ export const Item = styled(Flex).attrs({
   justifyContent: "center",
   flexBasis: "50%",
   padding: "xxs",
+  as: "button",
+  bg: "none",
+  border: "none",
+  fontSize: "sm",
 })`
+  font-family: "HelveticaNeue", sans-serif !important;
   transition: all 0.1s ease-out;
 
   background: ${({ isActive }) =>
@@ -29,6 +34,11 @@ export const Item = styled(Flex).attrs({
   }
 
   &:active {
+    background: ${colors.black.dark};
+    color: ${colors.white};
+  }
+
+  &:focus {
     background: ${colors.black.dark};
     color: ${colors.white};
   }

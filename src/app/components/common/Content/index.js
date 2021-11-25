@@ -8,7 +8,13 @@ const Main = styled(Flex).attrs({ as: "main" })`
   padding-top: 0;
   flex-wrap: wrap;
   flex-direction: column;
+
   overflow-y: auto;
+
+  //force scroll in app view to prevent content bounce on scrollbar appear
+  ${mediaQuery.xl} {
+    overflow-y: scroll;
+  }
 
   ${mediaQuery.md} {
     justify-content: center;
@@ -19,15 +25,6 @@ const Main = styled(Flex).attrs({ as: "main" })`
   //Center launches list
   align-content: center;
 
-  //hide the *inner app* scrollbar
-
-  /* scrollbar-color: transparent transparent;
-  -ms-overflow-style: none;
-  overflow: -moz-scrollbars-none;
-  ::-webkit-scrollbar {
-    width: 0 !important;
-  } */
-
   /* width */
   ::-webkit-scrollbar {
     width: 10px;
@@ -35,17 +32,22 @@ const Main = styled(Flex).attrs({ as: "main" })`
 
   /* Track */
   ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: #353535;
   }
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #888;
+    background: #fff;
   }
 
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: #828282;
+  }
+
+  /* Handle on active */
+  ::-webkit-scrollbar-thumb:active {
+    background: #707070;
   }
 `;
 

@@ -1,5 +1,6 @@
 import { colors } from "app/styles/theme/colors";
 import { createGlobalStyle } from "styled-components";
+import { mediaQuery } from "./theme/breakpoints";
 
 const randomDegree = Math.floor(Math.random() * 366) + 1;
 
@@ -30,19 +31,31 @@ body {
   width: 10px;
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #353535;
+  }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #fff;
+  }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #828282;
+  }
+
+  /* Handle on active */
+  ::-webkit-scrollbar-thumb:active {
+    background: #707070;
+  }
+
+  //hide outer scrollbar above md to avoid doubling scrollbars as inner app one is enough
+${mediaQuery.md}{
+  ::-webkit-scrollbar {
+    width: 0 !important;
+  }
 }
 }
 
