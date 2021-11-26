@@ -21,11 +21,11 @@ export const SecondStage = ({ data }) => {
   )[0];
 
   const content = [
-    { label: "engine burn time", info: burnTime || "Unknown" },
+    { label: "engine burn time", info: burnTime + " seconds" || "Unknown" },
     { label: "engine count", info: engines },
-    { label: "fuel capacity", info: `${tonsOfFuel}t` },
+    { label: "fuel capacity", info: `${tonsOfFuel} tons` },
     { label: "reusable", info: reusable ? "Yes" : "No" },
-    { label: "thrust", info: thrust.kN },
+    { label: "thrust", info: thrust.kN + " kN" },
     {
       label: "max payload",
       info: addSeparators(payloadWeights?.[0].kg + "kg"),

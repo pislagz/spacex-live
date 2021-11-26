@@ -1,10 +1,14 @@
 import styled from "styled-components";
+import ReactTooltip from "react-tooltip";
 import { Box, Flex } from "app/components/common/ui";
 import { fontSizes } from "app/styles/theme/texts";
 import { mediaQuery } from "app/styles/theme/breakpoints";
 import { RedditIcon } from "assets/icons/media/RedditIcon";
 import { WikipediaIcon } from "assets/icons/media/WikipediaIcon";
 import { YoutubeIcon } from "assets/icons/media/YoutubeIcon";
+import { FlickrIcon } from "assets/icons/media/FlickrIcon";
+import { LinkIcon } from "assets/icons/media/LinkIcon";
+import { TwitterIcon } from "assets/icons/media/TwitterIcon";
 
 export const Wrapper = styled(Flex)``;
 Wrapper.defaultProps = {
@@ -25,6 +29,15 @@ export const Info = styled(Box).attrs({ as: "p" })`
   }
 `;
 
+const tooltipText = {
+  spacex: "Official Page",
+  flickr: "Official Flickr",
+  twitter: "Official Twitter",
+  reddit: "Reddit",
+  wikipedia: "Wikipedia",
+  youtube: "Youtube",
+};
+
 export const IconLink = ({ site, link }) => (
   <Flex
     as="ul"
@@ -42,12 +55,18 @@ export const IconLink = ({ site, link }) => (
       justifyContent="center"
       alignItems="center"
       style={{ cursor: link ? "pointer" : "not-allowed" }}
+      data-tip={link ? tooltipText[site] : tooltipText[site] + " Unavailable"}
     >
       {site === "reddit" && <RedditIcon fill={link ? "#fff" : "#4a4a4a"} />}
       {site === "wikipedia" && (
         <WikipediaIcon fill={link ? "#fff" : "#4a4a4a"} />
       )}
       {site === "youtube" && <YoutubeIcon fill={link ? "#fff" : "#4a4a4a"} />}
+
+      {site === "flickr" && <FlickrIcon />}
+      {site === "spacex" && <LinkIcon />}
+      {site === "twitter" && <TwitterIcon />}
     </Flex>
+    <ReactTooltip place="bottom" type="light" effect="solid" />
   </Flex>
 );

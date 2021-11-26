@@ -20,12 +20,14 @@ export const InfoItem = ({
   dark,
   detailsLineHeight,
   isOnList,
+  areAboutLinks,
   ...props
 }) => (
   <Wrapper {...props}>
     <Label
       noUpper={noUpper}
-      labelColor={dark ? colors.gray.mediumDark : labelColor}>
+      labelColor={dark ? colors.gray.mediumDark : labelColor}
+    >
       {label}
     </Label>
     {info && <Info>{info}</Info>}
@@ -35,22 +37,39 @@ export const InfoItem = ({
         as="p"
         fontSize={"xs"}
         fontWeight={"light"}
-        lineHeight={detailsLineHeight}>
+        lineHeight={detailsLineHeight}
+      >
         {details}
       </Box>
     )}
 
-    {label === "links" && (
+    {label === "links" && !areAboutLinks && (
       <Flex
         as="ul"
         listStyle="none"
         m="0"
         p="0"
         minHeight="20px"
-        alignItems="center">
+        alignItems="center"
+      >
         <IconLink site="wikipedia" link={links?.wikipedia} />
         <IconLink site="youtube" link={links?.youtube} />
         <IconLink site="reddit" link={links?.reddit} />
+      </Flex>
+    )}
+
+    {label === "links" && areAboutLinks && (
+      <Flex
+        as="ul"
+        listStyle="none"
+        m="0"
+        p="0"
+        minHeight="20px"
+        alignItems="center"
+      >
+        <IconLink site="spacex" link={links?.spacex} />
+        <IconLink site="flickr" link={links?.flickr} />
+        <IconLink site="twitter" link={links?.twitter} />
       </Flex>
     )}
 
@@ -64,7 +83,8 @@ export const InfoItem = ({
         height={isOnList ? "90px" : { _: "110px", md: "120px", lg: "130px" }}
         p="xs"
         mt="xxs"
-        mb="xs">
+        mb="xs"
+      >
         {patchUrl && (
           <Image
             maxWidth="80%"

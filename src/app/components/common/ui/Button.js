@@ -32,6 +32,13 @@ export const Button = ({ children, ...props }) => {
           ease: "backOut",
         },
       }}
+      whileTap={{
+        scale: 0.98,
+        transition: {
+          duration: 0.5,
+          ease: "backOut",
+        },
+      }}
       as={motion.button}
       borderRadius="full"
       // height="40px"

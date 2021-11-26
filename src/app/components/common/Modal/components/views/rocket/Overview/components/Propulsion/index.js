@@ -7,11 +7,10 @@ import {
 import { Flex } from "app/components/common/ui";
 
 export const Propulsion = ({ data }) => {
-  const { engines } = data;
+  const { engines, firstStage, secondStageData } = data;
   const {
     engine_loss_max: maxEngineLoss,
     isp,
-    number,
     propellant_1: propellant1,
     propellant_2: propellant2,
     thrust_sea_level: seaLevelThrust,
@@ -21,12 +20,15 @@ export const Propulsion = ({ data }) => {
     version,
   } = engines;
 
+  const { engines: firstStageEngines } = firstStage;
+  const { engines: secondStageEngines } = secondStageData;
+
   const content = [
     { label: "engine type", info: firstToUpperCase(`${type} ${version}`) },
-    { label: "engine count", info: number },
+    { label: "engine count", info: firstStageEngines + secondStageEngines },
     { label: "TWR", info: TWR },
-    { label: "sea level thrust", info: seaLevelThrust.kN },
-    { label: "vacuum thrust", info: vacuumThrust.kN },
+    { label: "sea level thrust", info: seaLevelThrust.kN + " kN" },
+    { label: "vacuum thrust", info: vacuumThrust.kN + " kN" },
     { label: "isp (sea/vacuum)", info: `${isp.sea_level}/${isp.vacuum}` },
     { label: "propellant #1", info: everyFirstToUpperCase(propellant1) },
     { label: "propellant #2", info: everyFirstToUpperCase(propellant2) },

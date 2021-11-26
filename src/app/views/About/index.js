@@ -38,6 +38,7 @@ export const About = () => {
     ceo,
     coo,
     cto_propulsion: ctoPropulsion,
+    links,
   } = data || {};
 
   const companyDetails = [
@@ -48,7 +49,15 @@ export const About = () => {
     { label: "launch sites", info: launchSites },
     { label: "test sites", info: testSites },
     { label: "value", info: value ? `$ ${formatBigNumber(value, 2)}` : "" },
-    { label: "links", info: "" },
+    {
+      label: "links",
+      links: {
+        spacex: links?.website,
+        flickr: links?.flickr,
+        twitter: links?.twitter,
+      },
+      areAboutLinks: true,
+    },
   ];
 
   const hqDetails = [
@@ -70,9 +79,9 @@ export const About = () => {
             {/* left-side-tiles */}
             <Tile title="Company" minHeight="unset">
               <Flex flexWrap="wrap">
-                {companyDetails.map(({ label, info }, i) => (
+                {companyDetails.map((data, i) => (
                   <Flex key={i} px="xxs" minWidth="95px">
-                    <InfoItem label={label} info={info} />
+                    <InfoItem {...data} />
                   </Flex>
                 ))}
               </Flex>

@@ -44,6 +44,8 @@ export const Overview = ({ data }) => {
     },
     propulsion: {
       engines,
+      firstStage,
+      secondStageData,
     },
     firstStage: {
       firstStage,

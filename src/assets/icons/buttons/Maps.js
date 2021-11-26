@@ -1,5 +1,6 @@
 import { Flex } from "app/components/common/ui";
 import React from "react";
+import ReactTooltip from "react-tooltip";
 
 export const Maps = ({ lat, lon }) => (
   <Flex
@@ -8,6 +9,7 @@ export const Maps = ({ lat, lon }) => (
     href={`https://maps.google.com/?q=${lat},${lon}`}
     justifyContent="center"
     alignItems="center"
+    data-tip="Show in Google Maps"
   >
     <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
       <circle cx="16" cy="16" r="16" fill="#353535" />
@@ -16,5 +18,6 @@ export const Maps = ({ lat, lon }) => (
         fill="white"
       />
     </svg>
+    <ReactTooltip place="bottom" type="dark" effect="solid" />
   </Flex>
 );

@@ -14,12 +14,12 @@ export const FirstStage = ({ data }) => {
   } = firstStage;
 
   const content = [
-    { label: "engine burn time", info: burnTime || "Unknown" },
+    { label: "engine burn time", info: burnTime + " seconds" || "Unknown" },
     { label: "engine count", info: engines },
-    { label: "fuel capacity", info: `${tonsOfFuel}t` },
+    { label: "fuel capacity", info: `${tonsOfFuel} tons` },
     { label: "reusable", info: reusable ? "Yes" : "No" },
-    { label: "sea level thrust", info: seaLevelThrust.kN },
-    { label: "vacuum thrust", info: vacuumThrust.kN },
+    { label: "sea level thrust", info: seaLevelThrust.kN + " kN" },
+    { label: "vacuum thrust", info: vacuumThrust.kN + " kN" },
   ];
 
   return (
