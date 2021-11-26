@@ -10,7 +10,7 @@ export const Wrapper = styled(Flex).attrs({ as: "article" })`
   background: ${gradients.tile};
   position: relative;
   z-index: ${zIndicies.content};
-  padding: 2rem;
+  padding: 1rem;
 `;
 
 export const Button = styled(Flex).attrs({ as: "button" })`

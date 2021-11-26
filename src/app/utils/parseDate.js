@@ -9,9 +9,10 @@ export const dateFormats = {
   month: "MMMM yyyy",
   day: "LLL dd',' yyyy",
   hour: "LLL dd',' hh':'mm a",
+  hourYear: "dd LLL yyyy',' hh':'mm a",
 };
 
-export const showDate = (dateUtc, precision, timezone = "utc") => {
+export const showDate = (dateUtc, precision, timezone = "utc", showYear) => {
   const luxonDate = DateTime.fromISO(dateUtc, { locale: "en" }).setZone(
     timezone
   );
@@ -21,7 +22,9 @@ export const showDate = (dateUtc, precision, timezone = "utc") => {
       ? `H2 ${luxonDate.year}`
       : `H1 ${luxonDate.year}`;
   } else {
-    return luxonDate.toFormat(dateFormats[precision]);
+    return luxonDate.toFormat(
+      dateFormats[showYear && precision === "hour" ? "hourYear" : precision]
+    );
   }
 };
 

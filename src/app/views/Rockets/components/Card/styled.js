@@ -34,10 +34,10 @@ const CardWrapper = styled(Flex)`
     transition: transform 0.2s ease;
 
     ${mediaQuery.md} {
-      width: 210px;
+      max-width: 220px;
     }
     ${mediaQuery.xl} {
-      width: 220px;
+      max-width: 230px;
     }
   }
 

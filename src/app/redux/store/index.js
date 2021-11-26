@@ -5,6 +5,7 @@ import modalReducer from "app/redux/slices/modalSlice";
 import rocketsDataReducer from "app/redux/slices/rocketsDataSlice";
 import launchesDataReducer from "app/redux/slices/launchesSlice";
 import weatherDataReducer from "app/redux/slices/weatherSlice";
+import companyDataReducer from "app/redux/slices/companySlice";
 
 export const store = configureStore({
   reducer: {
@@ -14,5 +15,6 @@ export const store = configureStore({
     rocketsData: rocketsDataReducer,
     launchesData: launchesDataReducer,
     weatherData: weatherDataReducer,
+    companyData: companyDataReducer,
   },
 });

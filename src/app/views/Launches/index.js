@@ -169,7 +169,8 @@ export const Launches = () => {
                                 info={showDate(
                                   dateUTC,
                                   datePrecision,
-                                  settings.timezone
+                                  settings.timezone,
+                                  true
                                 )}
                               />
                             </Flex>

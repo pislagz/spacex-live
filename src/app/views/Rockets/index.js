@@ -15,7 +15,7 @@ import { getRocketActivityStatus } from "app/utils/getStatus";
 import { colorizeRocketStatus } from "app/utils/colorizeStatus";
 import { RocketsModal } from "./components/RocketsModal";
 import { TopPadder } from "../../components/common/TopPadder";
-import { animationProps } from "app/styles/animations";
+import { animationProps, staticAnimationProps } from "app/styles/animations";
 
 export const Rockets = () => {
   const dispatch = useDispatch();
@@ -53,6 +53,7 @@ export const Rockets = () => {
                         index
                       ) => (
                         <Flex
+                          flex={active ? "auto" : "unset"}
                           key={name}
                           flexDirection="column"
                           margin="1rem"
@@ -65,7 +66,7 @@ export const Rockets = () => {
                               })
                             )
                           }
-                          {...animationProps}
+                          {...staticAnimationProps}
                         >
                           <Box as="p" m="0" p="0" fontSize="md">
                             {name}
