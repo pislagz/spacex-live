@@ -13,12 +13,15 @@ import { formatBigNumber } from "app/utils/textFormatting";
 import * as S from "./styled";
 import shotwell from "../../../assets/pictures/shotwell.jpg";
 import mueller from "../../../assets/pictures/mueller.jpg";
+import { setRoute } from "app/redux/slices/routeSlice";
 
 export const About = () => {
   const dispatch = useDispatch();
   const { status, data } = useSelector(selectCompany);
 
   useEffect(() => {
+    dispatch(setRoute({ route: "About" }));
+
     if (status !== "success") {
       dispatch(fetchCompanyData());
       console.log(data);

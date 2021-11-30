@@ -29,3 +29,7 @@ export const selectCompany = (state) => {
 export const selectHistory = (state) => {
   return state.historyData;
 };
+
+export const selectRoute = (state) => {
+  return state.currentRoute;
+};

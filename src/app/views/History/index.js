@@ -10,12 +10,14 @@ import { Chrono } from "react-chrono";
 import { DateTime } from "luxon";
 import { Flex } from "app/components/common/ui";
 import { colors } from "app/styles/theme/colors";
+import { setRoute } from "app/redux/slices/routeSlice";
 
 export const History = () => {
   const dispatch = useDispatch();
   const { status, data } = useSelector(selectHistory);
 
   useEffect(() => {
+    dispatch(setRoute({ route: "History" }));
     if (status !== "success") {
       dispatch(fetchHistoryData());
     }
