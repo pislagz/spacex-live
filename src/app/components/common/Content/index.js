@@ -2,6 +2,32 @@ import React from "react";
 import styled from "styled-components";
 import { Flex } from "app/components/common/ui";
 import { mediaQuery } from "app/styles/theme/breakpoints";
+import { useSelector } from "react-redux";
+import { selectRoute } from "app/redux/selectors";
+
+export const Content = ({ children }) => {
+  const currentRoute = useSelector(selectRoute).route;
+
+  return (
+    <Flex
+      width="100%"
+      height={{ md: "90%", lg: "100%;" }}
+      // minHeight={{ _: "90%", md: "unset" }}
+      pl={{ _: "0", lg: "bigSidebar" }}
+      justifyContent="center"
+    >
+      <Main
+        showScrollbar={
+          currentRoute === "Dashboard" || currentRoute === "Launches"
+            ? true
+            : false
+        }
+      >
+        {children}
+      </Main>
+    </Flex>
+  );
+};
 
 const Main = styled(Flex).attrs({ as: "main" })`
   width: 100%;
@@ -13,7 +39,7 @@ const Main = styled(Flex).attrs({ as: "main" })`
 
   //force scroll in app view to prevent content bounce on scrollbar appear
   ${mediaQuery.xl} {
-    overflow-y: scroll;
+    overflow-y: ${({ showScrollbar }) => (showScrollbar ? "scroll" : "auto")};
   }
 
   ${mediaQuery.md} {
@@ -50,15 +76,3 @@ const Main = styled(Flex).attrs({ as: "main" })`
     background: #707070;
   }
 `;
-
-export const Content = ({ children }) => (
-  <Flex
-    width="100%"
-    height={{ md: "90%", lg: "100%;" }}
-    // minHeight={{ _: "90%", md: "unset" }}
-    pl={{ _: "0", lg: "bigSidebar" }}
-    justifyContent="center"
-  >
-    <Main>{children}</Main>
-  </Flex>
-);

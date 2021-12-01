@@ -12,6 +12,7 @@ import { DashboardModal } from "app/views/Dashboard/components/DashboardModal";
 import { TopPadder } from "../../components/common/TopPadder";
 import { fetchWeatherData } from "app/redux/actions/weather";
 import { animationProps } from "app/styles/animations";
+import { setRoute } from "app/redux/slices/routeSlice";
 
 export const Dashboard = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,8 @@ export const Dashboard = () => {
   const weather = useSelector(selectWeather);
 
   useEffect(() => {
+    dispatch(setRoute({ route: "Dashboard" }));
+
     if (!Object.keys(launches).length) {
       dispatch(fetchDashboardData());
     }

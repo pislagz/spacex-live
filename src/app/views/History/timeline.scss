@@ -1,0 +1,42 @@
+.left {
+  p {
+    text-align: right;
+  }
+
+  h2 {
+    justify-content: flex-end;
+  }
+}
+
+.vertical-item-row {
+  &:first-of-type {
+    div {
+      position: relative;
+      &:after {
+        height: 50%;
+        position: absolute;
+        bottom: 0;
+      }
+    }
+  }
+}
+
+section {
+  justify-content: center !important;
+}
+
+.active {
+  transform: scale(1) !important;
+}
+
+.css-12igb8i-Circle {
+  cursor: default !important;
+}
+
+.css-1iv48dl-TimelineVerticalWrapper {
+  padding: 0 !important;
+
+  @media screen and (min-width: 728px) {
+    padding-top: 15vh !important;
+  }
+}

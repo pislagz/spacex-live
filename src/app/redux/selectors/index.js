@@ -25,3 +25,11 @@ export const selectWeather = (state) => {
 export const selectCompany = (state) => {
   return state.companyData;
 };
+
+export const selectHistory = (state) => {
+  return state.historyData;
+};
+
+export const selectRoute = (state) => {
+  return state.currentRoute;
+};

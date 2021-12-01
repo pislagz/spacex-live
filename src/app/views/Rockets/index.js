@@ -16,6 +16,7 @@ import { colorizeRocketStatus } from "app/utils/colorizeStatus";
 import { RocketsModal } from "./components/RocketsModal";
 import { TopPadder } from "../../components/common/TopPadder";
 import { animationProps, staticAnimationProps } from "app/styles/animations";
+import { setRoute } from "app/redux/slices/routeSlice";
 
 export const Rockets = () => {
   const dispatch = useDispatch();
@@ -24,6 +25,8 @@ export const Rockets = () => {
   const [seeMore, setSeeMore] = useState(false);
 
   useEffect(() => {
+    dispatch(setRoute({ route: "Rockets" }));
+
     if (!rockets.length) {
       dispatch(fetchRocketsData());
     }

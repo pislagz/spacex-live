@@ -21,6 +21,7 @@ import { LaunchesModal } from "./components/LaunchesModal";
 import { fetchWeatherData } from "app/redux/actions/weather";
 import { animationProps } from "app/styles/animations";
 import { More } from "./styled";
+import { setRoute } from "app/redux/slices/routeSlice";
 
 const Wrapper = styled(Flex)`
   &:hover {
@@ -54,6 +55,8 @@ export const Launches = () => {
   const [displayCount, setDisplayCount] = useState(15);
 
   useEffect(() => {
+    dispatch(setRoute({ route: "Launches" }));
+
     if (!launches.length) {
       dispatch(fetchAllLaunches());
     }
