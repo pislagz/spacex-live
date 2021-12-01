@@ -33,3 +33,7 @@ export const selectHistory = (state) => {
 export const selectRoute = (state) => {
   return state.currentRoute;
 };
+
+export const selectStarlink = (state) => {
+  return state.starlinkData;
+};

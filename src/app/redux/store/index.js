@@ -8,6 +8,7 @@ import weatherDataReducer from "app/redux/slices/weatherSlice";
 import companyDataReducer from "app/redux/slices/companySlice";
 import historyDataReducer from "app/redux/slices/historySlice";
 import currentRouteReducer from "app/redux/slices/routeSlice";
+import starlinkReducer from "app/redux/slices/starlinkSlice";
 
 export const store = configureStore({
   reducer: {
@@ -20,5 +21,6 @@ export const store = configureStore({
     companyData: companyDataReducer,
     historyData: historyDataReducer,
     currentRoute: currentRouteReducer,
+    starlinkData: starlinkReducer,
   },
 });
