@@ -8,7 +8,8 @@ const getActiveCount = async () =>
     .totalDocs;
 
 const getSatsPositions = async () =>
-  (await axios.post(SPACEX_API + "/v4/starlink/query", getSatsOptions())).data;
+  (await axios.post(SPACEX_API + "/v4/starlink/query", getSatsOptions())).data
+    .docs;
 
 export const starlink = {
   getActiveCount,

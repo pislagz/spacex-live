@@ -3,7 +3,6 @@ import { pageVariantsAnim } from "./animations";
 // import { StarlinkInfo } from "./StarlinkInfo/StarlinkInfo";
 
 import React, { useEffect, useState, useCallback } from "react";
-import Globe from "react-globe.gl";
 import styled from "styled-components/macro";
 import { AnimatePresence, motion } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
@@ -11,17 +10,20 @@ import { fetchStarlinkData } from "app/redux/actions/starlink";
 import { selectStarlink } from "app/redux/selectors";
 import { Flex } from "app/components/common/ui";
 import { setRoute } from "app/redux/slices/routeSlice";
+import { Earth } from "./earth";
 
 export const Starlink = () => {
   const [showStarlinkInfo, setShowStarlinkInfo] = useState(false);
-  const starlink = useSelector(selectStarlink);
+  const { starlinks = [], status } = useSelector(selectStarlink);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(setRoute({ route: "Starlink" }));
-    dispatch(fetchStarlinkData());
-  }, [dispatch]);
+    if (status !== "success") {
+      dispatch(fetchStarlinkData());
+    }
+  }, [dispatch, status]);
 
   const closeStarlinkInfoHandler = useCallback(() => {
     setShowStarlinkInfo(false);
@@ -29,34 +31,36 @@ export const Starlink = () => {
 
   const gData = [];
 
-  // starlink.starlinks.forEach((starlink) => {
-  //   const TLE0 = starlink?.spaceTrack.TLE_LINE0.substring(
-  //     2,
-  //     starlink?.spaceTrack.TLE_LINE0.length
-  //   );
+  if (starlinks) {
+    starlinks.forEach((starlink) => {
+      const TLE0 = starlink?.spaceTrack.TLE_LINE0.substring(
+        2,
+        starlink?.spaceTrack.TLE_LINE0.length
+      );
 
-  //   const tle =
-  //     TLE0 +
-  //     " \n" +
-  //     starlink?.spaceTrack.TLE_LINE1 +
-  //     "\n" +
-  //     starlink?.spaceTrack.TLE_LINE2;
+      const tle =
+        TLE0 +
+        " \n" +
+        starlink?.spaceTrack.TLE_LINE1 +
+        "\n" +
+        starlink?.spaceTrack.TLE_LINE2;
 
-  //   const latLonObj = getLatLngObj(tle);
+      const latLonObj = getLatLngObj(tle);
 
-  //   gData.push({
-  //     lat: latLonObj.lat,
-  //     lng: latLonObj.lng,
-  //     alt: 0.9,
-  //     radius: 0.01,
-  //     color: "white",
-  //     label: starlink.spaceTrack.OBJECT_NAME,
-  //     launch: starlink.launch,
-  //     version: starlink.version,
-  //     velocity_kms: starlink.velocity_kms,
-  //     height_km: starlink.height_km,
-  //   });
-  // });
+      gData.push({
+        lat: latLonObj.lat,
+        lng: latLonObj.lng,
+        alt: 0.9,
+        radius: 0.01,
+        color: "white",
+        label: starlink.spaceTrack.OBJECT_NAME,
+        launch: starlink.launch,
+        version: starlink.version,
+        velocity_kms: starlink.velocity_kms,
+        height_km: starlink.height_km,
+      });
+    });
+  }
 
   let globe = <></>;
 
@@ -66,30 +70,11 @@ export const Starlink = () => {
   // };
 
   if (gData) {
-    globe = (
-      <Globe
-        globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
-        backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
-        pointsData={gData}
-        pointAltitude={0.001}
-        pointColor="color"
-        pointLabel="label"
-        showGraticules
-        pointRadius={0.35}
-        height={900}
-        // onPointClick={(point, event) => showStarlinkInfoHandler(point)}
-      />
-    );
+    globe = <Earth gData={gData} />;
   }
 
   return (
-    <Flex
-      width="100%"
-      height="100%"
-      overflow="hidden"
-      justifyContent="center"
-      style={{ cursor: "grab" }}
-    >
+    <Flex width="100%" height="100%" overflow="hidden" justifyContent="center">
       <Flex>
         <StyledStarlink
           initial="initial"
