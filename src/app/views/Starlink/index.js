@@ -2,7 +2,7 @@ import { getLatLngObj } from "tle.js";
 import { pageVariantsAnim } from "./animations";
 // import { StarlinkInfo } from "./StarlinkInfo/StarlinkInfo";
 
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback, useRef } from "react";
 import styled from "styled-components/macro";
 import { AnimatePresence, motion } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
@@ -17,8 +17,12 @@ export const Starlink = () => {
   const dispatch = useDispatch();
   const { starlinks = [], status } = useSelector(selectStarlink);
 
-  const [globeData, setGlobeData] = useState([]);
+  const globeData = useRef([]);
   const [timer, setTimer] = useState(0);
+
+  useInterval(() => {
+    setTimer(timer + 1);
+  }, 1000);
 
   useEffect(() => {
     dispatch(setRoute({ route: "Starlink" }));
@@ -29,9 +33,7 @@ export const Starlink = () => {
 
   useEffect(() => {
     if (starlinks) {
-      const allData = [];
-
-      starlinks.forEach((starlink) => {
+      const allData = starlinks.map((starlink) => {
         const TLE0 = starlink?.spaceTrack.TLE_LINE0.substring(
           2,
           starlink?.spaceTrack.TLE_LINE0.length
@@ -44,11 +46,11 @@ export const Starlink = () => {
           "\n" +
           starlink?.spaceTrack.TLE_LINE2;
 
-        const latLonObj = getLatLngObj(tle);
-
         const globeDataObject = {
-          lat: latLonObj.lat,
-          lng: latLonObj.lng,
+          // lat: getLatLngObj(tle).lat,
+          // lng: getLatLngObj(tle).lng,
+          lat: tle,
+          lng: tle,
           alt: 0.9,
           radius: 0.01,
           color: "white",
@@ -59,14 +61,12 @@ export const Starlink = () => {
           height_km: starlink.height_km,
         };
 
-        allData.push(globeDataObject);
+        return globeDataObject;
       });
 
-      setGlobeData((prev) => {
-        return allData;
-      });
+      globeData.current = allData;
     }
-  }, [timer, starlinks]);
+  }, [starlinks]);
 
   return (
     <Flex width="100%" height="100%" overflow="hidden" justifyContent="center">
@@ -76,7 +76,7 @@ export const Starlink = () => {
           animate="in"
           exit="out"
           variants={pageVariantsAnim}>
-          {globeData && <Earth gData={globeData} />}
+          {globeData && <Earth gData={globeData.current} />}
         </StyledStarlink>
       </Flex>
     </Flex>
