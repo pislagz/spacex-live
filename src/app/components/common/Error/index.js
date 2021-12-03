@@ -16,6 +16,7 @@ export const Error = () => {
       flexDirection="column"
       marginLeft={{ _: "-100px", lg: "50px" }}
       marginTop="-100px"
+      zIndex={100}
     >
       <svg
         width="81"

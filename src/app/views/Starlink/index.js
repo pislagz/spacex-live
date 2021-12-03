@@ -1,9 +1,6 @@
-import { getLatLngObj } from "tle.js";
-import { pageVariantsAnim } from "./animations";
-// import { StarlinkInfo } from "./StarlinkInfo/StarlinkInfo";
-
+import { pageVariantsAnim } from "app/styles/animations";
+import { StarlinkInfo } from "./Info";
 import React, { useEffect, useState, useCallback, useRef } from "react";
-import styled from "styled-components/macro";
 import { AnimatePresence, motion } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchStarlinkData } from "app/redux/actions/starlink";
@@ -12,6 +9,8 @@ import { Flex } from "app/components/common/ui";
 import { setRoute } from "app/redux/slices/routeSlice";
 import { Earth } from "./earth";
 import { useInterval } from "app/hooks/useInterval";
+import { Loading } from "app/components/common/Loading";
+import { Error } from "app/components/common/Error";
 
 export const Starlink = () => {
   const dispatch = useDispatch();
@@ -19,6 +18,17 @@ export const Starlink = () => {
 
   const globeData = useRef([]);
   const [timer, setTimer] = useState(0);
+
+  const [showStarlinkInfo, setShowStarlinkInfo] = useState(false);
+  const [starlinkInfoData, setStarlinkInfoData] = useState({});
+  const showStarlinkInfoHandler = (point) => {
+    // setStarlinkInfoData(point);
+    // setShowStarlinkInfo(true);
+    console.log(point);
+  };
+  const closeStarlinkInfoHandler = useCallback(() => {
+    setShowStarlinkInfo(false);
+  }, []);
 
   useInterval(() => {
     setTimer(timer + 1);
@@ -47,8 +57,6 @@ export const Starlink = () => {
           starlink?.spaceTrack.TLE_LINE2;
 
         const globeDataObject = {
-          // lat: getLatLngObj(tle).lat,
-          // lng: getLatLngObj(tle).lng,
           lat: tle,
           lng: tle,
           alt: 0.9,
@@ -69,22 +77,38 @@ export const Starlink = () => {
   }, [starlinks]);
 
   return (
-    <Flex width="100%" height="100%" overflow="hidden" justifyContent="center">
+    <Flex
+      width="100%"
+      height="100%"
+      overflow="hidden"
+      justifyContent="center"
+      alignItems="center"
+    >
       <Flex>
-        <StyledStarlink
+        {status === "loading" && <Loading text="downloading satellites" />}
+        {status === "failed" && <Error />}
+        <motion.div
           initial="initial"
           animate="in"
           exit="out"
-          variants={pageVariantsAnim}>
-          {globeData && <Earth gData={globeData.current} />}
-        </StyledStarlink>
+          variants={pageVariantsAnim}
+        >
+          {globeData && (
+            <Earth
+              gData={globeData.current}
+              handleClick={showStarlinkInfoHandler}
+            />
+          )}
+          <AnimatePresence>
+            {showStarlinkInfo && (
+              <StarlinkInfo
+                starlink={starlinkInfoData}
+                close={closeStarlinkInfoHandler}
+              />
+            )}
+          </AnimatePresence>
+        </motion.div>
       </Flex>
     </Flex>
   );
 };
-
-export default Starlink;
-
-const StyledStarlink = styled(motion.div)`
-  /* height: 95vh; */
-`;

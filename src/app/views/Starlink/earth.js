@@ -3,7 +3,7 @@ import { getLatLngObj } from "tle.js";
 import * as THREE from "three";
 import { useRef } from "react";
 
-export const Earth = ({ gData }) => {
+export const Earth = ({ gData, handleClick }) => {
   const globeEl = useRef(null);
 
   return (
@@ -15,7 +15,7 @@ export const Earth = ({ gData }) => {
       customLayerLabel={(d) => d.label}
       customThreeObject={(d) =>
         new THREE.Mesh(
-          new THREE.SphereBufferGeometry(1),
+          new THREE.SphereBufferGeometry(0.6),
           new THREE.MeshLambertMaterial({ color: "white" })
         )
       }
@@ -25,10 +25,11 @@ export const Earth = ({ gData }) => {
           globeEl.current.getCoords(
             getLatLngObj(d.lat).lat,
             getLatLngObj(d.lng).lng,
-            d.alt * 0.05
+            d.alt * 0.1
           )
         );
       }}
+      onCustomLayerClick={(point, event) => handleClick(point)}
       showGraticules
       height={900}
     />
