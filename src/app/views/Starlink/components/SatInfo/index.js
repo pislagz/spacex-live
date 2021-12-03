@@ -1,14 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Satellite } from "./Satellite";
-import { Mission } from "./Mission";
-
 //STYLES
 import { pageVariantsAnim } from "app/styles/animations";
 import styled from "styled-components";
 import { Flex } from "app/components/common/ui";
+import { showDate } from "app/utils/parseDate";
+import { useSelector } from "react-redux";
+import { selectDashboardSetting } from "app/redux/selectors";
 
-export const StarlinkInfo = React.memo(({ starlink, close }) => {
+export const SatInfo = React.memo(({ starlink, close }) => {
+  const { label, version, height_km, velocity_kms, launch } = starlink;
+  const { name, date_utc, flight_number } = launch;
+  const { timezone } = useSelector(selectDashboardSetting);
+
   return (
     <Wrapper
       initial="initial"
@@ -21,18 +25,20 @@ export const StarlinkInfo = React.memo(({ starlink, close }) => {
         style={{ width: "30px", height: "30px" }}
         onClick={close}
       />
-      <Satellite
-        label={starlink.label}
-        version={starlink.version}
-        height={starlink.height_km}
-        velocity={starlink.velocity_kms}
-      />
-      <Mission
-        name={starlink.launch.name}
-        dateUtc={starlink.launch.date_utc}
-        id={starlink.launch.id}
-        flightNumber={starlink.launch.flight_number}
-      />
+      <div>
+        <h2>{label}</h2>
+        <Flex>
+          <Flex flexDirection="column">
+            {/* <h4>name {label}</h4> */}
+            <h4>version {version}</h4>
+            <h4>altitude {height_km.toFixed(2)} km</h4>
+            <h4>velocity {velocity_kms.toFixed(2)} km/s</h4>
+            <h4>flight {flight_number}</h4>
+            <h4>launch {name}</h4>
+            <h4>{showDate(date_utc, "day", timezone)}</h4>
+          </Flex>
+        </Flex>
+      </div>
     </Wrapper>
   );
 });

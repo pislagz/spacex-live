@@ -15,7 +15,7 @@ export const Earth = ({ gData, handleClick }) => {
       customLayerLabel={(d) => d.label}
       customThreeObject={(d) =>
         new THREE.Mesh(
-          new THREE.SphereBufferGeometry(0.6),
+          new THREE.SphereBufferGeometry(0.5),
           new THREE.MeshLambertMaterial({ color: "white" })
         )
       }

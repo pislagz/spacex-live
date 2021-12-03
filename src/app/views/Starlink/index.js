@@ -1,5 +1,6 @@
 import { pageVariantsAnim } from "app/styles/animations";
-import { StarlinkInfo } from "./Info";
+import { SatInfo } from "./components/SatInfo";
+import { Earth } from "./components/Earth";
 import React, { useEffect, useState, useCallback, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
@@ -7,7 +8,6 @@ import { fetchStarlinkData } from "app/redux/actions/starlink";
 import { selectStarlink } from "app/redux/selectors";
 import { Flex } from "app/components/common/ui";
 import { setRoute } from "app/redux/slices/routeSlice";
-import { Earth } from "./earth";
 import { useInterval } from "app/hooks/useInterval";
 import { Loading } from "app/components/common/Loading";
 import { Error } from "app/components/common/Error";
@@ -22,9 +22,9 @@ export const Starlink = () => {
   const [showStarlinkInfo, setShowStarlinkInfo] = useState(false);
   const [starlinkInfoData, setStarlinkInfoData] = useState({});
   const showStarlinkInfoHandler = (point) => {
-    // setStarlinkInfoData(point);
-    // setShowStarlinkInfo(true);
-    console.log(point);
+    setStarlinkInfoData(point);
+    setShowStarlinkInfo(true);
+    console.log(starlinkInfoData);
   };
   const closeStarlinkInfoHandler = useCallback(() => {
     setShowStarlinkInfo(false);
@@ -101,7 +101,7 @@ export const Starlink = () => {
           )}
           <AnimatePresence>
             {showStarlinkInfo && (
-              <StarlinkInfo
+              <SatInfo
                 starlink={starlinkInfoData}
                 close={closeStarlinkInfoHandler}
               />
