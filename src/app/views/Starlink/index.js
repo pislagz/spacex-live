@@ -24,7 +24,7 @@ export const Starlink = () => {
   const showStarlinkInfoHandler = (point) => {
     setStarlinkInfoData(point);
     setShowStarlinkInfo(true);
-    console.log(starlinkInfoData);
+    // console.log(starlinkInfoData);
   };
   const closeStarlinkInfoHandler = useCallback(() => {
     setShowStarlinkInfo(false);

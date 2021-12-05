@@ -1,17 +1,41 @@
 import React from "react";
-import { motion } from "framer-motion";
-//STYLES
-import { pageVariantsAnim } from "app/styles/animations";
 import styled from "styled-components";
+import { motion } from "framer-motion";
+import { pageVariantsAnim } from "app/styles/animations";
 import { Flex } from "app/components/common/ui";
 import { showDate } from "app/utils/parseDate";
 import { useSelector } from "react-redux";
 import { selectDashboardSetting } from "app/redux/selectors";
+import { InfoItem } from "app/components/common/InfoItem";
+import { CloseIcon } from "assets/icons/functional/CloseIcon";
+import { radii } from "app/styles/theme/sizings";
+
+const unknown = "To be added";
 
 export const SatInfo = React.memo(({ starlink, close }) => {
-  const { label, version, height_km, velocity_kms, launch } = starlink;
-  const { name, date_utc, flight_number } = launch;
+  const {
+    label,
+    version,
+    height_km: altitude,
+    velocity_kms: velocity,
+    launch,
+  } = starlink || {};
+
+  const { name, date_utc: dateUTC, flight_number: flightNumber } = launch || {};
   const { timezone } = useSelector(selectDashboardSetting);
+  const data = [
+    {
+      label: "flight",
+      info: `${flightNumber ? "#" + flightNumber : ""} ${name || unknown}`,
+    },
+    { label: "starlink version", info: version },
+    { label: "altitude", info: altitude.toFixed(2) + " km" },
+    { label: "velocity", info: velocity.toFixed(2) + " km/s" },
+    {
+      label: "launch date",
+      info: dateUTC ? showDate(dateUTC, "day", timezone) : unknown,
+    },
+  ];
 
   return (
     <Wrapper
@@ -20,55 +44,51 @@ export const SatInfo = React.memo(({ starlink, close }) => {
       exit="out"
       variants={pageVariantsAnim}
     >
-      <Flex
-        bg="red"
-        style={{ width: "30px", height: "30px" }}
-        onClick={close}
-      />
-      <div>
-        <h2>{label}</h2>
-        <Flex>
-          <Flex flexDirection="column">
-            {/* <h4>name {label}</h4> */}
-            <h4>version {version}</h4>
-            <h4>altitude {height_km.toFixed(2)} km</h4>
-            <h4>velocity {velocity_kms.toFixed(2)} km/s</h4>
-            <h4>flight {flight_number}</h4>
-            <h4>launch {name}</h4>
-            <h4>{showDate(date_utc, "day", timezone)}</h4>
+      <Flex flexDirection="column">
+        <Flex
+          bg="rgba(255, 255, 255, 0.5)"
+          p="xs"
+          onClick={close}
+          style={{
+            cursor: "pointer",
+            borderTopLeftRadius: radii.lg,
+            borderTopRightRadius: radii.lg,
+            color: "black",
+          }}
+          width="100%"
+        >
+          <InfoItem info={label} />
+          <Flex ml="auto" alignItems="center">
+            <CloseIcon fill="black" />
           </Flex>
         </Flex>
-      </div>
+
+        <Flex p="xs">
+          <Flex flexDirection="column">
+            {data.map(({ info, label }) => (
+              <InfoItem
+                info={info || unknown}
+                label={label}
+                key={info}
+                width="200px"
+                alignItems="center"
+              />
+            ))}
+          </Flex>
+        </Flex>
+      </Flex>
     </Wrapper>
   );
 });
 
-const Wrapper = styled(motion.div)`
-  flex-direction: row;
-  width: auto;
-
-  background-color: black;
+const Wrapper = styled(Flex).attrs({ as: motion.div })`
+  align-items: flex-start;
   position: absolute;
+  z-index: 100;
   bottom: 0;
   right: 0;
-  border-radius: 1rem;
-  z-index: 1002;
-  padding: 1rem;
-  border-radius: 1rem;
-  display: flex;
-  /* flex-direction: column;   bigger screen */
-  /* width: 100%;   bigger screen*/
-  align-items: flex-start;
-
-  h2 {
-    color: white;
-    font-weight: 300;
-    margin-bottom: 1rem;
-  }
-
-  h4 {
-    color: white;
-    font-weight: 300;
-    margin-bottom: 0.4rem;
-  }
+  width: auto;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: ${radii.lg};
 `;

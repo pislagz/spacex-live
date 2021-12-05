@@ -2,9 +2,13 @@ import Globe from "react-globe.gl";
 import { getLatLngObj } from "tle.js";
 import * as THREE from "three";
 import { useRef } from "react";
+import useBreakpoint from "app/hooks/useBreakpoint";
+import { useWindowSize } from "app/hooks/useWindowSize";
 
 export const Earth = ({ gData, handleClick }) => {
   const globeEl = useRef(null);
+  const { height } = useWindowSize();
+  const bp = useBreakpoint();
 
   return (
     <Globe
@@ -15,7 +19,7 @@ export const Earth = ({ gData, handleClick }) => {
       customLayerLabel={(d) => d.label}
       customThreeObject={(d) =>
         new THREE.Mesh(
-          new THREE.SphereBufferGeometry(0.5),
+          new THREE.SphereBufferGeometry(0.6),
           new THREE.MeshLambertMaterial({ color: "white" })
         )
       }
@@ -29,9 +33,11 @@ export const Earth = ({ gData, handleClick }) => {
           )
         );
       }}
-      onCustomLayerClick={(point, event) => handleClick(point)}
+      onCustomLayerClick={(point, event) => {
+        handleClick(point);
+      }}
       showGraticules
-      height={900}
+      height={bp === "xl" || bp === "2xl" || bp === "max" ? 900 : height}
     />
   );
 };
