@@ -42,11 +42,10 @@ export const SatInfo = React.memo(({ starlink, close }) => {
       initial="initial"
       animate="in"
       exit="out"
-      variants={pageVariantsAnim}
-    >
+      variants={pageVariantsAnim}>
       <Flex flexDirection="column">
         <Flex
-          bg="rgba(255, 255, 255, 0.5)"
+          bg="rgba(255, 255, 255, 0.9)"
           p="xs"
           onClick={close}
           style={{
@@ -55,14 +54,12 @@ export const SatInfo = React.memo(({ starlink, close }) => {
             borderTopRightRadius: radii.lg,
             color: "black",
           }}
-          width="100%"
-        >
+          width="100%">
           <InfoItem info={label} />
           <Flex ml="auto" alignItems="center">
             <CloseIcon fill="black" />
           </Flex>
         </Flex>
-
         <Flex p="xs">
           <Flex flexDirection="column">
             {data.map(({ info, label }) => (
@@ -85,10 +82,10 @@ const Wrapper = styled(Flex).attrs({ as: motion.div })`
   align-items: flex-start;
   position: absolute;
   z-index: 100;
-  bottom: 0;
-  right: 0;
+  bottom: 1.5rem;
+  right: 1.5rem;
   width: auto;
   color: white;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.9);
   border-radius: ${radii.lg};
 `;
