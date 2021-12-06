@@ -4,6 +4,7 @@ import { launches } from "./launches";
 import { weather } from "./weather";
 import { company } from "./company";
 import { history } from "./history";
+import { starlink } from "./starlink";
 
 export const actions = {
   dashboard,
@@ -12,4 +13,5 @@ export const actions = {
   weather,
   company,
   history,
+  starlink
 };
