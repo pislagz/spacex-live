@@ -6,8 +6,6 @@ export const fetchHistoryData = createAsyncThunk(
   async (dispatch, getState) => {
     const historyResponse = await api.history.getHistoryData();
 
-    console.log({ historyResponse });
-
     return {
       historyResponse,
     };

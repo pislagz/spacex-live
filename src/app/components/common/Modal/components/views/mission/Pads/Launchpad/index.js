@@ -46,8 +46,6 @@ export const Launchpad = ({ launchpad }) => {
       flexDirection={{ _: "column", lg: "row" }}
       {...animationProps}
     >
-      {console.log(launchpad)}
-
       <S.Card position="relative">
         <Flex flexDirection="column">
           <InfoItem dark label="launchpad" marginBottom="1rem" />

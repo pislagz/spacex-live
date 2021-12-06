@@ -37,3 +37,7 @@ export const selectRoute = (state) => {
 export const selectStarlink = (state) => {
   return state.starlinkData;
 };
+
+export const selectActiveStarlinks = (state) => {
+  return state.activeStarlinksData;
+};

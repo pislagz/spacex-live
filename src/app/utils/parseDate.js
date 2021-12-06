@@ -6,7 +6,7 @@ export const dateFormats = {
   quarter: "q'Q' yyyy",
   half: "half",
   year: "yyyy",
-  month: "MMMM yyyy",
+  month: "MMM yyyy",
   day: "LLL dd',' yyyy",
   hour: "LLL dd',' hh':'mm a",
   hourYear: "dd LLL yyyy',' hh':'mm a",

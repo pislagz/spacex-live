@@ -7,6 +7,7 @@ import { FalconHeavy } from "assets/icons/falcons/FalconHeavy";
 import { colors } from "app/styles/theme/colors";
 
 //noUpper prop ensures the label isn't text-transformed with uppercase
+//noWrap prohibits wrapping InfoItem's info and enables text-overflow: ellipsis
 
 export const InfoItem = ({
   altPatch,
@@ -21,6 +22,7 @@ export const InfoItem = ({
   detailsLineHeight,
   isOnList,
   areAboutLinks,
+  noWrap,
   ...props
 }) => (
   <Wrapper {...props}>
@@ -30,7 +32,7 @@ export const InfoItem = ({
     >
       {label}
     </Label>
-    {info && <Info>{info}</Info>}
+    {info && <Info noWrap={noWrap}>{info}</Info>}
     {details && (
       <Box
         m="0"

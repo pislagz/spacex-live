@@ -35,8 +35,6 @@ export const Landpad = ({ cores, type }) => {
       flexDirection={{ _: "column", lg: "row" }}
       {...animationProps}
     >
-      {console.log(cores)}
-
       <S.Card position="relative">
         <Flex flexDirection="column">
           {type.includes("landpad") && (

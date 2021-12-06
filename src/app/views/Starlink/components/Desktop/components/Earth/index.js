@@ -2,13 +2,11 @@ import Globe from "react-globe.gl";
 import { getLatLngObj } from "tle.js";
 import * as THREE from "three";
 import { useRef } from "react";
-import useBreakpoint from "app/hooks/useBreakpoint";
 import { useWindowSize } from "app/hooks/useWindowSize";
 
-export const Earth = ({ gData, handleClick }) => {
+export const Earth = ({ gData, handleClick, bp }) => {
   const globeEl = useRef(null);
   const { height } = useWindowSize();
-  const bp = useBreakpoint();
 
   return (
     <Globe
@@ -26,7 +24,7 @@ export const Earth = ({ gData, handleClick }) => {
       customThreeObjectUpdate={(obj, d) => {
         Object.assign(
           obj.position,
-          globeEl.current.getCoords(
+          globeEl.current?.getCoords(
             getLatLngObj(d.lat).lat,
             getLatLngObj(d.lng).lng,
             d.alt * 0.1

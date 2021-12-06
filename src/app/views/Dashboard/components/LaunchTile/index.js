@@ -48,10 +48,11 @@ export const LaunchTile = ({
       >
         <Flex width={"100%"} flexDirection="row">
           <Col>
-            <InfoItem label="mission name" info={missionName} />
+            <InfoItem noWrap label="mission name" info={missionName} />
             <InfoItem label="rocket" info={rocket?.name} />
             <InfoItem label="flight number" info={flightNo} />
             <InfoItem
+              noWrap
               noUpper
               label={`TIME ${
                 settings.timezone === SETTINGS.dashboard.timezone.utc

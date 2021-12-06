@@ -80,7 +80,7 @@ export const InnerWrapper = ({ children }) => (
       height={{ _: "100vh", lg: "100%" }}
       alt=""
       position={{ _: "fixed", xl: "absolute" }}
-      width={{ sm: "100%" }}
+      width={"100%"}
       left={{ lg: space.bigSidebar }}
       zIndex={zIndicies.photoBackground}
       src={"https://live.staticflickr.com/7706/26751237322_5a52540ea3_h.jpg"}

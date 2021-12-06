@@ -6,8 +6,6 @@ export const fetchRocketsData = createAsyncThunk(
   async (dispatch, getState) => {
     const rocketsResponse = await api.rockets.getRockets();
 
-    console.log({ rocketsResponse });
-
     return {
       rockets: [...rocketsResponse],
     };

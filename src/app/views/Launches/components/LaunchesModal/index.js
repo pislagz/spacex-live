@@ -20,7 +20,6 @@ export const LaunchesModal = () => {
 
   const getData = useCallback(async () => {
     const response = await api.launch.getLaunchByFlightNumber(launch);
-    console.log(getDetailsList(response));
     setLaunchData({
       data: response,
       detailsList: getDetailsList(response),
@@ -28,7 +27,6 @@ export const LaunchesModal = () => {
   }, [launch]);
 
   useEffect(() => {
-    console.log({ launch });
     if (launch) {
       getData();
     }

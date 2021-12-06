@@ -6,8 +6,6 @@ export const fetchAllLaunches = createAsyncThunk(
   async (dispatch, getState) => {
     const allLaunchesResponse = await api.launch.getAllLaunches();
 
-    console.log({ allLaunchesResponse });
-
     return {
       launches: [...allLaunchesResponse],
     };

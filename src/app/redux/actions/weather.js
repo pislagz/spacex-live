@@ -12,8 +12,6 @@ export const fetchWeatherData = createAsyncThunk(
         api.weather.getWeatherData(COORDINATES.VANDENBERG),
       ]);
 
-    console.log({ canaveralResponse, starbaseResponse, vandenbergResponse });
-
     return {
       weather: {
         canaveral: canaveralResponse,

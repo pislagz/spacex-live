@@ -20,11 +20,6 @@ export const Rocket = ({ cores, rocketName, capsule, fairings }) => {
       flexWrap={{ _: "unset", lg: "wrap" }}
       {...animationProps}
     >
-      {console.log({
-        rocketName,
-        capsule,
-        fairings,
-      })}
       <Flex
         marginTop={{ _: "40px", lg: "unset" }}
         mr={{ _: "unset", lg: "3rem" }}

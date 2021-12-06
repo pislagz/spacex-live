@@ -24,9 +24,8 @@ export const About = () => {
 
     if (status !== "success") {
       dispatch(fetchCompanyData());
-      console.log(data);
     }
-  }, [dispatch, status, data]);
+  }, [dispatch, status]);
 
   const {
     name,

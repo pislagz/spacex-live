@@ -11,7 +11,7 @@ export const IconButton = ({ icon, label, onClick }) => {
       flexDirection="column"
       alignItems="center"
       m="10px 5px"
-      width={{ _: "74px", sm: "100px", md: "98px", xl: "111px" }}
+      width={{ _: "28%", sm: "20%", md: "28%" }}
     >
       <Button
         as="button"

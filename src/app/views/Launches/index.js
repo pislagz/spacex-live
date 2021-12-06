@@ -63,8 +63,6 @@ export const Launches = () => {
     if (!Object.keys(weather.weather).length) {
       dispatch(fetchWeatherData());
     }
-
-    console.log(weather);
   }, [dispatch, launches.length, weather]);
 
   return (
@@ -104,8 +102,8 @@ export const Launches = () => {
                         {...animationProps}
                       >
                         <Tile
+                          flexDirection={{ _: "column", sm: "row" }}
                           width="100%"
-                          flexWrap={{ _: "wrap", sm: "nowrap" }}
                           m={0}
                           onClick={() => {
                             dispatch(
@@ -117,73 +115,82 @@ export const Launches = () => {
                             );
                           }}
                         >
-                          <InfoItem
-                            width={{ _: "50%", sm: "auto" }}
-                            isOnList
-                            label={
-                              links?.patch?.small
-                                ? "mission patch"
-                                : "rocket logo"
-                            }
-                            patchUrl={links?.patch?.small}
-                            altPatch={rocket?.name}
-                          />
-
-                          <Flex
-                            flexDirection="column"
-                            width={{ _: "50%", sm: "auto" }}
-                          >
-                            <InfoItem label="flight" info={flightNumber} />
+                          <Flex width="100%">
                             <InfoItem
-                              label="mission name"
-                              info={name}
-                              maxWidth="100px"
+                              flex="auto"
+                              isOnList
+                              label={
+                                links?.patch?.small
+                                  ? "mission patch"
+                                  : "rocket logo"
+                              }
+                              patchUrl={links?.patch?.small}
+                              altPatch={rocket?.name}
                             />
-                          </Flex>
-                          <Flex
-                            flexDirection="column"
-                            width={{ _: "50%", sm: "auto" }}
-                          >
-                            <Flex>
-                              <InfoItem
-                                p="xxs"
-                                label="status"
-                                borderRadius="sm"
-                                bg={colorizeMissionStatus(
-                                  getMissionStatus(success, upcoming)
-                                )}
-                                info={getMissionStatus(success, upcoming)}
-                              />
-                            </Flex>
-                            <Flex>
-                              <InfoItem
-                                p="xxs"
-                                label={`TIME ${
-                                  settings.timezone ===
-                                  SETTINGS.dashboard.timezone.utc
-                                    ? "(UTC)"
-                                    : settings.timezone ===
-                                        SETTINGS.dashboard.timezone.local &&
-                                      `(${showOffset(
-                                        dateUTC,
-                                        settings.timezone
-                                      )})`
-                                }`}
-                                info={showDate(
-                                  dateUTC,
-                                  datePrecision,
-                                  settings.timezone,
-                                  true
-                                )}
-                              />
+
+                            <Flex
+                              flex="auto"
+                              flexDirection="column"
+                              justifyContent={{ _: "unset", sm: "center" }}
+                            >
+                              <InfoItem label="flight" info={flightNumber} />
+                              <InfoItem label="mission name" info={name} />
                             </Flex>
                           </Flex>
-                          <Flex
-                            flexDirection="column"
-                            width={{ _: "50%", sm: "auto" }}
-                          >
-                            <InfoItem label="launchpad" info={launchpad.name} />
-                            <InfoItem label="rocket" info={rocket.name} />
+                          <Flex width="100%">
+                            <Flex
+                              flex="auto"
+                              flexDirection="column"
+                              justifyContent={{ _: "unset", sm: "center" }}
+                            >
+                              <Flex>
+                                <InfoItem
+                                  p="xxs"
+                                  label="status"
+                                  borderRadius="sm"
+                                  bg={colorizeMissionStatus(
+                                    getMissionStatus(success, upcoming)
+                                  )}
+                                  info={getMissionStatus(success, upcoming)}
+                                />
+                              </Flex>
+                              <Flex
+                                width="100%"
+                                maxWidth={{ _: "121px", sm: "unset" }}
+                              >
+                                <InfoItem
+                                  p="xxs"
+                                  label={`TIME ${
+                                    settings.timezone ===
+                                    SETTINGS.dashboard.timezone.utc
+                                      ? "(UTC)"
+                                      : settings.timezone ===
+                                          SETTINGS.dashboard.timezone.local &&
+                                        `(${showOffset(
+                                          dateUTC,
+                                          settings.timezone
+                                        )})`
+                                  }`}
+                                  info={showDate(
+                                    dateUTC,
+                                    datePrecision,
+                                    settings.timezone,
+                                    true
+                                  )}
+                                />
+                              </Flex>
+                            </Flex>
+                            <Flex
+                              flex="auto"
+                              flexDirection="column"
+                              justifyContent={{ _: "unset", sm: "center" }}
+                            >
+                              <InfoItem
+                                label="launchpad"
+                                info={launchpad.name}
+                              />
+                              <InfoItem label="rocket" info={rocket.name} />
+                            </Flex>
                           </Flex>
                         </Tile>
                       </Flex>

@@ -6,8 +6,6 @@ export const fetchCompanyData = createAsyncThunk(
   async (dispatch, getState) => {
     const companyResponse = await api.company.getCompanyData();
 
-    console.log({ companyResponse });
-
     return {
       companyResponse,
     };

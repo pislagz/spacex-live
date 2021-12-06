@@ -96,7 +96,6 @@ export const Overview = ({ data }) => {
             <Switcher
               options={optionsList}
               activeOption={optionsList.indexOf(currentOption)}
-              onClick={console.log(currentOption)}
               handleClick={setCurrentOption}
             />
           </Flex>

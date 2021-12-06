@@ -15,7 +15,6 @@ export const dashboardSlice = createSlice({
     [actions.dashboard.fetchDashboardData.fulfilled]: (state, action) => {
       state.status = "success";
       state.launches = action.payload.launches;
-      state.starlink = action.payload.starlink;
     },
     [actions.dashboard.fetchDashboardData.rejected]: (state, action) => {
       state.status = "failed";

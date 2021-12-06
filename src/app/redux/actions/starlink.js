@@ -6,8 +6,6 @@ export const fetchStarlinkData = createAsyncThunk(
   async (dispatch, getState) => {
     const starlinkResponse = await api.starlink.getSatsPositions();
 
-    console.log({ starlinkResponse });
-
     return {
       starlinks: [...starlinkResponse],
     };

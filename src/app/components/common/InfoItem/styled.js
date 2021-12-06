@@ -23,6 +23,9 @@ export const Info = styled(Box).attrs({ as: "p" })`
   margin: 0;
   padding: 0;
   font-size: ${fontSizes.sm};
+  overflow: ${({ noWrap }) => (noWrap ? "hidden" : "initial")};
+  white-space: ${({ noWrap }) => (noWrap ? "nowrap" : "initial")};
+  text-overflow: ${({ noWrap }) => (noWrap ? "ellipsis" : "initial")};
 
   ${mediaQuery.md} {
     font-size: ${fontSizes.md};
