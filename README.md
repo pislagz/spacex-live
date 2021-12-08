@@ -1,70 +1,223 @@
-# Getting Started with Create React App
+<div id="top"></div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- PROJECT SHIELDS -->
 
-## Available Scripts
+[![MIT License][license-shield]][license-url]
+[![Contributors][contributors-shield]][contributors-url]
+[![Issues][issues-shield]][issues-url]
+[![React][react-shield]][react-url]
+[![Redux][redux-shield]][redux-url]
+[![SpaceX][spacex-shield]][spacex-url]
 
-In the project directory, you can run:
+<!-- [![Three.js-shield][threejs-shield]][threejs-url] -->
+<!-- [![Forks][forks-shield]][forks-url] -->
+<!-- [![Stargazers][stars-shield]][stars-url] -->
+<!-- [![LinkedIn][linkedin-shield]][linkedin-url] -->
 
-### `npm start`
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://spacex-live.netlify.app">
+    <img src="docs/animated-logo.svg" alt="Logo">
+  </a>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  <h3 align="center">SpaceX Live Info</h3>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+  <p align="center">
+    App tailored for all of the space and tech enthusiasts out there!
+    <br />
+    <br />
+    <a href="docs"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://spacex-live.netlify.app">Open the app</a>
+    ·
+    <a href="https://github.com/pislagz/spacex-live/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/pislagz/spacex-live/issues">Request Feature</a>
+  </p>
+</div>
 
-### `npm test`
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#dashboard-usage">Usage</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<!-- ABOUT THE PROJECT -->
 
-### `npm run build`
+## About The Project
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![](https://github.com/pislagz/pislagz/blob/main/assets/spacex-live/animation.webp)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+SpaceX Live Info is a place to look for upcoming and previous SpaceX missions and mission insights.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Some of the key features:
 
-### `npm run eject`
+- Quickly check out next and previous launches, weather conditions in launch facilities and active Starlink satellites count.
+- Watch Starlink satellites move around in real time over a 3D Earth model.
+- Browse mission records including payloads, crews, boosters, lauchpads etc.
+- Get to know with each SpaceX rocket specification.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+SpaceX Live Info is a project touching areas close to my heart. I'm deeply in love with all space-related stuff, especially rocketry itself. To be honest, I reckon that these topics are mind-blowing not only for me but for everyone. This very fact made doing the project even more fun.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Built With
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- [React.js](https://reactjs.org/)
+- [Redux.js](https://redux.js.org/)
+- [styled-components](https://styled-components.com/)
+- [styled-system](https://styled-system.com)
+- [SpaceX-API](https://github.com/r-spacex/SpaceX-API/)
 
-## Learn More
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<!-- USAGE EXAMPLES -->
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Dashboard Usage
 
-### Code Splitting
+When you open the app for the first time, you'll be greeted by the curated Dashboard view. There will be quite a few information getting into your eyes in the very moment, but don't feel overwhelmed, it's <s>not</s> rocket science.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![image](https://user-images.githubusercontent.com/77860645/145186107-6b3df8d8-bab9-4998-bb81-f887df6f5084.png)
 
-### Analyzing the Bundle Size
+Dashbord supplies you with basic visual info about next and previous launch, weather in all the launch facilities and Starlink program progress (active satellites count).
+Let's focus on a few eye-catching features, to make you feel more comfy.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<ol>
+  <li><b>Available routes</b><br/>Piece of cake, you can handle that. 🍰</li>
+  <li><b>Settings tweaker</b><br/>Use it to tweak windspeed and temperature units which are used primarly in the <b>Launch facilities</b> widget and some more places across the app. You can also change the timezone for launches to your local time, as UTC is set to default. ⚙️</li>
+  <li><b>See more button</b></br>Dive into mission details, lovely. ✨</li>
+  <li><b>Mission Patch</b><br/>Depending on availability this window contains either a mission patch, or a rocket logo, if a patch isn't yet available. 🚀</li>
+</ol>
 
-### Making a Progressive Web App
+_For more usage manuals, please refer to the <a href="docs">Documentation</a>_
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-### Advanced Configuration
+<!-- GETTING STARTED -->
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Getting Started
 
-### Deployment
+To get a local copy up and running follow these simple steps.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Installation
 
-### `npm run build` fails to minify
+1. Clone the repo
+   ```sh
+   git clone https://github.com/pislagz/spacex-live.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Run the dev server
+   ```sh
+   npm start
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- CONTRIBUTING -->
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create.<br />
+You are **greatly appreciated** to contribute!
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- LICENSE -->
+
+## License
+
+Distributed under the MIT License. See `LICENSE` file for more information.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- CONTACT -->
+
+## Contact
+
+Pawel Pisulski - [/pislagz](https://github.com/pislagz) - pislax@yahoo.com
+
+Project Link: [github.com/pislagz/spacex-live](github.com/pislagz/spacex-live)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- ACKNOWLEDGMENTS -->
+
+## Acknowledgments
+
+This project wouldn't be possible without all these amazing libraries:
+
+- [Framer Motion](https://github.com/pislagz/spacex-live/issues)
+- [Luxon](https://moment.github.io/luxon/#/)
+- [Axios](https://axios-http.com/docs/intro)
+- [Three.js](https://threejs.org)
+- [Globe.GL](https://globe.gl)
+- [tle.js](https://www.npmjs.com/package/tle)
+- [react-tooltip](https://github.com/wwayne/react-tooltip)
+- [react-chrono](https://github.com/prabhuignoto/react-chrono)
+- [react-device-detect](https://github.com/duskload/react-device-detect)
+- [react-collapse](https://github.com/kunukn/react-collapse)
+- [react-styled-modal](https://github.com/AlexanderRichey/styled-react-modal)
+
+
+
+nor without my mentor:
+
+- [Ernest Rudziec](https://github.com/ernestrudziec/)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- MARKDOWN LINKS & IMAGES -->
+
+[contributors-shield]: https://img.shields.io/github/contributors/pislagz/spacex-live.svg?style=for-the-badge
+[contributors-url]: https://github.com/pislagz/spacex-live/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/pislagz/spacex-live.svg?style=for-the-badge
+[forks-url]: https://github.com/pislagz/spacex-live/network/members
+[stars-shield]: https://img.shields.io/github/stars/pislagz/spacex-live.svg?style=for-the-badge
+[stars-url]: https://github.com/pislagz/spacex-live/stargazers
+[issues-shield]: https://img.shields.io/github/issues/pislagz/spacex-live.svg?style=for-the-badge
+[issues-url]: https://github.com/pislagz/spacex-live/issues
+[license-shield]: https://img.shields.io/github/license/pislagz/spacex-live.svg?style=for-the-badge
+[license-url]: https://github.com/pislagz/spacex-live/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com
+[product-screenshot]: images/screenshot.png
+[react-shield]: https://img.shields.io/static/v1?label=&message=React&color=gray&style=for-the-badge&logo=react
+[react-url]: https://reactjs.org
+[redux-shield]: https://img.shields.io/static/v1?label=&message=Redux&color=9321b5&style=for-the-badge&logo=redux
+[redux-url]: https://redux.js.org
+[spacex-shield]: https://img.shields.io/static/v1?label=&message=SpaceX&color=3e3c5c&style=for-the-badge&logo=spacex
+[spacex-url]: https://www.spacex.com
+[threejs-shield]: https://img.shields.io/static/v1?label=&message=three.js&color=2b2b2b&style=for-the-badge&logo=threedotjs
+[threejs-url]: https://threejs.org
