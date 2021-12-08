@@ -17,7 +17,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/pislagz/spacex-live">
+  <a href="https://spacex-live.netlify.app">
     <img src="docs/animated-logo.svg" alt="Logo">
   </a>
 
