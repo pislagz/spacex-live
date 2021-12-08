@@ -184,6 +184,13 @@ This project wouldn't be possible without all these amazing libraries:
 - [Three.js](https://threejs.org)
 - [Globe.GL](https://globe.gl)
 - [tle.js](https://www.npmjs.com/package/tle)
+- [react-tooltip](https://github.com/wwayne/react-tooltip)
+- [react-chrono](https://github.com/prabhuignoto/react-chrono)
+- [react-device-detect](https://github.com/duskload/react-device-detect)
+- [react-collapse](https://github.com/kunukn/react-collapse)
+- [react-styled-modal](https://github.com/AlexanderRichey/styled-react-modal)
+
+
 
 nor without my mentor:
 
