@@ -75,9 +75,9 @@ Some of the key features:
 - Quickly check out next and previous launches, weather conditions in launch facilities and active Starlink satellites count.
 - Watch Starlink satellites move around in real time over a 3D Earth model.
 - Browse mission records including payloads, crews, boosters, lauchpads etc.
-- Get to know with each SpaceX rocket specification.
+- Get to know with specifications of each SpaceX rocket.
 
-SpaceX Live Info is a project touching areas close to my heart. I'm deeply in love with all space-related stuff, especially rocketry itself. To be honest, I reckon that these topics are mind-blowing not only for me but for everyone. This very fact made doing the project even more fun.
+SpaceX Live Info is a project touching areas close to my heart. I'm deeply in love with all space-related stuff, especially rocketry itself. Well, to be honest, who isn't in love with space? Everyone is! This very fact made doing the project even more fun.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -99,7 +99,7 @@ When you open the app for the first time, you'll be greeted by the curated Dashb
 
 ![image](https://user-images.githubusercontent.com/77860645/145186107-6b3df8d8-bab9-4998-bb81-f887df6f5084.png)
 
-Dashbord supplies you with basic visual info about next and previous launch, weather in all the launch facilities and Starlink program progress (active satellites count).
+Dashbord supplies you with basic visual info about next and previous launches, weather in all of the launch facilities and Starlink program progress (active satellites count).
 Let's focus on a few eye-catching features, to make you feel more comfy.
 
 <ol>
