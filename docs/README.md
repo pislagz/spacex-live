@@ -1,3 +1,7 @@
+  <a href="https://spacex-live.netlify.app">
+    <img src="animated-logo.svg" alt="Logo">
+  </a>
+  
 # SpaceX Live Info Docs
 
 ## Disclaimer
