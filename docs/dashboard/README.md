@@ -12,3 +12,5 @@ Let's focus on a few eye-catching features, to make you feel more comfy.
   <li><b>See more button</b></br>Dive into mission details, lovely. ✨</li>
   <li><b>Mission Patch</b><br/>Depending on availability this window contains either a mission patch, or a rocket logo, if a patch isn't yet available. 🚀</li>
 </ol>
+
+(<a href="..">Go back to docs main page</a>)
