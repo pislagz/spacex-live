@@ -13,4 +13,4 @@ Let's focus on a few eye-catching features, to make you feel more comfy.
   <li><b>Mission Patch</b><br/>Depending on availability this window contains either a mission patch, or a rocket logo, if a patch isn't yet available. 🚀</li>
 </ol>
 
-(<a href="..">Go back to docs main page</a>)
+<p align="right">(<a href="..">back to docs main page</a>)</p>
