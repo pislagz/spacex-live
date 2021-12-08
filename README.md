@@ -27,7 +27,7 @@
     App tailored for all of the space and tech enthusiasts out there!
     <br />
     <br />
-    <a href="docs/README.md"><strong>Explore the docs »</strong></a>
+    <a href="docs"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://spacex-live.netlify.app">Open the app</a>
@@ -109,7 +109,7 @@ Let's focus on a few eye-catching features, to make you feel more comfy.
   <li><b>Mission Patch</b><br/>Depending on availability this window contains either a mission patch, or a rocket logo, if a patch isn't yet available. 🚀</li>
 </ol>
 
-_For more usage manuals, please refer to the <a href="docs/README.md">Documentation</a>_
+_For more usage manuals, please refer to the <a href="docs">Documentation</a>_
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
