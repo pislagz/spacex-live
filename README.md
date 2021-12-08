@@ -18,7 +18,7 @@
 <br />
 <div align="center">
   <a href="https://spacex-live.netlify.app">
-    <img src="docs/animated-logo.svg" alt="Logo">
+    <img src="https://raw.githubusercontent.com/pislagz/pislagz/main/assets/spacex-live/animated-logo.svg" alt="Logo">
   </a>
 
   <h3 align="center">SpaceX Live Info</h3>
@@ -189,8 +189,6 @@ This project wouldn't be possible without all these amazing libraries:
 - [react-device-detect](https://github.com/duskload/react-device-detect)
 - [react-collapse](https://github.com/kunukn/react-collapse)
 - [react-styled-modal](https://github.com/AlexanderRichey/styled-react-modal)
-
-
 
 nor without my mentor:
 
