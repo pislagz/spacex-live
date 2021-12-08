@@ -66,7 +66,7 @@
 
 ## About The Project
 
-![](https://github.com/pislagz/spacex-live-assets/raw/main/spacex-live.webp)
+![](https://github.com/pislagz/pislagz/blob/main/assets/spacex-live/animation.webp)
 
 SpaceX Live Info is a place to look for upcoming and previous SpaceX missions and mission insights.
 
