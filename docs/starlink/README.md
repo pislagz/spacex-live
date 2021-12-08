@@ -14,3 +14,5 @@ How-to:
 
 Spin the Earth:<br/>
 Use your mouse to navigate around, play with scrolling in and out. Click and hold the scroll button moving your mouse forwards and backwards to zoom in and out with **power**.
+
+<p align="right">(<a href="..">back to docs main page</a>)</p>
