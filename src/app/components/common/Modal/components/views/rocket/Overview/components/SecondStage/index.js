@@ -21,7 +21,7 @@ export const SecondStage = ({ data }) => {
   )[0];
 
   const content = [
-    { label: "engine burn time", info: burnTime + " seconds" || "Unknown" },
+    { label: "engine burn time", info: burnTime ? burnTime + " seconds" : "Unknown" },
     { label: "engine count", info: engines },
     { label: "fuel capacity", info: `${tonsOfFuel} tons` },
     { label: "reusable", info: reusable ? "Yes" : "No" },
